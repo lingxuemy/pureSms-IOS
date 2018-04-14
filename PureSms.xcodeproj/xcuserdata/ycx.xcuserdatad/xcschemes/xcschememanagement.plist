@@ -7,12 +7,35 @@
 		<key>PureSms.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>5</integer>
 		</dict>
 		<key>PureSmsExt.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>6</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>04570F82207B5BA50065B644</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>04570F9A207B5BA50065B644</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>04570FA5207B5BA50065B644</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>04570FBB207B5D7A0065B644</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

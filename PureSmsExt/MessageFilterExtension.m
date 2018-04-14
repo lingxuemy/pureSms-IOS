@@ -8,6 +8,8 @@
 
 #import "MessageFilterExtension.h"
 
+#define ExtentsionAppGroupName @"group.com.welightworld.puresms"
+#define KEYWORDARRAY @"KEYWORDARRAY"
 
 @interface MessageFilterExtension () <ILMessageFilterQueryHandling>
 @end
@@ -55,17 +57,16 @@
 - (ILMessageFilterAction)offlineActionForQueryRequest:(ILMessageFilterQueryRequest *)queryRequest {
     // Replace with logic to perform offline check whether to filter first (if possible).
     NSString *messageContent = queryRequest.messageBody;
-    NSUserDefaults *extDefaults = [[NSUserDefaults alloc] initWithSuiteName:MJExtentsionAppGroupName];
-    NSString *ruleString = [extDefaults objectForKey:MJExtentsionRuleKey];
-    if (ruleString.length < 1) {
+    if ([messageContent rangeOfString:@"验证码"].length) {
         return ILMessageFilterActionAllow;
     }
-    MJJudgementRule *rule = [MJJudgementRule yy_modelWithJSON:ruleString];
-    if (!rule) {
-        return ILMessageFilterActionAllow;
-    }
-    if ([rule isUnwantedMessageForSystemQueryRequest:queryRequest]) {
-        return ILMessageFilterActionFilter;
+    
+    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName];
+    NSArray *userDefArray = [userDefaults objectForKey:KEYWORDARRAY];
+    for (NSString *keyWordStr in userDefArray) {
+        if ([messageContent rangeOfString:keyWordStr].length) {
+            return ILMessageFilterActionFilter;
+        }
     }
     return ILMessageFilterActionAllow;
 }

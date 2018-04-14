@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		04570F88207B5BA50065B644 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04570F87207B5BA50065B644 /* AppDelegate.m */; };
-		04570F8B207B5BA50065B644 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04570F8A207B5BA50065B644 /* ViewController.m */; };
 		04570F8E207B5BA50065B644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04570F8C207B5BA50065B644 /* Main.storyboard */; };
 		04570F90207B5BA50065B644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04570F8F207B5BA50065B644 /* Assets.xcassets */; };
 		04570F93207B5BA50065B644 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04570F91207B5BA50065B644 /* LaunchScreen.storyboard */; };
@@ -17,7 +16,14 @@
 		04570FAB207B5BA50065B644 /* PureSmsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04570FAA207B5BA50065B644 /* PureSmsUITests.m */; };
 		04570FC0207B5D7A0065B644 /* MessageFilterExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04570FBF207B5D7A0065B644 /* MessageFilterExtension.m */; };
 		04570FC4207B5D7A0065B644 /* PureSmsExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04570FBC207B5D7A0065B644 /* PureSmsExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		04570FF1207DC1DE0065B644 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04570FF0207DC1DE0065B644 /* Localizable.strings */; };
+		04570FFA2080488E0065B644 /* SOBlackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04570FF92080488E0065B644 /* SOBlackViewController.m */; };
+		04570FFF208093AC0065B644 /* hook.png in Resources */ = {isa = PBXBuildFile; fileRef = 04570FFE208093AC0065B644 /* hook.png */; };
+		0457100220809C290065B644 /* SOConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457100120809C290065B644 /* SOConditionViewController.m */; };
+		0457100920809D610065B644 /* SOConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457100720809D610065B644 /* SOConditionTableViewCell.m */; };
+		0457100A20809D610065B644 /* SOConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0457100820809D610065B644 /* SOConditionTableViewCell.xib */; };
 		78FA394DAC703BD124C5C27D /* libPods-PureSms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C74C596648E09739092C3CEC /* libPods-PureSms.a */; };
+		FC5C1B78C483B8FF904F2305 /* libPods-PureSmsExt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D10C81FB32CB36D98521D98 /* libPods-PureSmsExt.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,11 +65,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		044632E72081A58E00F7A2B7 /* PureSms.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PureSms.entitlements; sourceTree = "<group>"; };
 		04570F83207B5BA50065B644 /* PureSms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PureSms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04570F86207B5BA50065B644 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04570F87207B5BA50065B644 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		04570F89207B5BA50065B644 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		04570F8A207B5BA50065B644 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		04570F8D207B5BA50065B644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04570F8F207B5BA50065B644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04570F92207B5BA50065B644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,7 +85,23 @@
 		04570FBF207B5D7A0065B644 /* MessageFilterExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageFilterExtension.m; sourceTree = "<group>"; };
 		04570FC1207B5D7A0065B644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04570FC9207B5DE70065B644 /* PureSmsExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PureSmsExt.entitlements; sourceTree = "<group>"; };
+		04570FD2207CEC600065B644 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		04570FE5207CF6910065B644 /* GlobalDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalDefine.h; sourceTree = "<group>"; };
+		04570FF0207DC1DE0065B644 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		04570FF2207DC22A0065B644 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		04570FF3207DC22A0065B644 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		04570FF82080488E0065B644 /* SOBlackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOBlackViewController.h; sourceTree = "<group>"; };
+		04570FF92080488E0065B644 /* SOBlackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOBlackViewController.m; sourceTree = "<group>"; };
+		04570FFE208093AC0065B644 /* hook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hook.png; sourceTree = "<group>"; };
+		0457100020809C290065B644 /* SOConditionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOConditionViewController.h; sourceTree = "<group>"; };
+		0457100120809C290065B644 /* SOConditionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOConditionViewController.m; sourceTree = "<group>"; };
+		0457100620809D610065B644 /* SOConditionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOConditionTableViewCell.h; sourceTree = "<group>"; };
+		0457100720809D610065B644 /* SOConditionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOConditionTableViewCell.m; sourceTree = "<group>"; };
+		0457100820809D610065B644 /* SOConditionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SOConditionTableViewCell.xib; sourceTree = "<group>"; };
+		1D10C81FB32CB36D98521D98 /* libPods-PureSmsExt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PureSmsExt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		442E735B357740D7B10BC362 /* Pods-PureSmsExt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PureSmsExt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PureSmsExt/Pods-PureSmsExt.debug.xcconfig"; sourceTree = "<group>"; };
 		77FFCAC56E187092BD165629 /* Pods-PureSms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PureSms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PureSms/Pods-PureSms.debug.xcconfig"; sourceTree = "<group>"; };
+		AD9BF34272A82C011B9E2952 /* Pods-PureSmsExt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PureSmsExt.release.xcconfig"; path = "Pods/Target Support Files/Pods-PureSmsExt/Pods-PureSmsExt.release.xcconfig"; sourceTree = "<group>"; };
 		C74C596648E09739092C3CEC /* libPods-PureSms.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PureSms.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8912E0BFDA8CF7175C76EAB /* Pods-PureSms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PureSms.release.xcconfig"; path = "Pods/Target Support Files/Pods-PureSms/Pods-PureSms.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC5C1B78C483B8FF904F2305 /* libPods-PureSmsExt.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,10 +167,13 @@
 		04570F85207B5BA50065B644 /* PureSms */ = {
 			isa = PBXGroup;
 			children = (
-				04570F86207B5BA50065B644 /* AppDelegate.h */,
-				04570F87207B5BA50065B644 /* AppDelegate.m */,
-				04570F89207B5BA50065B644 /* ViewController.h */,
-				04570F8A207B5BA50065B644 /* ViewController.m */,
+				044632E72081A58E00F7A2B7 /* PureSms.entitlements */,
+				04570FD8207CF4A80065B644 /* Other */,
+				04570FD6207CF4350065B644 /* Rule */,
+				04570FD5207CF3D90065B644 /* Controller */,
+				04570FD4207CF3CD0065B644 /* View */,
+				04570FD3207CF3AD0065B644 /* Model */,
+				04570FD7207CF4480065B644 /* Delegate */,
 				04570F8C207B5BA50065B644 /* Main.storyboard */,
 				04570F8F207B5BA50065B644 /* Assets.xcassets */,
 				04570F91207B5BA50065B644 /* LaunchScreen.storyboard */,
@@ -187,10 +212,66 @@
 			path = PureSmsExt;
 			sourceTree = "<group>";
 		};
+		04570FD3207CF3AD0065B644 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04570FD4207CF3CD0065B644 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04570FD5207CF3D90065B644 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04570FF82080488E0065B644 /* SOBlackViewController.h */,
+				04570FF92080488E0065B644 /* SOBlackViewController.m */,
+				0457100020809C290065B644 /* SOConditionViewController.h */,
+				0457100120809C290065B644 /* SOConditionViewController.m */,
+				0457100620809D610065B644 /* SOConditionTableViewCell.h */,
+				0457100720809D610065B644 /* SOConditionTableViewCell.m */,
+				0457100820809D610065B644 /* SOConditionTableViewCell.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04570FD6207CF4350065B644 /* Rule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Rule;
+			sourceTree = "<group>";
+		};
+		04570FD7207CF4480065B644 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				04570F86207B5BA50065B644 /* AppDelegate.h */,
+				04570F87207B5BA50065B644 /* AppDelegate.m */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		04570FD8207CF4A80065B644 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				04570FFE208093AC0065B644 /* hook.png */,
+				04570FE5207CF6910065B644 /* GlobalDefine.h */,
+				04570FD2207CEC600065B644 /* PrefixHeader.pch */,
+				04570FF0207DC1DE0065B644 /* Localizable.strings */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		2084C0A5E730C7D9E128E20F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				C74C596648E09739092C3CEC /* libPods-PureSms.a */,
+				1D10C81FB32CB36D98521D98 /* libPods-PureSmsExt.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -200,6 +281,8 @@
 			children = (
 				77FFCAC56E187092BD165629 /* Pods-PureSms.debug.xcconfig */,
 				F8912E0BFDA8CF7175C76EAB /* Pods-PureSms.release.xcconfig */,
+				442E735B357740D7B10BC362 /* Pods-PureSmsExt.debug.xcconfig */,
+				AD9BF34272A82C011B9E2952 /* Pods-PureSmsExt.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -216,6 +299,7 @@
 				04570F80207B5BA50065B644 /* Frameworks */,
 				04570F81207B5BA50065B644 /* Resources */,
 				04570FC8207B5D7A0065B644 /* Embed App Extensions */,
+				40AEC81C0BB664CDB999F477 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -267,6 +351,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04570FC5207B5D7A0065B644 /* Build configuration list for PBXNativeTarget "PureSmsExt" */;
 			buildPhases = (
+				8C0AA996AE1C77CE7F544E5E /* [CP] Check Pods Manifest.lock */,
 				04570FB8207B5D7A0065B644 /* Sources */,
 				04570FB9207B5D7A0065B644 /* Frameworks */,
 				04570FBA207B5D7A0065B644 /* Resources */,
@@ -292,6 +377,11 @@
 					04570F82207B5BA50065B644 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					04570F9A207B5BA50065B644 = {
 						CreatedOnToolsVersion = 9.2;
@@ -340,7 +430,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04570FF1207DC1DE0065B644 /* Localizable.strings in Resources */,
+				04570FFF208093AC0065B644 /* hook.png in Resources */,
 				04570F93207B5BA50065B644 /* LaunchScreen.storyboard in Resources */,
+				0457100A20809D610065B644 /* SOConditionTableViewCell.xib in Resources */,
 				04570F90207B5BA50065B644 /* Assets.xcassets in Resources */,
 				04570F8E207B5BA50065B644 /* Main.storyboard in Resources */,
 			);
@@ -370,6 +463,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		40AEC81C0BB664CDB999F477 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PureSms/Pods-PureSms-resources.sh",
+				"${PODS_ROOT}/XLForm/XLForm/XLForm.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/XLForm.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PureSms/Pods-PureSms-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7DCC3397A60787C2B08C2F40 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -388,6 +499,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8C0AA996AE1C77CE7F544E5E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PureSmsExt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -395,9 +524,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04570F8B207B5BA50065B644 /* ViewController.m in Sources */,
 				04570F96207B5BA50065B644 /* main.m in Sources */,
 				04570F88207B5BA50065B644 /* AppDelegate.m in Sources */,
+				0457100220809C290065B644 /* SOConditionViewController.m in Sources */,
+				04570FFA2080488E0065B644 /* SOBlackViewController.m in Sources */,
+				0457100920809D610065B644 /* SOConditionTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +581,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				04570F8D207B5BA50065B644 /* Base */,
+				04570FF2207DC22A0065B644 /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -458,6 +590,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				04570F92207B5BA50065B644 /* Base */,
+				04570FF3207DC22A0065B644 /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -469,6 +602,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -524,6 +658,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -574,6 +709,7 @@
 			baseConfigurationReference = 77FFCAC56E187092BD165629 /* Pods-PureSms.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PureSms/PureSms.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LV6Y87Y7RS;
 				INFOPLIST_FILE = PureSms/Info.plist;
@@ -589,6 +725,7 @@
 			baseConfigurationReference = F8912E0BFDA8CF7175C76EAB /* Pods-PureSms.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PureSms/PureSms.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LV6Y87Y7RS;
 				INFOPLIST_FILE = PureSms/Info.plist;
@@ -659,10 +796,13 @@
 		};
 		04570FC6207B5D7A0065B644 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 442E735B357740D7B10BC362 /* Pods-PureSmsExt.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PureSmsExt/PureSmsExt.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LV6Y87Y7RS;
+				GCC_PREFIX_HEADER = "/Users/ycx/helloBug/myProject/iOS/privateProjects/myProjects/PureSms-IOS/PureSms/Other/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = PureSmsExt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresms.ext;
@@ -674,10 +814,13 @@
 		};
 		04570FC7207B5D7A0065B644 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD9BF34272A82C011B9E2952 /* Pods-PureSmsExt.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PureSmsExt/PureSmsExt.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LV6Y87Y7RS;
+				GCC_PREFIX_HEADER = "/Users/ycx/helloBug/myProject/iOS/privateProjects/myProjects/PureSms-IOS/PureSms/Other/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = PureSmsExt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresms.ext;

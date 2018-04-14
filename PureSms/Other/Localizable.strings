@@ -1,7 +1,75 @@
-/* 
-  Localizable.strings
-  PureSms
+/*
+ Local.strings
+ PureSms
+ 
+ Created by YC X on 2018/4/10.
+ Copyright © 2018年 YC X. All rights reserved.
+ */
 
-  Created by YC X on 2018/4/11.
-  Copyright © 2018年 YC X. All rights reserved.
-*/
+"Whitelist" = "白名单";
+"Blacklist" = "黑名单";
+"Menu" = "选项";
+"Whitelist Groups" = "白名单条件组";
+"Blacklist Groups" = "黑名单条件组";
+"Sender" = "发送者";
+"Content" = "内容";
+"Invalid target" = "无效目标";
+"has prefix" = "含有前缀";
+"has suffix" = "含有后缀";
+"contains" = "包含";
+"doesn't contain" = "不包含";
+"matches regex" = "匹配正则";
+"New Group" = "新的条件组";
+"OK" = "确认";
+"Cancel" = "取消";
+"Group Alias (Optional)" = "条件组别名（可选）";
+"%ld conditions" = "%ld 个条件";
+
+"Condition Configuration" = "条件配置";
+"Target" = "目标";
+"Pattern" = "模式";
+"Keyword" = "关键词";
+"Please enter a keyword or Please select a keyword" = "请输入关键词或选择一个关键词";
+"Choose message's sender or content as object that attempts to match with." = "选择信息发送者或信息内容作为将要匹配的对象。";
+"Select one match pattern." = "选择一个匹配模式。";
+"Required" = "必填";
+
+"Project" = "项目";
+"Usage" = "使用说明";
+"Source code" = "开源代码";
+
+"Backup rules to iCloud" = "备份规则至 iCloud";
+"Recover rules from iCloud" = "从 iCloud 恢复规则";
+
+"Warning" = "警告";
+"Continue" = "继续";
+"This action will replace your rules existing on iCloud" = "备份操作会直接覆盖 iCloud 里已存在的规则";
+"This action will replace your local rules" = "恢复操作会直接覆盖本地的规则";
+
+// ...
+"Delete" = "删除";
+
+// 部分关键词。股 证券 .cn http 理财 收益 www 贷 保险 券 回复 退订 .com/ 参与 点击 戳 基金
+
+"Reply" = "回复";
+"Unsubscribe" = "退订";
+"Regal" = "富豪";
+"Macao" = "澳门";
+"Casino" = "赌场";
+"Download" = "下载";
+"Registered" = "注册";
+"Securities" = "证券";
+"Financial management" = "理财";
+"Income" = "收益";
+"Insurance" = "保险";
+"Participate" = "参与";
+"Click on" = "点击";
+"Fund" = "基金";
+"Share" = "股";
+"Stamp" = "戳";
+"Loan" = "贷";
+"Voucher" = "券";
+".cn" = ".cn";
+"http" = "http";
+"www" = "www";
+".com" = ".com";

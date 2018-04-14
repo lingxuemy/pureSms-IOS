@@ -1,5 +1,5 @@
 //
-//  SOBlackTableViewController.h
+//  SOBlackViewController.h
 //  PureSms
 //
 //  Created by YC X on 2018/4/13.
