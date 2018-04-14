@@ -1,0 +1,741 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04570F88207B5BA50065B644 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04570F87207B5BA50065B644 /* AppDelegate.m */; };
+		04570F8B207B5BA50065B644 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04570F8A207B5BA50065B644 /* ViewController.m */; };
+		04570F8E207B5BA50065B644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04570F8C207B5BA50065B644 /* Main.storyboard */; };
+		04570F90207B5BA50065B644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04570F8F207B5BA50065B644 /* Assets.xcassets */; };
+		04570F93207B5BA50065B644 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04570F91207B5BA50065B644 /* LaunchScreen.storyboard */; };
+		04570F96207B5BA50065B644 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04570F95207B5BA50065B644 /* main.m */; };
+		04570FA0207B5BA50065B644 /* PureSmsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04570F9F207B5BA50065B644 /* PureSmsTests.m */; };
+		04570FAB207B5BA50065B644 /* PureSmsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04570FAA207B5BA50065B644 /* PureSmsUITests.m */; };
+		04570FC0207B5D7A0065B644 /* MessageFilterExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04570FBF207B5D7A0065B644 /* MessageFilterExtension.m */; };
+		04570FC4207B5D7A0065B644 /* PureSmsExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04570FBC207B5D7A0065B644 /* PureSmsExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		78FA394DAC703BD124C5C27D /* libPods-PureSms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C74C596648E09739092C3CEC /* libPods-PureSms.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04570F9C207B5BA50065B644 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04570F7B207B5BA50065B644 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04570F82207B5BA50065B644;
+			remoteInfo = PureSms;
+		};
+		04570FA7207B5BA50065B644 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04570F7B207B5BA50065B644 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04570F82207B5BA50065B644;
+			remoteInfo = PureSms;
+		};
+		04570FC2207B5D7A0065B644 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04570F7B207B5BA50065B644 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04570FBB207B5D7A0065B644;
+			remoteInfo = PureSmsExt;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		04570FC8207B5D7A0065B644 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				04570FC4207B5D7A0065B644 /* PureSmsExt.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		04570F83207B5BA50065B644 /* PureSms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PureSms.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04570F86207B5BA50065B644 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		04570F87207B5BA50065B644 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		04570F89207B5BA50065B644 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		04570F8A207B5BA50065B644 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		04570F8D207B5BA50065B644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04570F8F207B5BA50065B644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04570F92207B5BA50065B644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04570F94207B5BA50065B644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04570F95207B5BA50065B644 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04570F9B207B5BA50065B644 /* PureSmsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PureSmsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04570F9F207B5BA50065B644 /* PureSmsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PureSmsTests.m; sourceTree = "<group>"; };
+		04570FA1207B5BA50065B644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04570FA6207B5BA50065B644 /* PureSmsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PureSmsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04570FAA207B5BA50065B644 /* PureSmsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PureSmsUITests.m; sourceTree = "<group>"; };
+		04570FAC207B5BA50065B644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04570FBC207B5D7A0065B644 /* PureSmsExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PureSmsExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		04570FBE207B5D7A0065B644 /* MessageFilterExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageFilterExtension.h; sourceTree = "<group>"; };
+		04570FBF207B5D7A0065B644 /* MessageFilterExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageFilterExtension.m; sourceTree = "<group>"; };
+		04570FC1207B5D7A0065B644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04570FC9207B5DE70065B644 /* PureSmsExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PureSmsExt.entitlements; sourceTree = "<group>"; };
+		77FFCAC56E187092BD165629 /* Pods-PureSms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PureSms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PureSms/Pods-PureSms.debug.xcconfig"; sourceTree = "<group>"; };
+		C74C596648E09739092C3CEC /* libPods-PureSms.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PureSms.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8912E0BFDA8CF7175C76EAB /* Pods-PureSms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PureSms.release.xcconfig"; path = "Pods/Target Support Files/Pods-PureSms/Pods-PureSms.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04570F80207B5BA50065B644 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78FA394DAC703BD124C5C27D /* libPods-PureSms.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04570F98207B5BA50065B644 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04570FA3207B5BA50065B644 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04570FB9207B5D7A0065B644 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04570F7A207B5BA50065B644 = {
+			isa = PBXGroup;
+			children = (
+				04570F85207B5BA50065B644 /* PureSms */,
+				04570F9E207B5BA50065B644 /* PureSmsTests */,
+				04570FA9207B5BA50065B644 /* PureSmsUITests */,
+				04570FBD207B5D7A0065B644 /* PureSmsExt */,
+				04570F84207B5BA50065B644 /* Products */,
+				7F3EC8431A1292F5515331A2 /* Pods */,
+				2084C0A5E730C7D9E128E20F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		04570F84207B5BA50065B644 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04570F83207B5BA50065B644 /* PureSms.app */,
+				04570F9B207B5BA50065B644 /* PureSmsTests.xctest */,
+				04570FA6207B5BA50065B644 /* PureSmsUITests.xctest */,
+				04570FBC207B5D7A0065B644 /* PureSmsExt.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04570F85207B5BA50065B644 /* PureSms */ = {
+			isa = PBXGroup;
+			children = (
+				04570F86207B5BA50065B644 /* AppDelegate.h */,
+				04570F87207B5BA50065B644 /* AppDelegate.m */,
+				04570F89207B5BA50065B644 /* ViewController.h */,
+				04570F8A207B5BA50065B644 /* ViewController.m */,
+				04570F8C207B5BA50065B644 /* Main.storyboard */,
+				04570F8F207B5BA50065B644 /* Assets.xcassets */,
+				04570F91207B5BA50065B644 /* LaunchScreen.storyboard */,
+				04570F94207B5BA50065B644 /* Info.plist */,
+				04570F95207B5BA50065B644 /* main.m */,
+			);
+			path = PureSms;
+			sourceTree = "<group>";
+		};
+		04570F9E207B5BA50065B644 /* PureSmsTests */ = {
+			isa = PBXGroup;
+			children = (
+				04570F9F207B5BA50065B644 /* PureSmsTests.m */,
+				04570FA1207B5BA50065B644 /* Info.plist */,
+			);
+			path = PureSmsTests;
+			sourceTree = "<group>";
+		};
+		04570FA9207B5BA50065B644 /* PureSmsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				04570FAA207B5BA50065B644 /* PureSmsUITests.m */,
+				04570FAC207B5BA50065B644 /* Info.plist */,
+			);
+			path = PureSmsUITests;
+			sourceTree = "<group>";
+		};
+		04570FBD207B5D7A0065B644 /* PureSmsExt */ = {
+			isa = PBXGroup;
+			children = (
+				04570FC9207B5DE70065B644 /* PureSmsExt.entitlements */,
+				04570FBE207B5D7A0065B644 /* MessageFilterExtension.h */,
+				04570FBF207B5D7A0065B644 /* MessageFilterExtension.m */,
+				04570FC1207B5D7A0065B644 /* Info.plist */,
+			);
+			path = PureSmsExt;
+			sourceTree = "<group>";
+		};
+		2084C0A5E730C7D9E128E20F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C74C596648E09739092C3CEC /* libPods-PureSms.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7F3EC8431A1292F5515331A2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				77FFCAC56E187092BD165629 /* Pods-PureSms.debug.xcconfig */,
+				F8912E0BFDA8CF7175C76EAB /* Pods-PureSms.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04570F82207B5BA50065B644 /* PureSms */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04570FAF207B5BA50065B644 /* Build configuration list for PBXNativeTarget "PureSms" */;
+			buildPhases = (
+				7DCC3397A60787C2B08C2F40 /* [CP] Check Pods Manifest.lock */,
+				04570F7F207B5BA50065B644 /* Sources */,
+				04570F80207B5BA50065B644 /* Frameworks */,
+				04570F81207B5BA50065B644 /* Resources */,
+				04570FC8207B5D7A0065B644 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04570FC3207B5D7A0065B644 /* PBXTargetDependency */,
+			);
+			name = PureSms;
+			productName = PureSms;
+			productReference = 04570F83207B5BA50065B644 /* PureSms.app */;
+			productType = "com.apple.product-type.application";
+		};
+		04570F9A207B5BA50065B644 /* PureSmsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04570FB2207B5BA50065B644 /* Build configuration list for PBXNativeTarget "PureSmsTests" */;
+			buildPhases = (
+				04570F97207B5BA50065B644 /* Sources */,
+				04570F98207B5BA50065B644 /* Frameworks */,
+				04570F99207B5BA50065B644 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04570F9D207B5BA50065B644 /* PBXTargetDependency */,
+			);
+			name = PureSmsTests;
+			productName = PureSmsTests;
+			productReference = 04570F9B207B5BA50065B644 /* PureSmsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		04570FA5207B5BA50065B644 /* PureSmsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04570FB5207B5BA50065B644 /* Build configuration list for PBXNativeTarget "PureSmsUITests" */;
+			buildPhases = (
+				04570FA2207B5BA50065B644 /* Sources */,
+				04570FA3207B5BA50065B644 /* Frameworks */,
+				04570FA4207B5BA50065B644 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04570FA8207B5BA50065B644 /* PBXTargetDependency */,
+			);
+			name = PureSmsUITests;
+			productName = PureSmsUITests;
+			productReference = 04570FA6207B5BA50065B644 /* PureSmsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		04570FBB207B5D7A0065B644 /* PureSmsExt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04570FC5207B5D7A0065B644 /* Build configuration list for PBXNativeTarget "PureSmsExt" */;
+			buildPhases = (
+				04570FB8207B5D7A0065B644 /* Sources */,
+				04570FB9207B5D7A0065B644 /* Frameworks */,
+				04570FBA207B5D7A0065B644 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PureSmsExt;
+			productName = PureSmsExt;
+			productReference = 04570FBC207B5D7A0065B644 /* PureSmsExt.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04570F7B207B5BA50065B644 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "YC X";
+				TargetAttributes = {
+					04570F82207B5BA50065B644 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					04570F9A207B5BA50065B644 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 04570F82207B5BA50065B644;
+					};
+					04570FA5207B5BA50065B644 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 04570F82207B5BA50065B644;
+					};
+					04570FBB207B5D7A0065B644 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 04570F7E207B5BA50065B644 /* Build configuration list for PBXProject "PureSms" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04570F7A207B5BA50065B644;
+			productRefGroup = 04570F84207B5BA50065B644 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04570F82207B5BA50065B644 /* PureSms */,
+				04570F9A207B5BA50065B644 /* PureSmsTests */,
+				04570FA5207B5BA50065B644 /* PureSmsUITests */,
+				04570FBB207B5D7A0065B644 /* PureSmsExt */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04570F81207B5BA50065B644 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04570F93207B5BA50065B644 /* LaunchScreen.storyboard in Resources */,
+				04570F90207B5BA50065B644 /* Assets.xcassets in Resources */,
+				04570F8E207B5BA50065B644 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04570F99207B5BA50065B644 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04570FA4207B5BA50065B644 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04570FBA207B5D7A0065B644 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7DCC3397A60787C2B08C2F40 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PureSms-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04570F7F207B5BA50065B644 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04570F8B207B5BA50065B644 /* ViewController.m in Sources */,
+				04570F96207B5BA50065B644 /* main.m in Sources */,
+				04570F88207B5BA50065B644 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04570F97207B5BA50065B644 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04570FA0207B5BA50065B644 /* PureSmsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04570FA2207B5BA50065B644 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04570FAB207B5BA50065B644 /* PureSmsUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04570FB8207B5D7A0065B644 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04570FC0207B5D7A0065B644 /* MessageFilterExtension.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04570F9D207B5BA50065B644 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04570F82207B5BA50065B644 /* PureSms */;
+			targetProxy = 04570F9C207B5BA50065B644 /* PBXContainerItemProxy */;
+		};
+		04570FA8207B5BA50065B644 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04570F82207B5BA50065B644 /* PureSms */;
+			targetProxy = 04570FA7207B5BA50065B644 /* PBXContainerItemProxy */;
+		};
+		04570FC3207B5D7A0065B644 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04570FBB207B5D7A0065B644 /* PureSmsExt */;
+			targetProxy = 04570FC2207B5D7A0065B644 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		04570F8C207B5BA50065B644 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04570F8D207B5BA50065B644 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		04570F91207B5BA50065B644 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04570F92207B5BA50065B644 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04570FAD207B5BA50065B644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		04570FAE207B5BA50065B644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04570FB0207B5BA50065B644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77FFCAC56E187092BD165629 /* Pods-PureSms.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LV6Y87Y7RS;
+				INFOPLIST_FILE = PureSms/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresms;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04570FB1207B5BA50065B644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8912E0BFDA8CF7175C76EAB /* Pods-PureSms.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LV6Y87Y7RS;
+				INFOPLIST_FILE = PureSms/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresms;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		04570FB3207B5BA50065B644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LV6Y87Y7RS;
+				INFOPLIST_FILE = PureSmsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.PureSmsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PureSms.app/PureSms";
+			};
+			name = Debug;
+		};
+		04570FB4207B5BA50065B644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LV6Y87Y7RS;
+				INFOPLIST_FILE = PureSmsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.PureSmsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PureSms.app/PureSms";
+			};
+			name = Release;
+		};
+		04570FB6207B5BA50065B644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LV6Y87Y7RS;
+				INFOPLIST_FILE = PureSmsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.PureSmsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PureSms;
+			};
+			name = Debug;
+		};
+		04570FB7207B5BA50065B644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LV6Y87Y7RS;
+				INFOPLIST_FILE = PureSmsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.PureSmsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PureSms;
+			};
+			name = Release;
+		};
+		04570FC6207B5D7A0065B644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PureSmsExt/PureSmsExt.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LV6Y87Y7RS;
+				INFOPLIST_FILE = PureSmsExt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresms.ext;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04570FC7207B5D7A0065B644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PureSmsExt/PureSmsExt.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LV6Y87Y7RS;
+				INFOPLIST_FILE = PureSmsExt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresms.ext;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04570F7E207B5BA50065B644 /* Build configuration list for PBXProject "PureSms" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04570FAD207B5BA50065B644 /* Debug */,
+				04570FAE207B5BA50065B644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04570FAF207B5BA50065B644 /* Build configuration list for PBXNativeTarget "PureSms" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04570FB0207B5BA50065B644 /* Debug */,
+				04570FB1207B5BA50065B644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04570FB2207B5BA50065B644 /* Build configuration list for PBXNativeTarget "PureSmsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04570FB3207B5BA50065B644 /* Debug */,
+				04570FB4207B5BA50065B644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04570FB5207B5BA50065B644 /* Build configuration list for PBXNativeTarget "PureSmsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04570FB6207B5BA50065B644 /* Debug */,
+				04570FB7207B5BA50065B644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04570FC5207B5D7A0065B644 /* Build configuration list for PBXNativeTarget "PureSmsExt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04570FC6207B5D7A0065B644 /* Debug */,
+				04570FC7207B5D7A0065B644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04570F7B207B5BA50065B644 /* Project object */;
+}
