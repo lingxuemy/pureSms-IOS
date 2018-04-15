@@ -7,6 +7,7 @@
 //
 
 #import "MessageFilterExtension.h"
+#import "SOKeywordModelExt.h"
 
 #define ExtentsionAppGroupName @"group.com.welightworld.puresms"
 #define KEYWORDARRAY @"KEYWORDARRAY"
@@ -63,8 +64,9 @@
     
     NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName];
     NSArray *userDefArray = [userDefaults objectForKey:KEYWORDARRAY];
-    for (NSString *keyWordStr in userDefArray) {
-        if ([messageContent rangeOfString:keyWordStr].length) {
+    for (NSData *data in userDefArray) {
+        SOKeywordModelExt *keyModel = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        if (keyModel.isOpen && [messageContent rangeOfString:keyModel.keywordStr].length) {
             return ILMessageFilterActionFilter;
         }
     }

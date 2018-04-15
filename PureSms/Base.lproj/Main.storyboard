@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JAG-Bv-ikp">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="3l2-J9-Wlm"/>
@@ -85,7 +85,7 @@
                     <navigationItem key="navigationItem" title="黑名单关键词" id="32a-bo-WQY">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Cod-DU-SrQ">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="push" id="GHn-n2-JRr"/>
+                                <action selector="rightButEvent:" destination="aYj-rt-3gi" id="Uza-oJ-noC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
