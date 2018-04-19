@@ -53,7 +53,7 @@
             </objects>
             <point key="canvasLocation" x="780" y="134"/>
         </scene>
-        <!--黑名单关键词-->
+        <!--短信过滤 黑名单-->
         <scene sceneID="Oi2-EX-2kC">
             <objects>
                 <viewController storyboardIdentifier="SOBlackTableViewController" id="aYj-rt-3gi" customClass="SOBlackViewController" sceneMemberID="viewController">
@@ -66,23 +66,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3ch-Q3-SGd">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="543"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="aYj-rt-3gi" id="YPp-Zu-iGj"/>
                                     <outlet property="delegate" destination="aYj-rt-3gi" id="17z-TN-X9B"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZR-i5-yn7">
+                                <rect key="frame" x="30" y="617" width="315" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="开启教程">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openHelpButEvent:" destination="aYj-rt-3gi" eventType="touchUpInside" id="NFb-Pk-Ew2"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0B7-35-ywS">
+                                <rect key="frame" x="0.0" y="607" width="375" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="LpD-qb-QLn"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="0B7-35-ywS" firstAttribute="leading" secondItem="A6I-Ph-YeN" secondAttribute="leading" id="1CJ-fD-sh8"/>
                             <constraint firstItem="3ch-Q3-SGd" firstAttribute="leading" secondItem="A6I-Ph-YeN" secondAttribute="leading" id="2g0-V8-qwx"/>
-                            <constraint firstItem="tV1-rG-jf5" firstAttribute="top" secondItem="3ch-Q3-SGd" secondAttribute="bottom" id="Egu-9b-vGu"/>
+                            <constraint firstItem="tV1-rG-jf5" firstAttribute="top" secondItem="3ch-Q3-SGd" secondAttribute="bottom" constant="60" id="Egu-9b-vGu"/>
                             <constraint firstAttribute="trailing" secondItem="3ch-Q3-SGd" secondAttribute="trailing" id="GDs-T4-Fz6"/>
+                            <constraint firstItem="tV1-rG-jf5" firstAttribute="top" secondItem="KZR-i5-yn7" secondAttribute="bottom" constant="10" id="Kz0-VG-V9q"/>
                             <constraint firstItem="3ch-Q3-SGd" firstAttribute="top" secondItem="kNG-bM-qE4" secondAttribute="bottom" id="L2w-dP-OuW"/>
+                            <constraint firstAttribute="trailing" secondItem="0B7-35-ywS" secondAttribute="trailing" id="Qk4-Wo-rEo"/>
+                            <constraint firstAttribute="trailing" secondItem="KZR-i5-yn7" secondAttribute="trailing" constant="30" id="b7p-F4-HBj"/>
+                            <constraint firstItem="KZR-i5-yn7" firstAttribute="leading" secondItem="A6I-Ph-YeN" secondAttribute="leading" constant="30" id="lHm-60-Kzo"/>
+                            <constraint firstItem="KZR-i5-yn7" firstAttribute="top" secondItem="3ch-Q3-SGd" secondAttribute="bottom" constant="10" id="oI1-8Y-GeP"/>
+                            <constraint firstItem="0B7-35-ywS" firstAttribute="top" secondItem="3ch-Q3-SGd" secondAttribute="bottom" id="qoZ-6I-XGW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="黑名单关键词" id="32a-bo-WQY">
+                    <navigationItem key="navigationItem" title="短信过滤 黑名单" id="32a-bo-WQY">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Cod-DU-SrQ">
                             <connections>
                                 <action selector="rightButEvent:" destination="aYj-rt-3gi" id="Uza-oJ-noC"/>
@@ -91,11 +116,55 @@
                     </navigationItem>
                     <connections>
                         <outlet property="blackTableView" destination="3ch-Q3-SGd" id="G31-sX-y9U"/>
+                        <outlet property="openHelpBut" destination="KZR-i5-yn7" id="BUV-SA-14o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wPM-3D-qqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="60" y="134"/>
+            <point key="canvasLocation" x="60" y="133.5832083958021"/>
+        </scene>
+        <!--开启教程-->
+        <scene sceneID="TPy-py-Gq6">
+            <objects>
+                <viewController storyboardIdentifier="SOHelpViewController" id="TV1-ns-TuU" customClass="SOHelpViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zlp-uc-xHo"/>
+                        <viewControllerLayoutGuide type="bottom" id="kbx-PE-erR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Wv-D3-m3G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrh-1x-WPp">
+                                <rect key="frame" x="107.5" y="597" width="160" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="iZS-bI-m8A"/>
+                                    <constraint firstAttribute="width" constant="160" id="z4O-Nh-vtx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="知道了">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTouchUpInside:" destination="TV1-ns-TuU" eventType="touchUpInside" id="1f6-Gc-rfO"/>
+                                    <action selector="openHelpButEvent:" destination="aYj-rt-3gi" eventType="touchUpInside" id="zZ1-Xi-R39"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kbx-PE-erR" firstAttribute="top" secondItem="wrh-1x-WPp" secondAttribute="bottom" constant="30" id="GBD-gS-PN1"/>
+                            <constraint firstItem="wrh-1x-WPp" firstAttribute="centerX" secondItem="6Wv-D3-m3G" secondAttribute="centerX" id="VbP-5j-JR1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="开启教程" id="BLZ-0l-NRb"/>
+                    <connections>
+                        <outlet property="okBut" destination="wrh-1x-WPp" id="hx4-H4-G58"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="psA-e7-ach" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="60" y="860.41979010494754"/>
         </scene>
         <!--关键词配置-->
         <scene sceneID="nPS-dy-KD1">

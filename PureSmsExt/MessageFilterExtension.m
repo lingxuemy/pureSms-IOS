@@ -58,7 +58,7 @@
 - (ILMessageFilterAction)offlineActionForQueryRequest:(ILMessageFilterQueryRequest *)queryRequest {
     // Replace with logic to perform offline check whether to filter first (if possible).
     NSString *messageContent = queryRequest.messageBody;
-    if ([messageContent rangeOfString:@"验证码"].length) {
+    if ([messageContent rangeOfString:@"验证码"].length || [messageContent rangeOfString:@"验证"].length || [messageContent rangeOfString:@"码"].length) {
         return ILMessageFilterActionAllow;
     }
     

@@ -9,6 +9,7 @@
 #import "SOBlackViewController.h"
 #import "SOBlackTableViewCell.h"
 #import "SOKeywordModelExt.h"
+#import "SOHelpViewController.h"
 
 #define ExtentsionAppGroupName @"group.com.welightworld.puresms"
 #define KEYWORDARRAY @"KEYWORDARRAY"
@@ -17,6 +18,7 @@
 @interface SOBlackViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *blackTableView;
+@property (weak, nonatomic) IBOutlet UIButton *openHelpBut;
 @property (nonatomic, strong) NSMutableArray *keyWordMutArray;
 
 @end
@@ -26,8 +28,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    self.openHelpBut.layer.borderWidth = 1;
+//    self.openHelpBut.layer.borderColor = [UIColor blackColor].CGColor;
+    self.openHelpBut.layer.cornerRadius = 20;
+    self.openHelpBut.layer.masksToBounds = YES;
+    
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"isFirst"]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isFirst"];
+        [self openHelpButEvent:self.openHelpBut];
         NSArray *array = @[SOLocalize(@"Reply"), SOLocalize(@"Unsubscribe"), SOLocalize(@"Regal"), SOLocalize(@"Macao"), SOLocalize(@"Casino"), SOLocalize(@"Download"), SOLocalize(@"Registered"), SOLocalize(@"Securities"), SOLocalize(@"Financial management"), SOLocalize(@"Income"), SOLocalize(@"Insurance"), SOLocalize(@"Participate"), SOLocalize(@"Click on"), SOLocalize(@"Fund"), SOLocalize(@"Share"), SOLocalize(@"Stamp"), SOLocalize(@"Loan"), SOLocalize(@"Voucher"), SOLocalize(@"www"), SOLocalize(@"http"), SOLocalize(@".cn"), SOLocalize(@".com")];
         for (NSString *keyStr in array) {
             SOKeywordModelExt *keyModel = [[SOKeywordModelExt alloc] init];
@@ -57,15 +65,20 @@
     [self.blackTableView reloadData];
 }
 
+- (IBAction)openHelpButEvent:(UIButton *)sender {
+    SOHelpViewController *helpVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SOHelpViewController"];
+    [self.navigationController pushViewController:helpVC animated:YES];
+}
+
 - (IBAction)rightButEvent:(UIBarButtonItem *)sender {
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请输入关键词" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Please enter a keyword") message:@"" preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder = @"请输入关键词";
+        textField.placeholder = SOLocalize(@"Please enter a keyword");
     }];
     
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:SOLocalize(@"OK") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         UITextField *tempField = [alertController.textFields firstObject];
         NSLog(@"%@",tempField.text);
         NSLog(@"ok");
@@ -86,11 +99,11 @@
             [userDefaults synchronize];
         };
     }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:SOLocalize(@"Cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
     }];
     
-    [alertController addAction:okAction];
     [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
 
     [self presentViewController:alertController animated:YES completion:^{
         NSLog(@"presented");

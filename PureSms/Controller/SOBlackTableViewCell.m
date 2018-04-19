@@ -14,7 +14,7 @@
     [super awakeFromNib];
     // Initialization code
     
-    self.cellDelete.layer.cornerRadius = 2;
+    self.cellDelete.layer.cornerRadius = 15;
     self.cellDelete.layer.borderWidth = 1;
     self.cellDelete.layer.masksToBounds = YES;
 }

@@ -11,6 +11,11 @@
 		044632EC208338C000F7A2B7 /* SOBlackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044632EA208338C000F7A2B7 /* SOBlackTableViewCell.xib */; };
 		044632F22083805D00F7A2B7 /* SOKeywordModelExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 044632F12083805D00F7A2B7 /* SOKeywordModelExt.m */; };
 		044632F32083805D00F7A2B7 /* SOKeywordModelExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 044632F12083805D00F7A2B7 /* SOKeywordModelExt.m */; };
+		044632F62083957700F7A2B7 /* XScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 044632F52083957700F7A2B7 /* XScrollView.m */; };
+		044632F9208395A300F7A2B7 /* SOHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044632F8208395A300F7A2B7 /* SOHelpViewController.m */; };
+		044632FE2083974F00F7A2B7 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 044632FB2083974F00F7A2B7 /* image1.jpg */; };
+		044632FF2083974F00F7A2B7 /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 044632FC2083974F00F7A2B7 /* image2.jpg */; };
+		044633002083975000F7A2B7 /* image3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 044632FD2083974F00F7A2B7 /* image3.jpg */; };
 		04570F88207B5BA50065B644 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04570F87207B5BA50065B644 /* AppDelegate.m */; };
 		04570F8E207B5BA50065B644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04570F8C207B5BA50065B644 /* Main.storyboard */; };
 		04570F90207B5BA50065B644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04570F8F207B5BA50065B644 /* Assets.xcassets */; };
@@ -75,6 +80,13 @@
 		044632EA208338C000F7A2B7 /* SOBlackTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SOBlackTableViewCell.xib; sourceTree = "<group>"; };
 		044632F02083805D00F7A2B7 /* SOKeywordModelExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOKeywordModelExt.h; sourceTree = "<group>"; };
 		044632F12083805D00F7A2B7 /* SOKeywordModelExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOKeywordModelExt.m; sourceTree = "<group>"; };
+		044632F42083957700F7A2B7 /* XScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XScrollView.h; sourceTree = "<group>"; };
+		044632F52083957700F7A2B7 /* XScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XScrollView.m; sourceTree = "<group>"; };
+		044632F7208395A300F7A2B7 /* SOHelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOHelpViewController.h; sourceTree = "<group>"; };
+		044632F8208395A300F7A2B7 /* SOHelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOHelpViewController.m; sourceTree = "<group>"; };
+		044632FB2083974F00F7A2B7 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
+		044632FC2083974F00F7A2B7 /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
+		044632FD2083974F00F7A2B7 /* image3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image3.jpg; sourceTree = "<group>"; };
 		04570F83207B5BA50065B644 /* PureSms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PureSms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04570F86207B5BA50065B644 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04570F87207B5BA50065B644 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -149,6 +161,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		044632FA2083974300F7A2B7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				044632FB2083974F00F7A2B7 /* image1.jpg */,
+				044632FC2083974F00F7A2B7 /* image2.jpg */,
+				044632FD2083974F00F7A2B7 /* image3.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		04570F7A207B5BA50065B644 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +198,7 @@
 		04570F85207B5BA50065B644 /* PureSms */ = {
 			isa = PBXGroup;
 			children = (
+				044632FA2083974300F7A2B7 /* Images */,
 				044632E72081A58E00F7A2B7 /* PureSms.entitlements */,
 				04570FD8207CF4A80065B644 /* Other */,
 				04570FD6207CF4350065B644 /* Rule */,
@@ -250,6 +273,8 @@
 				044632E8208338C000F7A2B7 /* SOBlackTableViewCell.h */,
 				044632E9208338C000F7A2B7 /* SOBlackTableViewCell.m */,
 				044632EA208338C000F7A2B7 /* SOBlackTableViewCell.xib */,
+				044632F7208395A300F7A2B7 /* SOHelpViewController.h */,
+				044632F8208395A300F7A2B7 /* SOHelpViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -257,6 +282,8 @@
 		04570FD6207CF4350065B644 /* Rule */ = {
 			isa = PBXGroup;
 			children = (
+				044632F42083957700F7A2B7 /* XScrollView.h */,
+				044632F52083957700F7A2B7 /* XScrollView.m */,
 			);
 			path = Rule;
 			sourceTree = "<group>";
@@ -445,10 +472,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				044632EC208338C000F7A2B7 /* SOBlackTableViewCell.xib in Resources */,
+				044633002083975000F7A2B7 /* image3.jpg in Resources */,
 				04570FF1207DC1DE0065B644 /* Localizable.strings in Resources */,
 				04570FFF208093AC0065B644 /* hook.png in Resources */,
 				04570F93207B5BA50065B644 /* LaunchScreen.storyboard in Resources */,
+				044632FF2083974F00F7A2B7 /* image2.jpg in Resources */,
 				0457100A20809D610065B644 /* SOConditionTableViewCell.xib in Resources */,
+				044632FE2083974F00F7A2B7 /* image1.jpg in Resources */,
 				04570F90207B5BA50065B644 /* Assets.xcassets in Resources */,
 				04570F8E207B5BA50065B644 /* Main.storyboard in Resources */,
 			);
@@ -540,7 +570,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				04570F96207B5BA50065B644 /* main.m in Sources */,
+				044632F9208395A300F7A2B7 /* SOHelpViewController.m in Sources */,
 				04570F88207B5BA50065B644 /* AppDelegate.m in Sources */,
+				044632F62083957700F7A2B7 /* XScrollView.m in Sources */,
 				0457100220809C290065B644 /* SOConditionViewController.m in Sources */,
 				04570FFA2080488E0065B644 /* SOBlackViewController.m in Sources */,
 				0457100920809D610065B644 /* SOConditionTableViewCell.m in Sources */,
@@ -734,7 +766,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -750,7 +782,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
