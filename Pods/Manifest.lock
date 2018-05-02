@@ -1,24 +1,28 @@
 PODS:
+  - Bugly (2.4.0)
   - Masonry (1.0.2)
   - XLForm (3.2.0)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
+  - Bugly
   - Masonry
   - XLForm (~> 3.2.0)
   - YYModel
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Bugly
     - Masonry
     - XLForm
     - YYModel
 
 SPEC CHECKSUMS:
+  Bugly: 3b56d8365c5687f74fd6fbb50c5b7ede3cdac96c
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   XLForm: 2250b4e96ab8ffa5f3355838c79edd90de451782
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 547a5264074b8b76f6ce829a493cadd39b2c4069
+PODFILE CHECKSUM: 8353769e9995bc9fa4e934cc105d001165485287
 
 COCOAPODS: 1.5.0

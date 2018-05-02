@@ -16,6 +16,7 @@
 		044632FE2083974F00F7A2B7 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 044632FB2083974F00F7A2B7 /* image1.jpg */; };
 		044632FF2083974F00F7A2B7 /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 044632FC2083974F00F7A2B7 /* image2.jpg */; };
 		044633002083975000F7A2B7 /* image3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 044632FD2083974F00F7A2B7 /* image3.jpg */; };
+		044633032095B20100F7A2B7 /* UITableView+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 044633012095B20100F7A2B7 /* UITableView+Animations.m */; };
 		04570F88207B5BA50065B644 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04570F87207B5BA50065B644 /* AppDelegate.m */; };
 		04570F8E207B5BA50065B644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04570F8C207B5BA50065B644 /* Main.storyboard */; };
 		04570F90207B5BA50065B644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04570F8F207B5BA50065B644 /* Assets.xcassets */; };
@@ -87,6 +88,8 @@
 		044632FB2083974F00F7A2B7 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
 		044632FC2083974F00F7A2B7 /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
 		044632FD2083974F00F7A2B7 /* image3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image3.jpg; sourceTree = "<group>"; };
+		044633012095B20100F7A2B7 /* UITableView+Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Animations.m"; sourceTree = "<group>"; };
+		044633022095B20100F7A2B7 /* UITableView+Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Animations.h"; sourceTree = "<group>"; };
 		04570F83207B5BA50065B644 /* PureSms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PureSms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04570F86207B5BA50065B644 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04570F87207B5BA50065B644 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -282,6 +285,8 @@
 		04570FD6207CF4350065B644 /* Rule */ = {
 			isa = PBXGroup;
 			children = (
+				044633022095B20100F7A2B7 /* UITableView+Animations.h */,
+				044633012095B20100F7A2B7 /* UITableView+Animations.m */,
 				044632F42083957700F7A2B7 /* XScrollView.h */,
 				044632F52083957700F7A2B7 /* XScrollView.m */,
 			);
@@ -573,6 +578,7 @@
 				044632F9208395A300F7A2B7 /* SOHelpViewController.m in Sources */,
 				04570F88207B5BA50065B644 /* AppDelegate.m in Sources */,
 				044632F62083957700F7A2B7 /* XScrollView.m in Sources */,
+				044633032095B20100F7A2B7 /* UITableView+Animations.m in Sources */,
 				0457100220809C290065B644 /* SOConditionViewController.m in Sources */,
 				04570FFA2080488E0065B644 /* SOBlackViewController.m in Sources */,
 				0457100920809D610065B644 /* SOConditionTableViewCell.m in Sources */,

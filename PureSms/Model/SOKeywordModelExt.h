@@ -10,7 +10,8 @@
 
 @interface SOKeywordModelExt : NSObject
 
-@property (nonatomic, copy) NSString *keywordStr;
-@property (nonatomic, assign) BOOL isOpen;
+@property (nonatomic, copy) NSString *keywordStr;   //关键词
+@property (nonatomic, assign) BOOL isOpen;          //YES:打开关键词。NO:关闭关键词
+@property (nonatomic, assign) BOOL isBlack;         //YES:黑名单。NO:白名单
 
 @end

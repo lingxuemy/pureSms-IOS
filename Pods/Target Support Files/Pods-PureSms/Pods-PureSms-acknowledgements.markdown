@@ -1,6 +1,11 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## Bugly
+
+Copyright 2016 tencent.com. All rights reserved.
+
+
 ## Masonry
 
 Copyright (c) 2011-2012 Masonry Team - https://github.com/Masonry

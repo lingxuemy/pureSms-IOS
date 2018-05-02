@@ -5,6 +5,7 @@ target 'PureSms' do
 pod 'YYModel'
 pod 'Masonry'
 pod 'XLForm', '~> 3.2.0'
+pod 'Bugly'
 
 end
 

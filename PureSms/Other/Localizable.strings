@@ -50,8 +50,7 @@
 // ...
 "Delete" = "删除";
 
-// 部分关键词。股 证券 .cn http 理财 收益 www 贷 保险 券 回复 退订 .com/ 参与 点击 戳 基金
-
+// 黑名单部分关键词。股 证券 .cn http 理财 收益 www 贷 保险 券 回复 退订 .com/ 参与 点击 戳 基金
 "Reply" = "回复";
 "Unsubscribe" = "退订";
 "Regal" = "富豪";
@@ -74,3 +73,11 @@
 "http" = "http";
 "www" = "www";
 ".com" = ".com";
+
+// 白名单部分关键词。
+"balance" = "余额";
+"bank" = "银行";
+"Verification code" = "验证码";
+"Verification" = "验证";
+"Code" = "码";
+

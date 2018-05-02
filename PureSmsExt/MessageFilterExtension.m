@@ -11,6 +11,7 @@
 
 #define ExtentsionAppGroupName @"group.com.welightworld.puresms"
 #define KEYWORDARRAY @"KEYWORDARRAY"
+#define KEYWORDARRAY_WHITE @"KEYWORDARRAY_WHITE"
 
 @interface MessageFilterExtension () <ILMessageFilterQueryHandling>
 @end
@@ -58,13 +59,21 @@
 - (ILMessageFilterAction)offlineActionForQueryRequest:(ILMessageFilterQueryRequest *)queryRequest {
     // Replace with logic to perform offline check whether to filter first (if possible).
     NSString *messageContent = queryRequest.messageBody;
-    if ([messageContent rangeOfString:@"验证码"].length || [messageContent rangeOfString:@"验证"].length || [messageContent rangeOfString:@"码"].length) {
-        return ILMessageFilterActionAllow;
+    NSInteger integer = [[[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName] integerForKey:@"SKSTORE"];
+    [[[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName] setInteger:integer+1 forKey:@"SKSTORE"];
+    // 白名单过滤
+    NSUserDefaults *whiteUserDef = [[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName];
+    NSArray *whiteArray = [whiteUserDef objectForKey:KEYWORDARRAY_WHITE];
+    for (NSData *data in whiteArray) {
+        SOKeywordModelExt *keyModel = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        if (keyModel.isOpen && [messageContent rangeOfString:keyModel.keywordStr].length) {
+            return ILMessageFilterActionAllow;
+        }
     }
-    
-    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName];
-    NSArray *userDefArray = [userDefaults objectForKey:KEYWORDARRAY];
-    for (NSData *data in userDefArray) {
+    // 黑名单过滤
+    NSUserDefaults *blackUserDef = [[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName];
+    NSArray *blackArray = [blackUserDef objectForKey:KEYWORDARRAY];
+    for (NSData *data in blackArray) {
         SOKeywordModelExt *keyModel = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         if (keyModel.isOpen && [messageContent rangeOfString:keyModel.keywordStr].length) {
             return ILMessageFilterActionFilter;
