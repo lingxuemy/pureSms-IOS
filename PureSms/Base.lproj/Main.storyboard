@@ -143,10 +143,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrh-1x-WPp">
-                                <rect key="frame" x="107.5" y="597" width="160" height="40"/>
+                                <rect key="frame" x="97.5" y="567" width="180" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="iZS-bI-m8A"/>
-                                    <constraint firstAttribute="width" constant="160" id="z4O-Nh-vtx"/>
+                                    <constraint firstAttribute="width" constant="180" id="z4O-Nh-vtx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="知道了">
@@ -160,7 +160,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="kbx-PE-erR" firstAttribute="top" secondItem="wrh-1x-WPp" secondAttribute="bottom" constant="30" id="GBD-gS-PN1"/>
+                            <constraint firstItem="kbx-PE-erR" firstAttribute="top" secondItem="wrh-1x-WPp" secondAttribute="bottom" constant="60" id="GBD-gS-PN1"/>
                             <constraint firstItem="wrh-1x-WPp" firstAttribute="centerX" secondItem="6Wv-D3-m3G" secondAttribute="centerX" id="VbP-5j-JR1"/>
                         </constraints>
                     </view>

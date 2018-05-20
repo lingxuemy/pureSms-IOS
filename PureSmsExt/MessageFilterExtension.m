@@ -10,8 +10,14 @@
 #import "SOKeywordModelExt.h"
 
 #define ExtentsionAppGroupName @"group.com.welightworld.puresms"
+#define ExtentsionAppGroupNamePro @"group.com.welightworld.puresmspro"
+
 #define KEYWORDARRAY @"KEYWORDARRAY"
 #define KEYWORDARRAY_WHITE @"KEYWORDARRAY_WHITE"
+
+#define BUNDLEID [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
+#define PURESMS @"com.welightworld.puresms.ext"
+#define PURESMSPRO @"com.welightworld.puresmspro.ext"
 
 @interface MessageFilterExtension () <ILMessageFilterQueryHandling>
 @end
@@ -59,10 +65,16 @@
 - (ILMessageFilterAction)offlineActionForQueryRequest:(ILMessageFilterQueryRequest *)queryRequest {
     // Replace with logic to perform offline check whether to filter first (if possible).
     NSString *messageContent = queryRequest.messageBody;
-    NSInteger integer = [[[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName] integerForKey:@"SKSTORE"];
-    [[[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName] setInteger:integer+1 forKey:@"SKSTORE"];
+    // 缓存过滤次数
+//    NSInteger integer = [[[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName] integerForKey:@"SKSTORE"];
+//    [[[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName] setInteger:integer+1 forKey:@"SKSTORE"];
+    
+    NSString *suiteNameStr = ExtentsionAppGroupName;
+    if ([BUNDLEID isEqualToString:PURESMSPRO]) {
+        suiteNameStr = ExtentsionAppGroupNamePro;
+    }
     // 白名单过滤
-    NSUserDefaults *whiteUserDef = [[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName];
+    NSUserDefaults *whiteUserDef = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
     NSArray *whiteArray = [whiteUserDef objectForKey:KEYWORDARRAY_WHITE];
     for (NSData *data in whiteArray) {
         SOKeywordModelExt *keyModel = [NSKeyedUnarchiver unarchiveObjectWithData:data];
@@ -71,7 +83,7 @@
         }
     }
     // 黑名单过滤
-    NSUserDefaults *blackUserDef = [[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName];
+    NSUserDefaults *blackUserDef = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
     NSArray *blackArray = [blackUserDef objectForKey:KEYWORDARRAY];
     for (NSData *data in blackArray) {
         SOKeywordModelExt *keyModel = [NSKeyedUnarchiver unarchiveObjectWithData:data];

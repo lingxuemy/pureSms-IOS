@@ -74,9 +74,10 @@ typedef NS_ENUM(NSInteger, SwitchDirection)
 // 创建UIScrollView代码
 -(void)createContentScrollView
 {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.frame];
     scrollView.delegate = self;
     scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
     scrollView.shouldGroupAccessibilityChildren = NO;
     scrollView.pagingEnabled = YES;
     [self addSubview:scrollView];
@@ -122,13 +123,13 @@ typedef NS_ENUM(NSInteger, SwitchDirection)
         NSInteger tempCount = viewArray.count;
         for(int i = 0; i < tempCount ;i++) {
             UIView *tempView = viewArray[i];
-            tempView.frame = CGRectMake(i * self.bounds.size.width, 0, self.bounds.size.width, self.bounds.size.height);
+            tempView.frame = CGRectMake(i * self.bounds.size.width, -64, self.bounds.size.width, self.bounds.size.height);
             tempView.layer.masksToBounds = YES;
             [_contentScrollView addSubview:tempView];
         }
         _pageControlView.numberOfPages = viewArray.count;
         _pageControlView.currentPage = 0;
-        _contentScrollView.contentSize = CGSizeMake(self.bounds.size.width * tempCount,   self.bounds.size.height);
+        _contentScrollView.contentSize = CGSizeMake(self.bounds.size.width * tempCount, 0);
         _currentImgIndex = 0;
         
         [_contentScrollView setContentOffset:CGPointMake(0, 0) animated:NO];

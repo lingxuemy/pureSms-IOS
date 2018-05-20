@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.okBut setTitle:NSLocalizedString(@"I Kown", nil) forState:UIControlStateNormal];
     self.okBut.layer.borderWidth = 1;
     self.okBut.layer.borderColor = [UIColor whiteColor].CGColor;
     self.okBut.layer.cornerRadius = 20;
@@ -50,7 +51,7 @@
 - (XScrollView *)scrollView
 {
     if (!_scrollView) {
-        _scrollView = [[XScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height)];
+        _scrollView = [[XScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     }
     return _scrollView;
 }

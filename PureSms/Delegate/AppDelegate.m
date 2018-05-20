@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import <Bugly/Bugly.h>
 
+#define BUNDLEID [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
+#define PURESMSPRO @"com.welightworld.puresmspro"
+
 @interface AppDelegate ()
 
 @end
@@ -18,7 +21,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [Bugly startWithAppId:@"2051f9e8c8"];
+    if ([BUNDLEID isEqualToString:PURESMSPRO]) {
+        [Bugly startWithAppId:@"82efa88407"];
+    }
+    else {
+        [Bugly startWithAppId:@"2051f9e8c8"];
+    }
     return YES;
 }
 

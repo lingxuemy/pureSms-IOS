@@ -7,7 +7,11 @@
  */
 
 "Whitelist" = "白名单";
+" Whitelist " = "  白名单  ";
+"SMS filtering white list" = "短信过滤 白名单";
 "Blacklist" = "黑名单";
+"SMS filtering black list" = "短信过滤 黑名单";
+
 "Menu" = "选项";
 "Whitelist Groups" = "白名单条件组";
 "Blacklist Groups" = "黑名单条件组";
@@ -49,6 +53,11 @@
 
 // ...
 "Delete" = "删除";
+"I Kown" = "知道了";
+"Unlock" = "解锁";
+"Give up" = "放弃";
+"Tips" = "提示";
+"Five-star praise, unlock this feature!\nFive-star praise, support the author!\nFive stars praise, encourage me!" = "五星好评,解锁本功能!\n五星好评,支持作者!\n五星好评,鼓励我!";
 
 // 黑名单部分关键词。股 证券 .cn http 理财 收益 www 贷 保险 券 回复 退订 .com/ 参与 点击 戳 基金
 "Reply" = "回复";

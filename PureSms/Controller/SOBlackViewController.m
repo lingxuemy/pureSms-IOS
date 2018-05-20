@@ -14,11 +14,20 @@
 #import "UITableView+Animations.h"
 
 #define ExtentsionAppGroupName @"group.com.welightworld.puresms"
+#define ExtentsionAppGroupNamePro @"group.com.welightworld.puresmspro"
 #define KEYWORDARRAY @"KEYWORDARRAY"
 #define KEYWORDARRAY_WHITE @"KEYWORDARRAY_WHITE"
 #define SOLocalize(key) NSLocalizedString(key, nil)
+#define BUNDLEID [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
+#define PURESMS @"com.welightworld.puresms"
+#define PURESMSPRO @"com.welightworld.puresmspro"
+#define APPID @"1372766943"
+#define APPIDPRO @"1387094960"
 
-@interface SOBlackViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface SOBlackViewController ()<UITableViewDelegate, UITableViewDataSource, SKStoreProductViewControllerDelegate>
+{
+    NSString *suiteNameStr;
+}
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *leftButItem;
 @property (weak, nonatomic) IBOutlet UITableView *blackTableView;
@@ -28,6 +37,7 @@
 @property (nonatomic, strong) NSMutableArray *blackKeyWordMutArray;
 @property (nonatomic, assign) BOOL isBlack;
 @property (nonatomic, strong) UIButton *leftBut;
+@property (nonatomic, strong) NSString *userdefKey;
 
 @end
 
@@ -41,9 +51,15 @@
     self.openHelpBut.layer.cornerRadius = 20;
     self.openHelpBut.layer.masksToBounds = YES;
     
+    suiteNameStr = ExtentsionAppGroupName;
+    if ([BUNDLEID isEqualToString:PURESMSPRO]) {
+        suiteNameStr = ExtentsionAppGroupNamePro;
+    }
+    
     if (![[NSUserDefaults standardUserDefaults] integerForKey:@"isFirst"]) {
         [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"isFirst"];
         [self openHelpButEvent:self.openHelpBut];
+        
         // 默认黑名单
         NSArray *blackArray = @[SOLocalize(@"Reply"), SOLocalize(@"Unsubscribe"), SOLocalize(@"Regal"), SOLocalize(@"Macao"), SOLocalize(@"Casino"), SOLocalize(@"Download"), SOLocalize(@"Registered"), SOLocalize(@"Securities"), SOLocalize(@"Financial management"), SOLocalize(@"Income"), SOLocalize(@"Insurance"), SOLocalize(@"Participate"), SOLocalize(@"Click on"), SOLocalize(@"Fund"), SOLocalize(@"Share"), SOLocalize(@"Stamp"), SOLocalize(@"Loan"), SOLocalize(@"Voucher"), SOLocalize(@"www"), SOLocalize(@"http"), SOLocalize(@".cn"), SOLocalize(@".com")];
         for (NSString *keyStr in blackArray) {
@@ -55,10 +71,9 @@
             [self.blackKeyWordMutArray addObject:data];
         }
         NSArray *keyArray = [NSArray arrayWithArray:self.blackKeyWordMutArray];
-        NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName];
+        NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
         [userDefaults setObject:keyArray forKey:KEYWORDARRAY];
         [userDefaults synchronize];
-        [[[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName] setInteger:0 forKey:@"SKSTORE"];
         
         // 默认白名单
         NSArray *whiteArray = @[SOLocalize(@"Verification code"), SOLocalize(@"Verification"), SOLocalize(@"Code"), SOLocalize(@"balance"), SOLocalize(@"bank")];
@@ -77,24 +92,9 @@
             [self.whiteKeyWordMutArray addObject:data];
         }
         NSArray *whiteKeyArray = [NSArray arrayWithArray:self.whiteKeyWordMutArray];
-        NSUserDefaults *whiteUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName];
+        NSUserDefaults *whiteUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
         [whiteUserDefaults setObject:whiteKeyArray forKey:KEYWORDARRAY_WHITE];
         [whiteUserDefaults synchronize];
-    }
-    else {
-        NSInteger skstoreInt = [[[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName] integerForKey:@"SKSTORE"];
-        NSInteger integer = [[NSUserDefaults standardUserDefaults] integerForKey:@"isFirst"];
-        [[NSUserDefaults standardUserDefaults] setInteger:integer+1 forKey:@"isFirst"];
-        // 如果是第二十五次就提示用户评分
-        if (skstoreInt == 25) {
-            if([SKStoreReviewController respondsToSelector:@selector(requestReview)]) {// iOS 10.3 以上支持
-                [SKStoreReviewController requestReview];
-            } else { // iOS 10.3 之前的使用这个
-                NSString *APPID = @"1372766943";
-                NSString  * nsStringToOpen = [NSString  stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@?action=write-review",APPID];//替换为对应的APPID
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:nsStringToOpen]];
-            }
-        }
     }
     
     self.blackTableView.separatorInset = UIEdgeInsetsMake(0, 9000, 0, 0);;
@@ -102,7 +102,7 @@
     
     _leftBut = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     [_leftBut addTarget:self action:@selector(leftButEvent:) forControlEvents:UIControlEventTouchUpInside];
-    [_leftBut setTitle:@"  白名单  " forState:UIControlStateNormal];
+    [_leftBut setTitle:SOLocalize(@" Whitelist ") forState:UIControlStateNormal];
     _leftBut.titleLabel.font = [UIFont systemFontOfSize:14];
     [_leftBut setTitleColor:[UIColor colorWithRed:21/255.0 green:126/255.0 blue:251/255.0 alpha:1] forState:UIControlStateNormal];
     _leftBut.layer.cornerRadius = 15;
@@ -123,33 +123,117 @@
     [self.blackTableView reloadData];
 }
 
+// 获取关键词
 - (void)getKeyWord
 {
-    NSUserDefaults *whiteUserDef = [[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName];
+    NSUserDefaults *whiteUserDef = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
     self.whiteKeyWordMutArray = [whiteUserDef objectForKey:KEYWORDARRAY_WHITE];
-    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName];
+    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
     self.blackKeyWordMutArray = [userDefaults objectForKey:KEYWORDARRAY];
 }
 
+#pragma mark - 显示提示UI
+- (void)showCustomizeSKStoreReviewWithKey:(NSString *)key
+{
+    self.userdefKey = key;
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Tips") message:SOLocalize(@"Five-star praise, unlock this feature!\nFive-star praise, support the author!\nFive stars praise, encourage me!") preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:SOLocalize(@"Unlock") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self jump];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:SOLocalize(@"Give up") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    
+    [self presentViewController:alertController animated:YES completion:^{
+        NSLog(@"presented");
+    }];
+}
+
+// 显示打分评论
+- (void)showSKStoreReview
+{
+//    if([SKStoreReviewController respondsToSelector:@selector(requestReview)]) {// iOS 10.3 以上支持
+//        [SKStoreReviewController requestReview];
+//    } else { // iOS 10.3 之前的使用这个
+//        NSString *appid = @"1372766943";
+//        //替换为对应的APPID
+//        NSString  *nsStringToOpen = [NSString  stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@?action=write-review",appid];
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:nsStringToOpen]];
+//    }
+}
+
+/**
+ 应用内跳转到App Store页
+ */
+- (void)jump {
+    
+    NSString *appId = APPID;
+    if ([BUNDLEID isEqualToString:PURESMSPRO]) {
+        appId = APPIDPRO;
+    }
+    // 创建对象
+    SKStoreProductViewController *storeVC = [[SKStoreProductViewController alloc] init];
+    // 设置代理
+    storeVC.delegate = self;
+    // 初始化参数
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:appId forKey:SKStoreProductParameterITunesItemIdentifier];
+    
+    // 跳转App Store页
+    [storeVC loadProductWithParameters:dict completionBlock:^(BOOL result, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"错误信息：%@",error.userInfo);
+        }
+        else
+        {
+            // 弹出模态视图
+            [self presentViewController:storeVC animated:YES completion:nil];
+        }
+    }];
+    
+}
+
+
+#pragma mark -- SKStoreProductViewControllerDelegate
+/**
+ SKStoreProductViewControllerDelegate 方法，选择完成之后的处理
+ 
+ @param viewController SKStoreProductViewController
+ */
+- (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController
+{
+    [viewController dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"完成");
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:self.userdefKey];
+    }];
+}
+
+#pragma mark - 点击事件
 - (IBAction)openHelpButEvent:(UIButton *)sender {
     SOHelpViewController *helpVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SOHelpViewController"];
     [self.navigationController pushViewController:helpVC animated:YES];
 }
 
 - (IBAction)leftButEvent:(UIBarButtonItem *)sender {
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isFirstLeftBtn"]) {
+        [self showCustomizeSKStoreReviewWithKey:@"isFirstLeftBtn"];
+        return;
+    }
     [self getKeyWord];
     if (_isBlack) {
         _isBlack = NO;
-        self.title = @"短信过滤 白名单";
-        sender.title = @"黑名单";
-        [_leftBut setTitle:@"黑名单" forState:UIControlStateNormal];
+        self.title = SOLocalize(@"SMS filtering white list");
+        sender.title = SOLocalize(@"Blacklist");
+        [_leftBut setTitle:SOLocalize(@"Blacklist") forState:UIControlStateNormal];
         self.keyWordMutArray = self.whiteKeyWordMutArray;
     }
     else {
         _isBlack = YES;
-        self.title = @"短信过滤 黑名单";
-        sender.title = @"白名单";
-        [_leftBut setTitle:@"白名单" forState:UIControlStateNormal];
+        self.title = SOLocalize(@"SMS filtering black list");
+        sender.title = SOLocalize(@"Whitelist");
+        [_leftBut setTitle:SOLocalize(@"Whitelist") forState:UIControlStateNormal];
         self.keyWordMutArray = self.blackKeyWordMutArray;
     }
     [self.blackTableView reloadData];
@@ -157,7 +241,10 @@
 }
 
 - (IBAction)rightButEvent:(UIBarButtonItem *)sender {
-    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isFirstRightBtn"]) {
+        [self showCustomizeSKStoreReviewWithKey:@"isFirstRightBtn"];
+        return;
+    }
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Please enter a keyword") message:@"" preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
@@ -166,8 +253,7 @@
     
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:SOLocalize(@"OK") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         UITextField *tempField = [alertController.textFields firstObject];
-        NSLog(@"%@",tempField.text);
-        NSLog(@"ok");
+        NSLog(@"ok==%@",tempField.text);
         if (tempField.text.length) {
             SOKeywordModelExt *keyModel = [[SOKeywordModelExt alloc] init];
             keyModel.isOpen = YES;
@@ -185,7 +271,7 @@
             [self.blackTableView reloadData];
 
             NSArray *keyArray = [NSArray arrayWithArray:self.keyWordMutArray];
-            NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName];
+            NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
             if (_isBlack) {
                 [userDefaults setObject:keyArray forKey:KEYWORDARRAY];
             }
@@ -206,6 +292,7 @@
     }];
 }
 
+#pragma mark - cell子事件
 - (void)cellSwitch:(UISwitch *) sender
 {
     NSLog(@"sender.tag == %ld", sender.tag);
@@ -216,7 +303,7 @@
     NSMutableArray *mutArray = [NSMutableArray arrayWithArray:self.keyWordMutArray];
     [mutArray replaceObjectAtIndex:sender.tag withObject:data];
     self.keyWordMutArray = mutArray;
-    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName];
+    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
     if (_isBlack) {
         [userDefaults setObject:self.keyWordMutArray forKey:KEYWORDARRAY];
     }
@@ -242,10 +329,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SOBlackTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SOBlackTableViewCell" forIndexPath:indexPath];
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CELL"];
-//    if (!cell) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL"];
-//    }
     cell.separatorInset = UIEdgeInsetsMake(0, 20, 0, 0);
     SOKeywordModelExt *keyModel = [NSKeyedUnarchiver unarchiveObjectWithData:self.keyWordMutArray[indexPath.row]];
     cell.cellLabel.text = keyModel.keywordStr;
@@ -271,7 +354,7 @@
         [mutArray removeObjectAtIndex:indexPath.row];
         self.keyWordMutArray = mutArray;
         
-        NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName];
+        NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
         if (_isBlack) {
             [userDefaults setObject:self.keyWordMutArray forKey:KEYWORDARRAY];
         }
@@ -282,7 +365,6 @@
         
         [self.blackTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
     }
-    
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -290,6 +372,7 @@
     return NSLocalizedString(@"Delete", nil);
 }
 
+#pragma mark - 懒加载
 - (NSMutableArray *)keyWordMutArray
 {
     if (!_keyWordMutArray) {

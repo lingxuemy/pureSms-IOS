@@ -5,6 +5,7 @@
 	<key>com.apple.security.application-groups</key>
 	<array>
 		<string>group.com.welightworld.puresms</string>
+		<string>group.com.welightworld.puresmspro</string>
 	</array>
 </dict>
 </plist>
