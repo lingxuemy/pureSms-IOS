@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0431791720B44AFA00ADF0F0 /* XTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431791620B44AF900ADF0F0 /* XTimer.m */; };
 		044632EB208338C000F7A2B7 /* SOBlackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044632E9208338C000F7A2B7 /* SOBlackTableViewCell.m */; };
 		044632EC208338C000F7A2B7 /* SOBlackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044632EA208338C000F7A2B7 /* SOBlackTableViewCell.xib */; };
 		044632F22083805D00F7A2B7 /* SOKeywordModelExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 044632F12083805D00F7A2B7 /* SOKeywordModelExt.m */; };
@@ -75,6 +76,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0431791520B44AF900ADF0F0 /* XTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTimer.h; sourceTree = "<group>"; };
+		0431791620B44AF900ADF0F0 /* XTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTimer.m; sourceTree = "<group>"; };
 		044632E72081A58E00F7A2B7 /* PureSms.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PureSms.entitlements; sourceTree = "<group>"; };
 		044632E8208338C000F7A2B7 /* SOBlackTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOBlackTableViewCell.h; sourceTree = "<group>"; };
 		044632E9208338C000F7A2B7 /* SOBlackTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOBlackTableViewCell.m; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 		04570FD6207CF4350065B644 /* Rule */ = {
 			isa = PBXGroup;
 			children = (
+				0431791520B44AF900ADF0F0 /* XTimer.h */,
+				0431791620B44AF900ADF0F0 /* XTimer.m */,
 				044633022095B20100F7A2B7 /* UITableView+Animations.h */,
 				044633012095B20100F7A2B7 /* UITableView+Animations.m */,
 				044632F42083957700F7A2B7 /* XScrollView.h */,
@@ -582,6 +587,7 @@
 				0457100220809C290065B644 /* SOConditionViewController.m in Sources */,
 				04570FFA2080488E0065B644 /* SOBlackViewController.m in Sources */,
 				0457100920809D610065B644 /* SOConditionTableViewCell.m in Sources */,
+				0431791720B44AFA00ADF0F0 /* XTimer.m in Sources */,
 				044632EB208338C000F7A2B7 /* SOBlackTableViewCell.m in Sources */,
 				044632F22083805D00F7A2B7 /* SOKeywordModelExt.m in Sources */,
 			);
@@ -764,13 +770,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 77FFCAC56E187092BD165629 /* Pods-PureSms.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconPro;
 				CODE_SIGN_ENTITLEMENTS = PureSms/PureSms.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LV6Y87Y7RS;
 				INFOPLIST_FILE = PureSms/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresms;
+				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresmspro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -780,13 +786,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F8912E0BFDA8CF7175C76EAB /* Pods-PureSms.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconPro;
 				CODE_SIGN_ENTITLEMENTS = PureSms/PureSms.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LV6Y87Y7RS;
 				INFOPLIST_FILE = PureSms/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresms;
+				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresmspro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -861,7 +867,7 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = PureSmsExt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresms.ext;
+				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresmspro.ext;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -879,7 +885,7 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = PureSmsExt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresms.ext;
+				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresmspro.ext;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
