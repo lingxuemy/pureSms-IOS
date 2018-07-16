@@ -12,6 +12,7 @@
 #import "SOHelpViewController.h"
 #import <StoreKit/StoreKit.h>
 #import "UITableView+Animations.h"
+#import "XTimer.h"
 
 #define ExtentsionAppGroupName @"group.com.welightworld.puresms"
 #define ExtentsionAppGroupNamePro @"group.com.welightworld.puresmspro"
@@ -38,6 +39,7 @@
 @property (nonatomic, assign) BOOL isBlack;
 @property (nonatomic, strong) UIButton *leftBut;
 @property (nonatomic, strong) NSString *userdefKey;
+@property (nonatomic, assign) NSInteger numberInt;
 
 @end
 
@@ -136,15 +138,16 @@
 - (void)showCustomizeSKStoreReviewWithKey:(NSString *)key
 {
     self.userdefKey = key;
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Tips") message:SOLocalize(@"Five-star praise, unlock this feature!\nFive-star praise, support the author!\nFive stars praise, encourage me!") preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Tips") message:SOLocalize(@"The family is poor, only ask for spiritual encouragement, you must comment, you can use it!") preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:SOLocalize(@"Unlock") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self jump];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:SOLocalize(@"Go to comment") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        [self jump];
+        [self showSKStoreReview];
     }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:SOLocalize(@"Give up") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    }];
+//    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:SOLocalize(@"Give up") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//    }];
     
-    [alertController addAction:cancelAction];
+//    [alertController addAction:cancelAction];
     [alertController addAction:okAction];
     
     [self presentViewController:alertController animated:YES completion:^{
@@ -155,18 +158,28 @@
 // 显示打分评论
 - (void)showSKStoreReview
 {
-//    if([SKStoreReviewController respondsToSelector:@selector(requestReview)]) {// iOS 10.3 以上支持
-//        [SKStoreReviewController requestReview];
-//    } else { // iOS 10.3 之前的使用这个
-//        NSString *appid = @"1372766943";
-//        //替换为对应的APPID
-//        NSString  *nsStringToOpen = [NSString  stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@?action=write-review",appid];
+    if([SKStoreReviewController respondsToSelector:@selector(requestReview)] && _numberInt == 0) {// iOS 10.3 以上支持
+        [SKStoreReviewController requestReview];
+        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:self.userdefKey];
+    }
+    else { // iOS 10.3 之前的使用这个
+        NSString *appId = APPID;
+        if ([BUNDLEID isEqualToString:PURESMSPRO]) {
+            appId = APPIDPRO;
+        }
+        //替换为对应的APPID
+        NSString  *nsStringToOpen = [NSString  stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@?action=write-review",appId];
 //        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:nsStringToOpen]];
-//    }
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:nsStringToOpen] options:[NSDictionary new] completionHandler:^(BOOL success) {
+            if (success) {
+                [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:self.userdefKey];
+            }
+        }];
+    }
 }
 
 /**
- 应用内跳转到App Store页
+ 应用内跳转到App Store页。打分和评论
  */
 - (void)jump {
     
@@ -217,8 +230,19 @@
 }
 
 - (IBAction)leftButEvent:(UIBarButtonItem *)sender {
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isFirstLeftBtn"]) {
-        [self showCustomizeSKStoreReviewWithKey:@"isFirstLeftBtn"];
+//    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isFirstLeftBtn"] && ![XTimer compareNowTime:@"2018-06-15 12:00:00"]) {
+//        [self showCustomizeSKStoreReviewWithKey:@"isFirstLeftBtn"];
+//        return;
+//    }
+    self.userdefKey = @"isLeftBtn";
+    _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
+    if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-06-15 12:00:00"]) {
+        if (_numberInt == 0) {
+            [self showSKStoreReview];
+        }
+        if (_numberInt == 1) {
+            [self showCustomizeSKStoreReviewWithKey:self.userdefKey];
+        }
         return;
     }
     [self getKeyWord];
@@ -241,8 +265,19 @@
 }
 
 - (IBAction)rightButEvent:(UIBarButtonItem *)sender {
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isFirstRightBtn"]) {
-        [self showCustomizeSKStoreReviewWithKey:@"isFirstRightBtn"];
+//    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isFirstRightBtn"] && ![XTimer compareNowTime:@"2018-06-15 12:00:00"]) {
+//        [self showCustomizeSKStoreReviewWithKey:@"isFirstRightBtn"];
+//        return;
+//    }
+    self.userdefKey = @"isRightBtn";
+    _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
+    if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-06-15 12:00:00"]) {
+        if (_numberInt == 0) {
+            [self showSKStoreReview];
+        }
+        if (_numberInt == 1) {
+            [self showCustomizeSKStoreReviewWithKey:self.userdefKey];
+        }
         return;
     }
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Please enter a keyword") message:@"" preferredStyle:UIAlertControllerStyleAlert];
