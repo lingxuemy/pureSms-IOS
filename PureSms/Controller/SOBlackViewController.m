@@ -135,21 +135,36 @@
 }
 
 #pragma mark - 显示提示UI
-- (void)showCustomizeSKStoreReviewWithKey:(NSString *)key
+
+/**
+ 第一次弹框提示
+ */
+- (void)showCustomizeSKStoreReview1
 {
-    self.userdefKey = key;
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Tips") message:SOLocalize(@"The family is poor, only ask for spiritual encouragement, you must comment, you can use it!") preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:SOLocalize(@"Go to comment") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//        [self jump];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Tips") message:SOLocalize(@"The family is poor, relying on writing code for a living. The software has no advertising and no profit, only ask for 5 stars to encourage!") preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:SOLocalize(@"Go to score") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self showSKStoreReview];
     }];
-//    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:SOLocalize(@"Give up") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//    }];
-    
-//    [alertController addAction:cancelAction];
     [alertController addAction:okAction];
-    
+    [self presentViewController:alertController animated:YES completion:^{
+        NSLog(@"presented");
+    }];
+}
+
+/**
+ 第二次弹框提示
+ */
+- (void)showCustomizeSKStoreReview2
+{
+    [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:self.userdefKey];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Tips") message:SOLocalize(@"Please write a comment, if you don't want to write, just go back and just encourage") preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:SOLocalize(@"OK") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self showSKStoreReview];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:SOLocalize(@"Back") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
     [self presentViewController:alertController animated:YES completion:^{
         NSLog(@"presented");
     }];
@@ -230,18 +245,14 @@
 }
 
 - (IBAction)leftButEvent:(UIBarButtonItem *)sender {
-//    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isFirstLeftBtn"] && ![XTimer compareNowTime:@"2018-06-15 12:00:00"]) {
-//        [self showCustomizeSKStoreReviewWithKey:@"isFirstLeftBtn"];
-//        return;
-//    }
     self.userdefKey = @"isLeftBtn";
     _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
     if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-06-15 12:00:00"]) {
         if (_numberInt == 0) {
-            [self showSKStoreReview];
+            [self showCustomizeSKStoreReview1];
         }
         if (_numberInt == 1) {
-            [self showCustomizeSKStoreReviewWithKey:self.userdefKey];
+            [self showCustomizeSKStoreReview2];
         }
         return;
     }
@@ -265,18 +276,14 @@
 }
 
 - (IBAction)rightButEvent:(UIBarButtonItem *)sender {
-//    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isFirstRightBtn"] && ![XTimer compareNowTime:@"2018-06-15 12:00:00"]) {
-//        [self showCustomizeSKStoreReviewWithKey:@"isFirstRightBtn"];
-//        return;
-//    }
     self.userdefKey = @"isRightBtn";
     _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
     if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-06-15 12:00:00"]) {
         if (_numberInt == 0) {
-            [self showSKStoreReview];
+            [self showCustomizeSKStoreReview1];
         }
         if (_numberInt == 1) {
-            [self showCustomizeSKStoreReviewWithKey:self.userdefKey];
+            [self showCustomizeSKStoreReview2];
         }
         return;
     }
