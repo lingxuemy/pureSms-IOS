@@ -45,14 +45,12 @@
 		52974E3F82D1BA569E15379A45CE3AC6 /* XLFormDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D3CA1E54F8CD3B5EDFB95FEA24ED7E /* XLFormDateCell.m */; };
 		54F06CA475420C7D08A34FC9FCF021A7 /* XLFormPickerCell.h in Headers */ = {isa = PBXBuildFile; fileRef = B75980DEA46B375691A8F31D851E8CD8 /* XLFormPickerCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		59D7F456A02E6F94020E69C578D58F35 /* XLFormRowDescriptorViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 66F1BD3AD6E7F4E3CA59060EECF961BB /* XLFormRowDescriptorViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		5B1F6148E49180A0C0A6AF18BB1065D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515752A6021EEB552BC00D106969B6EF /* Foundation.framework */; };
 		5EB3FE0586F958727849D12345A94731 /* XLFormSectionDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5809BEE51F108C017E3B6650500D5AEB /* XLFormSectionDescriptor.m */; };
 		5EBFADB0ACACA114B98082EBD8FDA650 /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 979ABD878A924301E2610323D1314886 /* MASViewConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5ED1B6040C4BFC319CF0AEC920A9AB37 /* NSString+XLFormAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 726FD894C7AC6831EB1FB832F73F5994 /* NSString+XLFormAdditions.m */; };
 		61CCEA01CBE8EFFA5515E7A0D8635AAE /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = C57BE2319F5462F824E01E33F10CA86B /* MASCompositeConstraint.m */; };
 		6209E20926D79222E59F58B962BFAA1E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92896612BF9043CD8EB9B2FE23DB67A1 /* UIKit.framework */; };
 		62621C2116B71AD827ECF3E541EF453A /* XLFormRowDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC659D8D368704EE794E1B31FC68304 /* XLFormRowDescriptor.m */; };
-		6565B7C0EE3DDB11842226D76A890248 /* Pods-PureSmsExt-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7D86BF86A4C32BDF2BEF4179F0A2D3 /* Pods-PureSmsExt-dummy.m */; };
 		6677A5CCFBC625667A23C49EB547DD4D /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC20C1822D6C5DD7DDF89CA6832727B /* NSObject+YYModel.m */; };
 		6765AFDABB30D1695ED703C96441BDCD /* NSArray+XLFormAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 39795F94D35DC1B2C0F1B64AEDFECDB2 /* NSArray+XLFormAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		68F98758BA84B8EC3472A8C6FD646D16 /* Masonry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 371F80B9E51023A083C564143E7B69EC /* Masonry-dummy.m */; };
@@ -122,7 +120,7 @@
 		E41BE761A332182E2506CDDC0BD7A994 /* XLFormOptionsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C5F16D27F8A6F7176B74C082E966BC19 /* XLFormOptionsViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E442442BC86F23F580D869BB93F79685 /* XLFormRightImageButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B3F30F34381E8C67A3B16ED73771266C /* XLFormRightImageButton.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E6040B1D39769E9E71B1F6B7C8F85822 /* XLFormSwitchCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A0F886D3D9BB448DB84A12D0F02586C /* XLFormSwitchCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		E94AB873E83F6686278ADCEA45327601 /* Pods-PureSms-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5626CE6B2A00DF94D083435789A60E01 /* Pods-PureSms-dummy.m */; };
+		E94AB873E83F6686278ADCEA45327601 /* Pods-PureSms-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 23533B14F9005CE3FA369196F70A5189 /* Pods-PureSms-dummy.m */; };
 		ED75BAF5C13CA322FF15919C33C8347C /* XLFormImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C9AB751175C20A3DF7EB047ECD1EA6 /* XLFormImageCell.m */; };
 		F0B56A7D38A399A2F67F9920C9526A66 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515752A6021EEB552BC00D106969B6EF /* Foundation.framework */; };
 		F102F66257B04B73B2878E2881725370 /* XLFormDescriptorCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6776117A3541EB5ABEFAE23B4FF97892 /* XLFormDescriptorCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -145,13 +143,6 @@
 			remoteGlobalIDString = 8C6B174198F4F33E7441456C9EE73C77;
 			remoteInfo = XLForm;
 		};
-		431575B21FF879BFA1E9B5A602F1415D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D99FB5DAB7C8D46CF59E0837ED9EC833;
-			remoteInfo = YYModel;
-		};
 		95F6E8C583372DBB75C712DF3253B753 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -162,7 +153,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		023A4CDB42C24BF199D067DEA5A7FF57 /* libPods-PureSmsExt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-PureSmsExt.a"; path = "libPods-PureSmsExt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		031FE1D0DFCF112023C88A578EEAD960 /* XLFormPickerCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormPickerCell.m; path = XLForm/XL/Cell/XLFormPickerCell.m; sourceTree = "<group>"; };
 		03E6E798E7592BDADA0816D34B091D60 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		04EFA732D740575182049B6DA93972D3 /* XLFormValidator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormValidator.m; path = XLForm/XL/Validation/XLFormValidator.m; sourceTree = "<group>"; };
@@ -175,27 +165,28 @@
 		105ABECFCE6CB6BC83CF42B49E899718 /* NSObject+XLFormAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+XLFormAdditions.h"; path = "XLForm/XL/Helpers/NSObject+XLFormAdditions.h"; sourceTree = "<group>"; };
 		10BB2434A99F26B46B37D70879840006 /* NSString+XLFormAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+XLFormAdditions.h"; path = "XLForm/XL/Helpers/NSString+XLFormAdditions.h"; sourceTree = "<group>"; };
 		134E658D9BD7CEE3B3BA863E0AFF6C72 /* NSObject+XLFormAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+XLFormAdditions.m"; path = "XLForm/XL/Helpers/NSObject+XLFormAdditions.m"; sourceTree = "<group>"; };
+		152D0A8B72FFEE07F67713B47FA2C3C0 /* Pods-PureSms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PureSms.release.xcconfig"; sourceTree = "<group>"; };
 		18341CA5D31623410DA3112DBDA79734 /* UIView+XLFormAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+XLFormAdditions.h"; path = "XLForm/XL/Helpers/UIView+XLFormAdditions.h"; sourceTree = "<group>"; };
 		1904CBBBC2CC57892B3A0B4A0146FECD /* XLFormSegmentedCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormSegmentedCell.m; path = XLForm/XL/Cell/XLFormSegmentedCell.m; sourceTree = "<group>"; };
 		1E48CE6024D20939B07C73DEFA91AE18 /* XLFormValidatorProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormValidatorProtocol.h; path = XLForm/XL/Validation/XLFormValidatorProtocol.h; sourceTree = "<group>"; };
-		1F1C8204E94ADB33E4CFE5CF80E434FF /* libYYModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYYModel.a; path = libYYModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		208CCD7EF9E3E5E2A6CA073B81D6244A /* XLFormRightDetailCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormRightDetailCell.m; path = XLForm/XL/Helpers/Views/XLFormRightDetailCell.m; sourceTree = "<group>"; };
-		21E1AC19CD5A4F1943288E6E014FBDAE /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMasonry.a; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		220CA70AF4350DC411C5EEAC27F4C45E /* XLFormTextFieldCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormTextFieldCell.m; path = XLForm/XL/Cell/XLFormTextFieldCell.m; sourceTree = "<group>"; };
+		23533B14F9005CE3FA369196F70A5189 /* Pods-PureSms-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PureSms-dummy.m"; sourceTree = "<group>"; };
 		2676D237F6AAB1016B4DD218A6399E9E /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
 		26B9A8AC13C375EDAF0D0E3458C1FE08 /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
 		2B02BD0259012D1D16EA675053FF76D3 /* XLFormViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormViewController.m; path = XLForm/XL/Controllers/XLFormViewController.m; sourceTree = "<group>"; };
+		2CE642EF145B6BC27046E6F49D46DDE9 /* libYYModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYYModel.a; path = libYYModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D4DD91C4FEA7EF5CFA0A42DEAD0274F /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
 		2DF4A4A256FE760A0E7C6C657F17E0C2 /* XLForm.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLForm.m; path = XLForm/XL/XLForm.m; sourceTree = "<group>"; };
 		304181F723848B6835CDB8DA9BD7A99D /* XLFormRowNavigationAccessoryView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormRowNavigationAccessoryView.h; path = XLForm/XL/Helpers/Views/XLFormRowNavigationAccessoryView.h; sourceTree = "<group>"; };
 		31CB01A88C3F173EF70DD066FB4E4BA2 /* YYClassInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYClassInfo.h; path = YYModel/YYClassInfo.h; sourceTree = "<group>"; };
+		323186B5420869F2143B07A4A0778C63 /* Pods-PureSms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PureSms.debug.xcconfig"; sourceTree = "<group>"; };
 		331F919E80EC521AFD7CBB11440F2DC1 /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
 		34BAEB61384BC29666675B3774740C70 /* XLFormValidationStatus.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormValidationStatus.m; path = XLForm/XL/Validation/XLFormValidationStatus.m; sourceTree = "<group>"; };
 		35082252ACE823049F69B0CF28C09B03 /* XLFormDatePickerCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormDatePickerCell.m; path = XLForm/XL/Cell/XLFormDatePickerCell.m; sourceTree = "<group>"; };
 		371F80B9E51023A083C564143E7B69EC /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
 		39795F94D35DC1B2C0F1B64AEDFECDB2 /* NSArray+XLFormAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+XLFormAdditions.h"; path = "XLForm/XL/Helpers/NSArray+XLFormAdditions.h"; sourceTree = "<group>"; };
 		3AC20C1822D6C5DD7DDF89CA6832727B /* NSObject+YYModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+YYModel.m"; path = "YYModel/NSObject+YYModel.m"; sourceTree = "<group>"; };
-		3B0E90D0DFB1EA90F3352161100F79E1 /* Pods-PureSms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PureSms.release.xcconfig"; sourceTree = "<group>"; };
 		3C9A7A5F56F609CC92DCD1BFFAFF4742 /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
 		3CD2BA66F1AB58CEE3E9CF99001667BB /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
 		4067642F466BF692EA36BC76C057B9C3 /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -212,20 +203,18 @@
 		515752A6021EEB552BC00D106969B6EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		5353775E951761C50D46086E4F8024A6 /* XLFormInlineSelectorCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormInlineSelectorCell.m; path = XLForm/XL/Cell/XLFormInlineSelectorCell.m; sourceTree = "<group>"; };
 		53C14F17C508FDCB148FB3EFCABBEC70 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
-		5626CE6B2A00DF94D083435789A60E01 /* Pods-PureSms-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PureSms-dummy.m"; sourceTree = "<group>"; };
 		5809BEE51F108C017E3B6650500D5AEB /* XLFormSectionDescriptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormSectionDescriptor.m; path = XLForm/XL/Descriptors/XLFormSectionDescriptor.m; sourceTree = "<group>"; };
 		58225AC35C757B81CEBC24D09847642F /* XLFormValidator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormValidator.h; path = XLForm/XL/Validation/XLFormValidator.h; sourceTree = "<group>"; };
 		59EC51B9F9BA597D8931BD5776100E0A /* XLFormDatePickerCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormDatePickerCell.h; path = XLForm/XL/Cell/XLFormDatePickerCell.h; sourceTree = "<group>"; };
-		5AA69E5A0C4A786F94DD76654151D969 /* Pods-PureSms-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PureSms-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5D4E01693126C489F1CA4BF882B3ADD1 /* libXLForm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libXLForm.a; path = libXLForm.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6133F638D761F00ACAA4C7094C625F08 /* NSPredicate+XLFormAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSPredicate+XLFormAdditions.m"; path = "XLForm/XL/Helpers/NSPredicate+XLFormAdditions.m"; sourceTree = "<group>"; };
 		622CD75099A30BC1FB17D23D4FC65337 /* YYClassInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYClassInfo.m; path = YYModel/YYClassInfo.m; sourceTree = "<group>"; };
 		64FD2ABD3653CD0FCA74612889677CE5 /* NSExpression+XLFormAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSExpression+XLFormAdditions.m"; path = "XLForm/XL/Helpers/NSExpression+XLFormAdditions.m"; sourceTree = "<group>"; };
-		658132041C63708C07051B1C399B6CEF /* Pods-PureSms-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PureSms-frameworks.sh"; sourceTree = "<group>"; };
-		66A796EBC0D8311223746110FD645304 /* Pods-PureSmsExt-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PureSmsExt-acknowledgements.markdown"; sourceTree = "<group>"; };
 		66F1BD3AD6E7F4E3CA59060EECF961BB /* XLFormRowDescriptorViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormRowDescriptorViewController.h; path = XLForm/XL/Controllers/XLFormRowDescriptorViewController.h; sourceTree = "<group>"; };
 		6776117A3541EB5ABEFAE23B4FF97892 /* XLFormDescriptorCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormDescriptorCell.h; path = XLForm/XL/Cell/XLFormDescriptorCell.h; sourceTree = "<group>"; };
 		6819F8580526DE71D5F7E1FC356858DE /* XLForm-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XLForm-dummy.m"; sourceTree = "<group>"; };
 		6BB8038E2639E9C43F283579128328B6 /* XLFormValidationStatus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormValidationStatus.h; path = XLForm/XL/Validation/XLFormValidationStatus.h; sourceTree = "<group>"; };
+		705D78D88DE90CC6D9082E9CD438EE39 /* Pods-PureSms-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PureSms-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7251F5B44213F1E9BE4473FDF2CF2926 /* XLFormImageCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormImageCell.h; path = XLForm/XL/Cell/XLFormImageCell.h; sourceTree = "<group>"; };
 		726FD894C7AC6831EB1FB832F73F5994 /* NSString+XLFormAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+XLFormAdditions.m"; path = "XLForm/XL/Helpers/NSString+XLFormAdditions.m"; sourceTree = "<group>"; };
 		74247BA8F9B401111693FF8FC80A2EE0 /* XLFormOptionsViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormOptionsViewController.m; path = XLForm/XL/Controllers/XLFormOptionsViewController.m; sourceTree = "<group>"; };
@@ -237,8 +226,8 @@
 		7E9E1CE7FCDE0A5A8404612FDD5E483E /* XLFormInlineRowDescriptorCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormInlineRowDescriptorCell.h; path = XLForm/XL/Cell/XLFormInlineRowDescriptorCell.h; sourceTree = "<group>"; };
 		7F615F6556290CFD9348B1E36DF81985 /* NSExpression+XLFormAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSExpression+XLFormAdditions.h"; path = "XLForm/XL/Helpers/NSExpression+XLFormAdditions.h"; sourceTree = "<group>"; };
 		803E6747DE74A665BC774301D684663A /* XLFormBaseCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormBaseCell.h; path = XLForm/XL/Cell/XLFormBaseCell.h; sourceTree = "<group>"; };
+		857856E06DDD34F24A1318C67912F722 /* libPods-PureSms.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-PureSms.a"; path = "libPods-PureSms.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		869B8CDD09271AD9E5058558C81B1FD5 /* XLFormDescriptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormDescriptor.m; path = XLForm/XL/Descriptors/XLFormDescriptor.m; sourceTree = "<group>"; };
-		86A0DB7557D7D95DB7ACE142EB398E47 /* Pods-PureSmsExt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PureSmsExt.release.xcconfig"; sourceTree = "<group>"; };
 		8ABB3D6B03169AECBDA820503DAAAD83 /* YYModel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYModel.xcconfig; sourceTree = "<group>"; };
 		8C9FFBA9703F5347D81FEE47A9F03596 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
 		8EE4FCFBAE5B78C20BFCE9CE0B7DE441 /* XLFormDateCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormDateCell.h; path = XLForm/XL/Cell/XLFormDateCell.h; sourceTree = "<group>"; };
@@ -250,12 +239,12 @@
 		971F820E412AEA81164967440B3547EC /* XLForm.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = XLForm.bundle; path = XLForm/XLForm.bundle; sourceTree = "<group>"; };
 		979ABD878A924301E2610323D1314886 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
 		9ACD556B0AC6D9C9BD575FBC56C4329A /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		9BD4C08DD80DA8810B1143A8E471076E /* Pods-PureSms-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PureSms-acknowledgements.plist"; sourceTree = "<group>"; };
+		9BE402E8E97701112968663861E7E3EB /* Pods-PureSms-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PureSms-resources.sh"; sourceTree = "<group>"; };
 		9C16C9A450FE656F936B20810845B7DF /* XLFormTextFieldCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormTextFieldCell.h; path = XLForm/XL/Cell/XLFormTextFieldCell.h; sourceTree = "<group>"; };
+		9D1CD4FD932BFB5B75AAA5CA46A2D1ED /* Pods-PureSms-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PureSms-frameworks.sh"; sourceTree = "<group>"; };
 		9DD760123D4D683AD5168A028E91A32D /* XLForm.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XLForm.xcconfig; sourceTree = "<group>"; };
 		9F66EDCAFA523F36033334B49B082F76 /* XLFormTextViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormTextViewCell.m; path = XLForm/XL/Cell/XLFormTextViewCell.m; sourceTree = "<group>"; };
 		A0E2ACA22B421CDA69AE0A70B6FE3CC9 /* XLFormSwitchCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormSwitchCell.m; path = XLForm/XL/Cell/XLFormSwitchCell.m; sourceTree = "<group>"; };
-		A29E8AA69FA7E1803486E7161FAB763E /* Pods-PureSmsExt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PureSmsExt.debug.xcconfig"; sourceTree = "<group>"; };
 		A2B772CF033677109174D772D85ADC0B /* NSPredicate+XLFormAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSPredicate+XLFormAdditions.h"; path = "XLForm/XL/Helpers/NSPredicate+XLFormAdditions.h"; sourceTree = "<group>"; };
 		A4523BF0016198698EC32DB087C4FC7A /* XLFormInlineSelectorCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormInlineSelectorCell.h; path = XLForm/XL/Cell/XLFormInlineSelectorCell.h; sourceTree = "<group>"; };
 		A75F3EDBF0AB4B39CC05BD659D6C4142 /* XLFormDescriptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormDescriptor.h; path = XLForm/XL/Descriptors/XLFormDescriptor.h; sourceTree = "<group>"; };
@@ -265,10 +254,9 @@
 		AC5E3DF70F471B5CB73B7313EC5A7C57 /* YYModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYModel.h; path = YYModel/YYModel.h; sourceTree = "<group>"; };
 		AE455779B4CB05ED681C9A3DE81D0080 /* XLFormRegexValidator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormRegexValidator.m; path = XLForm/XL/Validation/XLFormRegexValidator.m; sourceTree = "<group>"; };
 		AF5215C6E0ADF971B0E97DE0642F771D /* XLFormSegmentedCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormSegmentedCell.h; path = XLForm/XL/Cell/XLFormSegmentedCell.h; sourceTree = "<group>"; };
+		B01D4827B4556B7808CAA7048CD84E76 /* Pods-PureSms-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PureSms-acknowledgements.plist"; sourceTree = "<group>"; };
 		B2BE973D9928C8B023FA2B3855C8AFCC /* XLFormStepCounterCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormStepCounterCell.m; path = XLForm/XL/Cell/XLFormStepCounterCell.m; sourceTree = "<group>"; };
 		B3F30F34381E8C67A3B16ED73771266C /* XLFormRightImageButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormRightImageButton.h; path = XLForm/XL/Helpers/Views/XLFormRightImageButton.h; sourceTree = "<group>"; };
-		B3F79C7C079B470DE1D59893B4789E5E /* Pods-PureSms-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PureSms-resources.sh"; sourceTree = "<group>"; };
-		B539D2F215E2A9BCC816AAAB29FBEA4D /* Pods-PureSmsExt-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PureSmsExt-acknowledgements.plist"; sourceTree = "<group>"; };
 		B72C8B0C3B930BE3C2222A441D87EB3C /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
 		B75980DEA46B375691A8F31D851E8CD8 /* XLFormPickerCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormPickerCell.h; path = XLForm/XL/Cell/XLFormPickerCell.h; sourceTree = "<group>"; };
 		B7B7DDB92457D684F16FF46A1BE7E011 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -282,7 +270,6 @@
 		CB66877B216004BC587716C8F972787B /* XLFormLeftRightSelectorCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormLeftRightSelectorCell.h; path = XLForm/XL/Cell/XLFormLeftRightSelectorCell.h; sourceTree = "<group>"; };
 		CC5D6070DCBFE82DA5EC122F8E068612 /* XLFormCheckCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormCheckCell.m; path = XLForm/XL/Cell/XLFormCheckCell.m; sourceTree = "<group>"; };
 		CE2914E879C0518956793D4440E87210 /* XLFormSliderCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormSliderCell.h; path = XLForm/XL/Cell/XLFormSliderCell.h; sourceTree = "<group>"; };
-		CED3A86A8100BA5F3C4EFD02223226CE /* libXLForm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libXLForm.a; path = libXLForm.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D056090ED692EF0479E820C292C1D715 /* XLFormRightImageButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormRightImageButton.m; path = XLForm/XL/Helpers/Views/XLFormRightImageButton.m; sourceTree = "<group>"; };
 		D097B442D3444AC1EC07764DA3ACB1F3 /* XLForm-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XLForm-prefix.pch"; sourceTree = "<group>"; };
 		D2357C9886EB4A920E4FA7E5844795A3 /* XLFormRowNavigationAccessoryView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormRowNavigationAccessoryView.m; path = XLForm/XL/Helpers/Views/XLFormRowNavigationAccessoryView.m; sourceTree = "<group>"; };
@@ -299,21 +286,10 @@
 		EE5AA9FBD618F2424E78F6B32EED3A56 /* XLFormTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XLFormTextView.m; path = XLForm/XL/Helpers/Views/XLFormTextView.m; sourceTree = "<group>"; };
 		F37E79D5A112488D0F61D816146F1573 /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
 		F5A586682196749CA1D3CCCF2692EC90 /* XLFormSelectorCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XLFormSelectorCell.h; path = XLForm/XL/Cell/XLFormSelectorCell.h; sourceTree = "<group>"; };
-		FA324019E5274983BBE1B9D0DAD0EFEC /* Pods-PureSms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PureSms.debug.xcconfig"; sourceTree = "<group>"; };
-		FD7D86BF86A4C32BDF2BEF4179F0A2D3 /* Pods-PureSmsExt-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PureSmsExt-dummy.m"; sourceTree = "<group>"; };
-		FF84661C780470B655E8383EAD91DFD1 /* Pods-PureSmsExt-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PureSmsExt-resources.sh"; sourceTree = "<group>"; };
-		FF92E507FBB90C7C51B57CB1A67A876D /* libPods-PureSms.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-PureSms.a"; path = "libPods-PureSms.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5FD2B960945E726AA7901D6E7F72848 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMasonry.a; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1FDC8DD91357725153EE7868B6BE3E0D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5B1F6148E49180A0C0A6AF18BB1065D7 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2C783B915A8E37DD0E869882A5900648 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -362,18 +338,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/XLForm";
-			sourceTree = "<group>";
-		};
-		06FA82AAE9BBC366B913AE78D2604ED3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				21E1AC19CD5A4F1943288E6E014FBDAE /* libMasonry.a */,
-				FF92E507FBB90C7C51B57CB1A67A876D /* libPods-PureSms.a */,
-				023A4CDB42C24BF199D067DEA5A7FF57 /* libPods-PureSmsExt.a */,
-				CED3A86A8100BA5F3C4EFD02223226CE /* libXLForm.a */,
-				1F1C8204E94ADB33E4CFE5CF80E434FF /* libYYModel.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */ = {
@@ -451,19 +415,30 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
-		44202E02BE714FCFE4A1C4A967BFC4F4 /* Pods-PureSms */ = {
+		5CD0056E83B4EC67BD2DFD2A882B0E30 /* Pods-PureSms */ = {
 			isa = PBXGroup;
 			children = (
-				5AA69E5A0C4A786F94DD76654151D969 /* Pods-PureSms-acknowledgements.markdown */,
-				9BD4C08DD80DA8810B1143A8E471076E /* Pods-PureSms-acknowledgements.plist */,
-				5626CE6B2A00DF94D083435789A60E01 /* Pods-PureSms-dummy.m */,
-				658132041C63708C07051B1C399B6CEF /* Pods-PureSms-frameworks.sh */,
-				B3F79C7C079B470DE1D59893B4789E5E /* Pods-PureSms-resources.sh */,
-				FA324019E5274983BBE1B9D0DAD0EFEC /* Pods-PureSms.debug.xcconfig */,
-				3B0E90D0DFB1EA90F3352161100F79E1 /* Pods-PureSms.release.xcconfig */,
+				705D78D88DE90CC6D9082E9CD438EE39 /* Pods-PureSms-acknowledgements.markdown */,
+				B01D4827B4556B7808CAA7048CD84E76 /* Pods-PureSms-acknowledgements.plist */,
+				23533B14F9005CE3FA369196F70A5189 /* Pods-PureSms-dummy.m */,
+				9D1CD4FD932BFB5B75AAA5CA46A2D1ED /* Pods-PureSms-frameworks.sh */,
+				9BE402E8E97701112968663861E7E3EB /* Pods-PureSms-resources.sh */,
+				323186B5420869F2143B07A4A0778C63 /* Pods-PureSms.debug.xcconfig */,
+				152D0A8B72FFEE07F67713B47FA2C3C0 /* Pods-PureSms.release.xcconfig */,
 			);
 			name = "Pods-PureSms";
 			path = "Target Support Files/Pods-PureSms";
+			sourceTree = "<group>";
+		};
+		5D38B63B058551E1711A22DED18A90C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5FD2B960945E726AA7901D6E7F72848 /* libMasonry.a */,
+				857856E06DDD34F24A1318C67912F722 /* libPods-PureSms.a */,
+				5D4E01693126C489F1CA4BF882B3ADD1 /* libXLForm.a */,
+				2CE642EF145B6BC27046E6F49D46DDE9 /* libYYModel.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		77FC60FE04AB1BE8068B78B791854A22 /* Bugly */ = {
@@ -481,8 +456,8 @@
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */,
 				2E099313D74C34CC32B17E7BEB58BE9F /* Pods */,
-				06FA82AAE9BBC366B913AE78D2604ED3 /* Products */,
-				C474248D7D57BFD3E0E252C632D60F8B /* Targets Support Files */,
+				5D38B63B058551E1711A22DED18A90C9 /* Products */,
+				D27C76B3320A141527ECBCB3B32CC5B3 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -516,15 +491,6 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		C474248D7D57BFD3E0E252C632D60F8B /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				44202E02BE714FCFE4A1C4A967BFC4F4 /* Pods-PureSms */,
-				E006D6AA854EC83E07A6EC366AB522FA /* Pods-PureSmsExt */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
 		CCAE2D6DF730DCBF5BC0224B2BFFEAE3 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,18 +502,12 @@
 			path = "../Target Support Files/Masonry";
 			sourceTree = "<group>";
 		};
-		E006D6AA854EC83E07A6EC366AB522FA /* Pods-PureSmsExt */ = {
+		D27C76B3320A141527ECBCB3B32CC5B3 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				66A796EBC0D8311223746110FD645304 /* Pods-PureSmsExt-acknowledgements.markdown */,
-				B539D2F215E2A9BCC816AAAB29FBEA4D /* Pods-PureSmsExt-acknowledgements.plist */,
-				FD7D86BF86A4C32BDF2BEF4179F0A2D3 /* Pods-PureSmsExt-dummy.m */,
-				FF84661C780470B655E8383EAD91DFD1 /* Pods-PureSmsExt-resources.sh */,
-				A29E8AA69FA7E1803486E7161FAB763E /* Pods-PureSmsExt.debug.xcconfig */,
-				86A0DB7557D7D95DB7ACE142EB398E47 /* Pods-PureSmsExt.release.xcconfig */,
+				5CD0056E83B4EC67BD2DFD2A882B0E30 /* Pods-PureSms */,
 			);
-			name = "Pods-PureSmsExt";
-			path = "Target Support Files/Pods-PureSmsExt";
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		EDF83B21715E6DF1AA5EE63D5C26BDAE /* XLForm */ = {
@@ -737,7 +697,7 @@
 			);
 			name = XLForm;
 			productName = XLForm;
-			productReference = CED3A86A8100BA5F3C4EFD02223226CE /* libXLForm.a */;
+			productReference = 5D4E01693126C489F1CA4BF882B3ADD1 /* libXLForm.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		9DC8D9E02903E93BD0B2FEC9D846EA20 /* Masonry */ = {
@@ -754,7 +714,7 @@
 			);
 			name = Masonry;
 			productName = Masonry;
-			productReference = 21E1AC19CD5A4F1943288E6E014FBDAE /* libMasonry.a */;
+			productReference = F5FD2B960945E726AA7901D6E7F72848 /* libMasonry.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		B565BC3C626BA5848B526731FA0EDE75 /* Pods-PureSms */ = {
@@ -773,24 +733,7 @@
 			);
 			name = "Pods-PureSms";
 			productName = "Pods-PureSms";
-			productReference = FF92E507FBB90C7C51B57CB1A67A876D /* libPods-PureSms.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		CF8922E9C6644A53EBF42E4EE14804DD /* Pods-PureSmsExt */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 007BC5873D861158E789CE43250C4333 /* Build configuration list for PBXNativeTarget "Pods-PureSmsExt" */;
-			buildPhases = (
-				4C593771A7EC4908DF11F3132892CD21 /* Sources */,
-				1FDC8DD91357725153EE7868B6BE3E0D /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7C0FBFD3A2BC10849CC55D9CAF76F99F /* PBXTargetDependency */,
-			);
-			name = "Pods-PureSmsExt";
-			productName = "Pods-PureSmsExt";
-			productReference = 023A4CDB42C24BF199D067DEA5A7FF57 /* libPods-PureSmsExt.a */;
+			productReference = 857856E06DDD34F24A1318C67912F722 /* libPods-PureSms.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		D99FB5DAB7C8D46CF59E0837ED9EC833 /* YYModel */ = {
@@ -807,7 +750,7 @@
 			);
 			name = YYModel;
 			productName = YYModel;
-			productReference = 1F1C8204E94ADB33E4CFE5CF80E434FF /* libYYModel.a */;
+			productReference = 2CE642EF145B6BC27046E6F49D46DDE9 /* libYYModel.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -827,13 +770,12 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 06FA82AAE9BBC366B913AE78D2604ED3 /* Products */;
+			productRefGroup = 5D38B63B058551E1711A22DED18A90C9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				9DC8D9E02903E93BD0B2FEC9D846EA20 /* Masonry */,
 				B565BC3C626BA5848B526731FA0EDE75 /* Pods-PureSms */,
-				CF8922E9C6644A53EBF42E4EE14804DD /* Pods-PureSmsExt */,
 				8C6B174198F4F33E7441456C9EE73C77 /* XLForm */,
 				D99FB5DAB7C8D46CF59E0837ED9EC833 /* YYModel */,
 			);
@@ -841,14 +783,6 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4C593771A7EC4908DF11F3132892CD21 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6565B7C0EE3DDB11842226D76A890248 /* Pods-PureSmsExt-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9D2CC3CC0E31D2058AB5CA6722B42B6D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -950,62 +884,9 @@
 			target = 9DC8D9E02903E93BD0B2FEC9D846EA20 /* Masonry */;
 			targetProxy = 95F6E8C583372DBB75C712DF3253B753 /* PBXContainerItemProxy */;
 		};
-		7C0FBFD3A2BC10849CC55D9CAF76F99F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = YYModel;
-			target = D99FB5DAB7C8D46CF59E0837ED9EC833 /* YYModel */;
-			targetProxy = 431575B21FF879BFA1E9B5A602F1415D /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1CA77940A5D5336687918ADF4AA66EFF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8ABB3D6B03169AECBDA820503DAAAD83 /* YYModel.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/YYModel/YYModel-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = YYModel;
-				PRODUCT_NAME = YYModel;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		2D8FA3B9A15A455FA35816AC65032406 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 86A0DB7557D7D95DB7ACE142EB398E47 /* Pods-PureSmsExt.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		5439BD5B277E8A3E7C3DC1E4C94B79C2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9DD760123D4D683AD5168A028E91A32D /* XLForm.xcconfig */;
@@ -1077,11 +958,10 @@
 			};
 			name = Release;
 		};
-		937F9001BB1B547A7190B915EB8C4110 /* Release */ = {
+		7C3D4A99FB7A5DFEFF06F6C658D9589C /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8ABB3D6B03169AECBDA820503DAAAD83 /* YYModel.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1104,7 +984,7 @@
 		};
 		A2A23AB60C6FC7748766864A461C8690 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B0E90D0DFB1EA90F3352161100F79E1 /* Pods-PureSms.release.xcconfig */;
+			baseConfigurationReference = 152D0A8B72FFEE07F67713B47FA2C3C0 /* Pods-PureSms.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1124,33 +1004,34 @@
 			};
 			name = Release;
 		};
-		A929F3083568A28563DD23F3472270A3 /* Debug */ = {
+		A63C9681FCF34EDD98A6C2F57EB64CA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA324019E5274983BBE1B9D0DAD0EFEC /* Pods-PureSms.debug.xcconfig */;
+			baseConfigurationReference = 8ABB3D6B03169AECBDA820503DAAAD83 /* YYModel.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MACH_O_TYPE = staticlib;
+				GCC_PREFIX_HEADER = "Target Support Files/YYModel/YYModel-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = YYModel;
+				PRODUCT_NAME = YYModel;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		B8E7ACCFEE1CDDC68FBDBEB1275495E9 /* Debug */ = {
+		A929F3083568A28563DD23F3472270A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A29E8AA69FA7E1803486E7161FAB763E /* Pods-PureSmsExt.debug.xcconfig */;
+			baseConfigurationReference = 323186B5420869F2143B07A4A0778C63 /* Pods-PureSms.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1314,15 +1195,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		007BC5873D861158E789CE43250C4333 /* Build configuration list for PBXNativeTarget "Pods-PureSmsExt" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B8E7ACCFEE1CDDC68FBDBEB1275495E9 /* Debug */,
-				2D8FA3B9A15A455FA35816AC65032406 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1344,8 +1216,8 @@
 		73CBEFC572A2A4241E21B7FBABCE0B42 /* Build configuration list for PBXNativeTarget "YYModel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1CA77940A5D5336687918ADF4AA66EFF /* Debug */,
-				937F9001BB1B547A7190B915EB8C4110 /* Release */,
+				A63C9681FCF34EDD98A6C2F57EB64CA8 /* Debug */,
+				7C3D4A99FB7A5DFEFF06F6C658D9589C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

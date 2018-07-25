@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042CFCBE2108A521006B47AE /* MLMenuItemsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042CFCBB2108A520006B47AE /* MLMenuItemsView.m */; };
+		042CFCBF2108A521006B47AE /* MLMenuData.m in Sources */ = {isa = PBXBuildFile; fileRef = 042CFCBC2108A520006B47AE /* MLMenuData.m */; };
+		042CFCC02108A521006B47AE /* MLMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042CFCBD2108A521006B47AE /* MLMenuView.m */; };
 		0431791720B44AFA00ADF0F0 /* XTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431791620B44AF900ADF0F0 /* XTimer.m */; };
 		044632EB208338C000F7A2B7 /* SOBlackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044632E9208338C000F7A2B7 /* SOBlackTableViewCell.m */; };
 		044632EC208338C000F7A2B7 /* SOBlackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044632EA208338C000F7A2B7 /* SOBlackTableViewCell.xib */; };
@@ -34,7 +37,6 @@
 		0457100920809D610065B644 /* SOConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457100720809D610065B644 /* SOConditionTableViewCell.m */; };
 		0457100A20809D610065B644 /* SOConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0457100820809D610065B644 /* SOConditionTableViewCell.xib */; };
 		78FA394DAC703BD124C5C27D /* libPods-PureSms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C74C596648E09739092C3CEC /* libPods-PureSms.a */; };
-		FC5C1B78C483B8FF904F2305 /* libPods-PureSmsExt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D10C81FB32CB36D98521D98 /* libPods-PureSmsExt.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		042CFCB82108A520006B47AE /* MLMenuData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMenuData.h; sourceTree = "<group>"; };
+		042CFCB92108A520006B47AE /* MLMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMenuView.h; sourceTree = "<group>"; };
+		042CFCBA2108A520006B47AE /* MLMenuItemsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMenuItemsView.h; sourceTree = "<group>"; };
+		042CFCBB2108A520006B47AE /* MLMenuItemsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMenuItemsView.m; sourceTree = "<group>"; };
+		042CFCBC2108A520006B47AE /* MLMenuData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMenuData.m; sourceTree = "<group>"; };
+		042CFCBD2108A521006B47AE /* MLMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMenuView.m; sourceTree = "<group>"; };
 		0431791520B44AF900ADF0F0 /* XTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTimer.h; sourceTree = "<group>"; };
 		0431791620B44AF900ADF0F0 /* XTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTimer.m; sourceTree = "<group>"; };
 		044632E72081A58E00F7A2B7 /* PureSms.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PureSms.entitlements; sourceTree = "<group>"; };
@@ -126,9 +134,7 @@
 		0457100720809D610065B644 /* SOConditionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOConditionTableViewCell.m; sourceTree = "<group>"; };
 		0457100820809D610065B644 /* SOConditionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SOConditionTableViewCell.xib; sourceTree = "<group>"; };
 		1D10C81FB32CB36D98521D98 /* libPods-PureSmsExt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PureSmsExt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		442E735B357740D7B10BC362 /* Pods-PureSmsExt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PureSmsExt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PureSmsExt/Pods-PureSmsExt.debug.xcconfig"; sourceTree = "<group>"; };
 		77FFCAC56E187092BD165629 /* Pods-PureSms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PureSms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PureSms/Pods-PureSms.debug.xcconfig"; sourceTree = "<group>"; };
-		AD9BF34272A82C011B9E2952 /* Pods-PureSmsExt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PureSmsExt.release.xcconfig"; path = "Pods/Target Support Files/Pods-PureSmsExt/Pods-PureSmsExt.release.xcconfig"; sourceTree = "<group>"; };
 		C74C596648E09739092C3CEC /* libPods-PureSms.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PureSms.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8912E0BFDA8CF7175C76EAB /* Pods-PureSms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PureSms.release.xcconfig"; path = "Pods/Target Support Files/Pods-PureSms/Pods-PureSms.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,13 +166,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC5C1B78C483B8FF904F2305 /* libPods-PureSmsExt.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042CFCB72108A4F4006B47AE /* MLMenu */ = {
+			isa = PBXGroup;
+			children = (
+				042CFCB82108A520006B47AE /* MLMenuData.h */,
+				042CFCBC2108A520006B47AE /* MLMenuData.m */,
+				042CFCBA2108A520006B47AE /* MLMenuItemsView.h */,
+				042CFCBB2108A520006B47AE /* MLMenuItemsView.m */,
+				042CFCB92108A520006B47AE /* MLMenuView.h */,
+				042CFCBD2108A521006B47AE /* MLMenuView.m */,
+			);
+			path = MLMenu;
+			sourceTree = "<group>";
+		};
 		044632FA2083974300F7A2B7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +306,7 @@
 		04570FD6207CF4350065B644 /* Rule */ = {
 			isa = PBXGroup;
 			children = (
+				042CFCB72108A4F4006B47AE /* MLMenu */,
 				0431791520B44AF900ADF0F0 /* XTimer.h */,
 				0431791620B44AF900ADF0F0 /* XTimer.m */,
 				044633022095B20100F7A2B7 /* UITableView+Animations.h */,
@@ -332,8 +351,6 @@
 			children = (
 				77FFCAC56E187092BD165629 /* Pods-PureSms.debug.xcconfig */,
 				F8912E0BFDA8CF7175C76EAB /* Pods-PureSms.release.xcconfig */,
-				442E735B357740D7B10BC362 /* Pods-PureSmsExt.debug.xcconfig */,
-				AD9BF34272A82C011B9E2952 /* Pods-PureSmsExt.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -402,7 +419,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04570FC5207B5D7A0065B644 /* Build configuration list for PBXNativeTarget "PureSmsExt" */;
 			buildPhases = (
-				8C0AA996AE1C77CE7F544E5E /* [CP] Check Pods Manifest.lock */,
 				04570FB8207B5D7A0065B644 /* Sources */,
 				04570FB9207B5D7A0065B644 /* Frameworks */,
 				04570FBA207B5D7A0065B644 /* Resources */,
@@ -554,24 +570,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8C0AA996AE1C77CE7F544E5E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PureSmsExt-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -579,9 +577,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042CFCC02108A521006B47AE /* MLMenuView.m in Sources */,
 				04570F96207B5BA50065B644 /* main.m in Sources */,
 				044632F9208395A300F7A2B7 /* SOHelpViewController.m in Sources */,
 				04570F88207B5BA50065B644 /* AppDelegate.m in Sources */,
+				042CFCBE2108A521006B47AE /* MLMenuItemsView.m in Sources */,
 				044632F62083957700F7A2B7 /* XScrollView.m in Sources */,
 				044633032095B20100F7A2B7 /* UITableView+Animations.m in Sources */,
 				0457100220809C290065B644 /* SOConditionViewController.m in Sources */,
@@ -589,6 +589,7 @@
 				0457100920809D610065B644 /* SOConditionTableViewCell.m in Sources */,
 				0431791720B44AFA00ADF0F0 /* XTimer.m in Sources */,
 				044632EB208338C000F7A2B7 /* SOBlackTableViewCell.m in Sources */,
+				042CFCBF2108A521006B47AE /* MLMenuData.m in Sources */,
 				044632F22083805D00F7A2B7 /* SOKeywordModelExt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -858,7 +859,6 @@
 		};
 		04570FC6207B5D7A0065B644 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 442E735B357740D7B10BC362 /* Pods-PureSmsExt.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PureSmsExt/PureSmsExt.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -876,7 +876,6 @@
 		};
 		04570FC7207B5D7A0065B644 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD9BF34272A82C011B9E2952 /* Pods-PureSmsExt.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PureSmsExt/PureSmsExt.entitlements;
 				CODE_SIGN_STYLE = Automatic;

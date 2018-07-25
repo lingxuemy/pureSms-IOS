@@ -9,9 +9,4 @@ pod 'Bugly'
 
 end
 
-target 'PureSmsExt' do
-  
-  pod 'YYModel'
-  
-end
 
