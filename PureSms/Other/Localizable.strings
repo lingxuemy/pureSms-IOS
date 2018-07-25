@@ -61,7 +61,9 @@
 "Five-star praise, unlock this feature!\nFive-star praise, support the author!\nFive stars praise, encourage me!" = "五星好评,解锁本功能!\n五星好评,支持作者!\n五星好评,鼓励我!";
 "The family is poor, relying on writing code for a living. The software has no advertising and no profit, only ask for 5 stars to encourage!" = "家境贫寒,靠写代码为生\n软件无广告无盈利,只求5星鼓励";
 "Go to score" = "去打分";
+"Go to comment" = "去评论";
 "Please write a comment, if you don't want to write, just go back and just encourage" = "请书写评论，如果不想书写，返回即可，只求鼓励";
+"Phone" = "电话";
 
 // 黑名单部分关键词。股 证券 .cn http 理财 收益 www 贷 保险 券 回复 退订 .com/ 参与 点击 戳 基金
 "Reply" = "回复";

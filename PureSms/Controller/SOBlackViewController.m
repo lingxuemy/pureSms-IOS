@@ -13,6 +13,7 @@
 #import <StoreKit/StoreKit.h>
 #import "UITableView+Animations.h"
 #import "XTimer.h"
+#import "MLMenuView.h"
 
 #define ExtentsionAppGroupName @"group.com.welightworld.puresms"
 #define ExtentsionAppGroupNamePro @"group.com.welightworld.puresmspro"
@@ -24,6 +25,17 @@
 #define PURESMSPRO @"com.welightworld.puresmspro"
 #define APPID @"1372766943"
 #define APPIDPRO @"1387094960"
+
+#define  MLClolor(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+#define  k_ScreenHeight   [UIScreen mainScreen].bounds.size.height
+#define  k_ScreenWidth   [UIScreen mainScreen].bounds.size.width
+#define  k_StatusBarHeight    [UIApplication sharedApplication].statusBarFrame.size.height
+#define  k_NavigationBarHeight  44.f
+#define  k_StatusBarAndNavigationBarHeight   (k_StatusBarHeight + k_NavigationBarHeight)
+#define FontSizeDefault   [UIFont systemFontOfSize:14]
+#define TitleColorDefault [UIColor whiteColor]
+#define SeparatorColorDefault [UIColor whiteColor]
+#define SeparatorOffsetDefault 0
 
 @interface SOBlackViewController ()<UITableViewDelegate, UITableViewDataSource, SKStoreProductViewControllerDelegate>
 {
@@ -47,6 +59,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = SOLocalize(@"SMS filtering black list");
     
 //    self.openHelpBut.layer.borderWidth = 1;
 //    self.openHelpBut.layer.borderColor = [UIColor blackColor].CGColor;
@@ -102,17 +116,17 @@
     self.blackTableView.separatorInset = UIEdgeInsetsMake(0, 9000, 0, 0);;
     [self.blackTableView registerNib:[UINib nibWithNibName:@"SOBlackTableViewCell" bundle:nil] forCellReuseIdentifier:@"SOBlackTableViewCell"];
     
-    _leftBut = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    [_leftBut addTarget:self action:@selector(leftButEvent:) forControlEvents:UIControlEventTouchUpInside];
-    [_leftBut setTitle:SOLocalize(@" Whitelist ") forState:UIControlStateNormal];
-    _leftBut.titleLabel.font = [UIFont systemFontOfSize:14];
-    [_leftBut setTitleColor:[UIColor colorWithRed:21/255.0 green:126/255.0 blue:251/255.0 alpha:1] forState:UIControlStateNormal];
-    _leftBut.layer.cornerRadius = 15;
-    _leftBut.layer.masksToBounds = YES;
-    _leftBut.layer.borderWidth = 1;
-    _leftBut.layer.borderColor = [UIColor colorWithRed:21/255.0 green:126/255.0 blue:251/255.0 alpha:1].CGColor;
+//    _leftBut = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+//    [_leftBut addTarget:self action:@selector(leftButEvent:) forControlEvents:UIControlEventTouchUpInside];
+//    [_leftBut setTitle:SOLocalize(@" Whitelist ") forState:UIControlStateNormal];
+//    _leftBut.titleLabel.font = [UIFont systemFontOfSize:14];
+//    [_leftBut setTitleColor:[UIColor colorWithRed:21/255.0 green:126/255.0 blue:251/255.0 alpha:1] forState:UIControlStateNormal];
+//    _leftBut.layer.cornerRadius = 15;
+//    _leftBut.layer.masksToBounds = YES;
+//    _leftBut.layer.borderWidth = 1;
+//    _leftBut.layer.borderColor = [UIColor colorWithRed:21/255.0 green:126/255.0 blue:251/255.0 alpha:1].CGColor;
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_leftBut];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_leftBut];
     
 }
 
@@ -137,6 +151,99 @@
 #pragma mark - 显示提示UI
 
 /**
+ 加载MLMenu菜单
+ */
+- (void)loadMLMenuWithTitles:(NSArray *) titles
+{
+    MLMenuView *menuView = [[MLMenuView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 100 - 10, 0, 100, 44 * 4) WithTitles:titles WithImageNames:nil WithMenuViewOffsetTop:k_StatusBarAndNavigationBarHeight WithTriangleOffsetLeft:80 triangleColor:[UIColor whiteColor]];
+    [menuView setCoverViewBackgroundColor:MLClolor(51, 51, 51, 0.1)];
+    menuView.separatorColor = MLClolor(51, 51, 51, 0.1);
+    [menuView setMenuViewBackgroundColor:[UIColor whiteColor]];
+    menuView.titleColor =  MLClolor(51, 51, 51, 1);
+    menuView.didSelectBlock = ^(NSInteger index) {
+        NSLog(@"%zd",index);
+        if (index == titles.count-1) {
+            return;
+        }
+        if (index == 1) {
+            [self getKeyWord];
+            if (_isBlack) {
+                _isBlack = NO;
+                self.title = SOLocalize(@"SMS filtering white list");
+                [_leftBut setTitle:SOLocalize(@"Blacklist") forState:UIControlStateNormal];
+                self.keyWordMutArray = self.whiteKeyWordMutArray;
+            }
+            else {
+                _isBlack = YES;
+                self.title = SOLocalize(@"SMS filtering black list");
+                [_leftBut setTitle:SOLocalize(@"Whitelist") forState:UIControlStateNormal];
+                self.keyWordMutArray = self.blackKeyWordMutArray;
+            }
+            [self.blackTableView reloadData];
+            [self.blackTableView performAnimation:AnimationRightToLeft finishBlock:nil];
+            return;
+        }
+        self.userdefKey = @"isRightBtn";
+        _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
+        if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-06-15 12:00:00"]) {
+            if (_numberInt == 0) {
+                [self showCustomizeSKStoreReview1];
+            }
+            if (_numberInt == 1) {
+                [self showCustomizeSKStoreReview2];
+            }
+            return;
+        }
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Please enter a keyword") message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            textField.placeholder = SOLocalize(@"Please enter a keyword");
+        }];
+        
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:SOLocalize(@"OK") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UITextField *tempField = [alertController.textFields firstObject];
+            NSLog(@"ok==%@",tempField.text);
+            if (tempField.text.length) {
+                SOKeywordModelExt *keyModel = [[SOKeywordModelExt alloc] init];
+                keyModel.isOpen = YES;
+                keyModel.keywordStr = tempField.text;
+                if (_isBlack) {
+                    keyModel.isBlack = YES;
+                }
+                else {
+                    keyModel.isBlack = NO;
+                }
+                NSData *data = [NSKeyedArchiver archivedDataWithRootObject:keyModel];
+                NSMutableArray *mutArray = [NSMutableArray arrayWithArray:self.keyWordMutArray];
+                [mutArray insertObject:data atIndex:0];
+                self.keyWordMutArray = mutArray;
+                [self.blackTableView reloadData];
+                
+                NSArray *keyArray = [NSArray arrayWithArray:self.keyWordMutArray];
+                NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
+                if (_isBlack) {
+                    [userDefaults setObject:keyArray forKey:KEYWORDARRAY];
+                }
+                else {
+                    [userDefaults setObject:keyArray forKey:KEYWORDARRAY_WHITE];
+                }
+                [userDefaults synchronize];
+            };
+        }];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:SOLocalize(@"Cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        }];
+        
+        [alertController addAction:cancelAction];
+        [alertController addAction:okAction];
+        
+        [self presentViewController:alertController animated:YES completion:^{
+            NSLog(@"presented");
+        }];
+    };
+    [menuView showMenuEnterAnimation:MLAnimationStyleTop];
+}
+
+/**
  第一次弹框提示
  */
 - (void)showCustomizeSKStoreReview1
@@ -158,18 +265,19 @@
 {
     [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:self.userdefKey];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Tips") message:SOLocalize(@"Please write a comment, if you don't want to write, just go back and just encourage") preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:SOLocalize(@"OK") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:SOLocalize(@"Go to comment") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self showSKStoreReview];
     }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:SOLocalize(@"Back") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    }];
-    [alertController addAction:cancelAction];
+//    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:SOLocalize(@"Back") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//    }];
+//    [alertController addAction:cancelAction];
     [alertController addAction:okAction];
     [self presentViewController:alertController animated:YES completion:^{
         NSLog(@"presented");
     }];
 }
 
+#pragma mark - 关于评分和评论
 // 显示打分评论
 - (void)showSKStoreReview
 {
@@ -224,7 +332,7 @@
 }
 
 
-#pragma mark -- SKStoreProductViewControllerDelegate
+#pragma mark - SKStoreProductViewControllerDelegate
 /**
  SKStoreProductViewControllerDelegate 方法，选择完成之后的处理
  
@@ -276,62 +384,18 @@
 }
 
 - (IBAction)rightButEvent:(UIBarButtonItem *)sender {
-    self.userdefKey = @"isRightBtn";
-    _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
-    if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-06-15 12:00:00"]) {
-        if (_numberInt == 0) {
-            [self showCustomizeSKStoreReview1];
-        }
-        if (_numberInt == 1) {
-            [self showCustomizeSKStoreReview2];
-        }
-        return;
+    
+    NSArray *array = [NSArray array];
+    if ([self.title rangeOfString:SOLocalize(@"Blacklist")].length) {
+        array = @[SOLocalize(@"Keyword"), SOLocalize(@"Whitelist"), SOLocalize(@"Phone")];
     }
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Please enter a keyword") message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder = SOLocalize(@"Please enter a keyword");
-    }];
-    
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:SOLocalize(@"OK") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        UITextField *tempField = [alertController.textFields firstObject];
-        NSLog(@"ok==%@",tempField.text);
-        if (tempField.text.length) {
-            SOKeywordModelExt *keyModel = [[SOKeywordModelExt alloc] init];
-            keyModel.isOpen = YES;
-            keyModel.keywordStr = tempField.text;
-            if (_isBlack) {
-                keyModel.isBlack = YES;
-            }
-            else {
-                keyModel.isBlack = NO;
-            }
-            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:keyModel];
-            NSMutableArray *mutArray = [NSMutableArray arrayWithArray:self.keyWordMutArray];
-            [mutArray insertObject:data atIndex:0];
-            self.keyWordMutArray = mutArray;
-            [self.blackTableView reloadData];
-
-            NSArray *keyArray = [NSArray arrayWithArray:self.keyWordMutArray];
-            NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
-            if (_isBlack) {
-                [userDefaults setObject:keyArray forKey:KEYWORDARRAY];
-            }
-            else {
-                [userDefaults setObject:keyArray forKey:KEYWORDARRAY_WHITE];
-            }
-            [userDefaults synchronize];
-        };
-    }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:SOLocalize(@"Cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    }];
-    
-    [alertController addAction:cancelAction];
-    [alertController addAction:okAction];
-
-    [self presentViewController:alertController animated:YES completion:^{
-        NSLog(@"presented");
-    }];
+    else if ([self.title rangeOfString:SOLocalize(@"Whitelist")].length) {
+        array = @[SOLocalize(@"Keyword"), SOLocalize(@"Blacklist"), SOLocalize(@"Phone")];
+    }
+    else {
+        array = @[SOLocalize(@"Keyword"), SOLocalize(@"Blacklist"), SOLocalize(@"Whitelist")];
+    }
+    [self loadMLMenuWithTitles:array];
 }
 
 #pragma mark - cell子事件
