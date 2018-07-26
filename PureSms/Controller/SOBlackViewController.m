@@ -37,6 +37,13 @@
 #define SeparatorColorDefault [UIColor whiteColor]
 #define SeparatorOffsetDefault 0
 
+typedef enum : NSUInteger {
+    ADDKEYWORD = 0,
+    ADDKEYWORDBLACK,
+    ADDKEYWORDWHITE,
+    ADDKEYWORDPHONE,
+} AddKeyWord;
+
 @interface SOBlackViewController ()<UITableViewDelegate, UITableViewDataSource, SKStoreProductViewControllerDelegate>
 {
     NSString *suiteNameStr;
@@ -167,6 +174,7 @@
         }
         if (index == 1) {
             [self getKeyWord];
+            
             if (_isBlack) {
                 _isBlack = NO;
                 self.title = SOLocalize(@"SMS filtering white list");
