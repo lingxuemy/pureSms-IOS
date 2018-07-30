@@ -64,6 +64,10 @@
 "Go to comment" = "去评论";
 "Please write a comment, if you don't want to write, just go back and just encourage" = "请书写评论，如果不想书写，返回即可，只求鼓励";
 "Phone" = "电话";
+"Blacksender" = "发送者黑名单";
+"Whitesender" = "发送者白名单";
+"Blackcontent" = "内容黑名单";
+"Whitecontent" = "内容白名单";
 
 // 黑名单部分关键词。股 证券 .cn http 理财 收益 www 贷 保险 券 回复 退订 .com/ 参与 点击 戳 基金
 "Reply" = "回复";

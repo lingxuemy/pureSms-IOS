@@ -67,7 +67,8 @@ typedef enum : NSUInteger {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = SOLocalize(@"SMS filtering black list");
+    self.title = SOLocalize(@"Blackcontent");
+//    self.title = SOLocalize(@"SMS filtering black list");
     
 //    self.openHelpBut.layer.borderWidth = 1;
 //    self.openHelpBut.layer.borderColor = [UIColor blackColor].CGColor;
@@ -127,7 +128,7 @@ typedef enum : NSUInteger {
 //    [_leftBut addTarget:self action:@selector(leftButEvent:) forControlEvents:UIControlEventTouchUpInside];
 //    [_leftBut setTitle:SOLocalize(@" Whitelist ") forState:UIControlStateNormal];
 //    _leftBut.titleLabel.font = [UIFont systemFontOfSize:14];
-//    [_leftBut setTitleColor:[UIColor colorWithRed:21/255.0 green:126/255.0 blue:251/255.0 alpha:1] forState:UIControlStateNormal];
+//    [_leftBut setTitleColor:[UIColor colorWithRed:21/255.0 green:126/255.0 blue:251/255.0 alpha:1] forS   tate:UIControlStateNormal];
 //    _leftBut.layer.cornerRadius = 15;
 //    _leftBut.layer.masksToBounds = YES;
 //    _leftBut.layer.borderWidth = 1;
@@ -169,84 +170,98 @@ typedef enum : NSUInteger {
     menuView.titleColor =  MLClolor(51, 51, 51, 1);
     menuView.didSelectBlock = ^(NSInteger index) {
         NSLog(@"%zd",index);
-        if (index == titles.count-1) {
-            return;
+        [self getKeyWord];
+        switch (index) {
+            case 0:
+                // 添加关键词
+            {
+                self.userdefKey = @"isRightBtn";
+                _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
+                if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-06-15 12:00:00"]) {
+                    if (_numberInt == 0) {
+                        [self showCustomizeSKStoreReview1];
+                    }
+                    if (_numberInt == 1) {
+                        [self showCustomizeSKStoreReview2];
+                    }
+                    return;
+                }
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Please enter a keyword") message:@"" preferredStyle:UIAlertControllerStyleAlert];
+                
+                [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+                    textField.placeholder = SOLocalize(@"Please enter a keyword");
+                }];
+                
+                UIAlertAction *okAction = [UIAlertAction actionWithTitle:SOLocalize(@"OK") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    UITextField *tempField = [alertController.textFields firstObject];
+                    NSLog(@"ok==%@",tempField.text);
+                    if (tempField.text.length) {
+                        SOKeywordModelExt *keyModel = [[SOKeywordModelExt alloc] init];
+                        keyModel.isOpen = YES;
+                        keyModel.keywordStr = tempField.text;
+                        if (_isBlack) {
+                            keyModel.isBlack = YES;
+                        }
+                        else {
+                            keyModel.isBlack = NO;
+                        }
+                        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:keyModel];
+                        NSMutableArray *mutArray = [NSMutableArray arrayWithArray:self.keyWordMutArray];
+                        [mutArray insertObject:data atIndex:0];
+                        self.keyWordMutArray = mutArray;
+                        [self.blackTableView reloadData];
+                        
+                        NSArray *keyArray = [NSArray arrayWithArray:self.keyWordMutArray];
+                        NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
+                        if (_isBlack) {
+                            [userDefaults setObject:keyArray forKey:KEYWORDARRAY];
+                        }
+                        else {
+                            [userDefaults setObject:keyArray forKey:KEYWORDARRAY_WHITE];
+                        }
+                        [userDefaults synchronize];
+                    };
+                }];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:SOLocalize(@"Cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                }];
+                
+                [alertController addAction:cancelAction];
+                [alertController addAction:okAction];
+                
+                [self presentViewController:alertController animated:YES completion:^{
+                    NSLog(@"presented");
+                }];
         }
-        if (index == 1) {
-            [self getKeyWord];
-            
-            if (_isBlack) {
-                _isBlack = NO;
-                self.title = SOLocalize(@"SMS filtering white list");
-                [_leftBut setTitle:SOLocalize(@"Blacklist") forState:UIControlStateNormal];
-                self.keyWordMutArray = self.whiteKeyWordMutArray;
-            }
-            else {
+                break;
+            case 1:
+                // 内容黑名单
                 _isBlack = YES;
-                self.title = SOLocalize(@"SMS filtering black list");
-                [_leftBut setTitle:SOLocalize(@"Whitelist") forState:UIControlStateNormal];
                 self.keyWordMutArray = self.blackKeyWordMutArray;
-            }
+                break;
+            case 2:
+                // 内容白名单
+                _isBlack = NO;
+                self.keyWordMutArray = self.whiteKeyWordMutArray;
+                break;
+            case 3:
+                // 发送者黑名单
+                self.keyWordMutArray = [NSMutableArray array];
+                break;
+            case 4:
+                // 发送者白名单
+                self.keyWordMutArray = [NSMutableArray array];
+                break;
+            default:
+                break;
+        }
+        if (index && ![self.title isEqualToString:titles[index]]) {
+            self.title = titles[index];
             [self.blackTableView reloadData];
             [self.blackTableView performAnimation:AnimationRightToLeft finishBlock:nil];
-            return;
-        }
-        self.userdefKey = @"isRightBtn";
-        _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
-        if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-06-15 12:00:00"]) {
-            if (_numberInt == 0) {
-                [self showCustomizeSKStoreReview1];
+            if (!self.keyWordMutArray.count) {
+                NSLog(@"暂无数据。");
             }
-            if (_numberInt == 1) {
-                [self showCustomizeSKStoreReview2];
-            }
-            return;
         }
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Please enter a keyword") message:@"" preferredStyle:UIAlertControllerStyleAlert];
-        
-        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-            textField.placeholder = SOLocalize(@"Please enter a keyword");
-        }];
-        
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:SOLocalize(@"OK") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            UITextField *tempField = [alertController.textFields firstObject];
-            NSLog(@"ok==%@",tempField.text);
-            if (tempField.text.length) {
-                SOKeywordModelExt *keyModel = [[SOKeywordModelExt alloc] init];
-                keyModel.isOpen = YES;
-                keyModel.keywordStr = tempField.text;
-                if (_isBlack) {
-                    keyModel.isBlack = YES;
-                }
-                else {
-                    keyModel.isBlack = NO;
-                }
-                NSData *data = [NSKeyedArchiver archivedDataWithRootObject:keyModel];
-                NSMutableArray *mutArray = [NSMutableArray arrayWithArray:self.keyWordMutArray];
-                [mutArray insertObject:data atIndex:0];
-                self.keyWordMutArray = mutArray;
-                [self.blackTableView reloadData];
-                
-                NSArray *keyArray = [NSArray arrayWithArray:self.keyWordMutArray];
-                NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
-                if (_isBlack) {
-                    [userDefaults setObject:keyArray forKey:KEYWORDARRAY];
-                }
-                else {
-                    [userDefaults setObject:keyArray forKey:KEYWORDARRAY_WHITE];
-                }
-                [userDefaults synchronize];
-            };
-        }];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:SOLocalize(@"Cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        }];
-        
-        [alertController addAction:cancelAction];
-        [alertController addAction:okAction];
-        
-        [self presentViewController:alertController animated:YES completion:^{
-            NSLog(@"presented");
-        }];
     };
     [menuView showMenuEnterAnimation:MLAnimationStyleTop];
 }
@@ -394,15 +409,16 @@ typedef enum : NSUInteger {
 - (IBAction)rightButEvent:(UIBarButtonItem *)sender {
     
     NSArray *array = [NSArray array];
-    if ([self.title rangeOfString:SOLocalize(@"Blacklist")].length) {
-        array = @[SOLocalize(@"Keyword"), SOLocalize(@"Whitelist"), SOLocalize(@"Phone")];
-    }
-    else if ([self.title rangeOfString:SOLocalize(@"Whitelist")].length) {
-        array = @[SOLocalize(@"Keyword"), SOLocalize(@"Blacklist"), SOLocalize(@"Phone")];
-    }
-    else {
-        array = @[SOLocalize(@"Keyword"), SOLocalize(@"Blacklist"), SOLocalize(@"Whitelist")];
-    }
+//    if ([self.title rangeOfString:SOLocalize(@"Blacklist")].length) {
+//        array = @[SOLocalize(@"Keyword"), SOLocalize(@"Whitelist"), SOLocalize(@"Phone")];
+//    }
+//    else if ([self.title rangeOfString:SOLocalize(@"Whitelist")].length) {
+//        array = @[SOLocalize(@"Keyword"), SOLocalize(@"Blacklist"), SOLocalize(@"Phone")];
+//    }
+//    else {
+//        array = @[SOLocalize(@"Keyword"), SOLocalize(@"Blacklist"), SOLocalize(@"Whitelist")];
+//    }
+    array = @[SOLocalize(@"Keyword"), SOLocalize(@"Blackcontent"), SOLocalize(@"Whitecontent"), SOLocalize(@"Blacksender"), SOLocalize(@"Whitesender")];
     [self loadMLMenuWithTitles:array];
 }
 
