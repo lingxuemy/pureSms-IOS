@@ -173,7 +173,7 @@ typedef enum : NSUInteger {
  */
 - (void)loadMLMenuWithTitles:(NSArray *) titles
 {
-    MLMenuView *menuView = [[MLMenuView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 100 - 10, 0, 100, 44 * 4) WithTitles:titles WithImageNames:nil WithMenuViewOffsetTop:k_StatusBarAndNavigationBarHeight WithTriangleOffsetLeft:80 triangleColor:[UIColor whiteColor]];
+    MLMenuView *menuView = [[MLMenuView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 150 - 10, 0, 150, 44 * 4) WithTitles:titles WithImageNames:nil WithMenuViewOffsetTop:k_StatusBarAndNavigationBarHeight WithTriangleOffsetLeft:130 triangleColor:[UIColor whiteColor]];
     [menuView setCoverViewBackgroundColor:MLClolor(51, 51, 51, 0.1)];
     menuView.separatorColor = MLClolor(51, 51, 51, 0.1);
     [menuView setMenuViewBackgroundColor:[UIColor whiteColor]];
