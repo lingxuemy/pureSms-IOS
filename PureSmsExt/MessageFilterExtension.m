@@ -66,7 +66,7 @@
 
 - (ILMessageFilterAction)offlineActionForQueryRequest:(ILMessageFilterQueryRequest *)queryRequest {
     // Replace with logic to perform offline check whether to filter first (if possible).
-    NSString *messageContent = queryRequest.messageBody;
+
     // 缓存过滤次数
 //    NSInteger integer = [[[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName] integerForKey:@"SKSTORE"];
 //    [[[NSUserDefaults alloc] initWithSuiteName:ExtentsionAppGroupName] setInteger:integer+1 forKey:@"SKSTORE"];
@@ -81,7 +81,7 @@
     NSArray *whiteArrayPho = [whiteUserDefPho objectForKey:KEYWORDARRAY_WHITE_PHONE];
     for (NSData *data in whiteArrayPho) {
         SOKeywordModelExt *keyModel = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        if (keyModel.isOpen && [messageContent rangeOfString:keyModel.keywordStr].length) {
+        if (keyModel.isOpen && [queryRequest.sender rangeOfString:keyModel.keywordStr].length) {
             return ILMessageFilterActionAllow;
         }
     }
@@ -90,7 +90,7 @@
     NSArray *blackArrayPho = [blackUserDefPho objectForKey:KEYWORDARRAY_PHONE];
     for (NSData *data in blackArrayPho) {
         SOKeywordModelExt *keyModel = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        if (keyModel.isOpen && [messageContent rangeOfString:keyModel.keywordStr].length) {
+        if (keyModel.isOpen && [queryRequest.sender rangeOfString:keyModel.keywordStr].length) {
             return ILMessageFilterActionFilter;
         }
     }
@@ -99,7 +99,7 @@
     NSArray *whiteArray = [whiteUserDef objectForKey:KEYWORDARRAY_WHITE];
     for (NSData *data in whiteArray) {
         SOKeywordModelExt *keyModel = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        if (keyModel.isOpen && [messageContent rangeOfString:keyModel.keywordStr].length) {
+        if (keyModel.isOpen && [queryRequest.messageBody rangeOfString:keyModel.keywordStr].length) {
             return ILMessageFilterActionAllow;
         }
     }
@@ -108,7 +108,7 @@
     NSArray *blackArray = [blackUserDef objectForKey:KEYWORDARRAY];
     for (NSData *data in blackArray) {
         SOKeywordModelExt *keyModel = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        if (keyModel.isOpen && [messageContent rangeOfString:keyModel.keywordStr].length) {
+        if (keyModel.isOpen && [queryRequest.messageBody rangeOfString:keyModel.keywordStr].length) {
             return ILMessageFilterActionFilter;
         }
     }
