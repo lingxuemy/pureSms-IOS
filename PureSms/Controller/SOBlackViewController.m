@@ -19,6 +19,8 @@
 #define ExtentsionAppGroupNamePro @"group.com.welightworld.puresmspro"
 #define KEYWORDARRAY @"KEYWORDARRAY"
 #define KEYWORDARRAY_WHITE @"KEYWORDARRAY_WHITE"
+#define KEYWORDARRAY_PHONE @"KEYWORDARRAY_PHONE"
+#define KEYWORDARRAY_WHITE_PHONE @"KEYWORDARRAY_WHITE_PHONE"
 #define SOLocalize(key) NSLocalizedString(key, nil)
 #define BUNDLEID [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
 #define PURESMS @"com.welightworld.puresms"
@@ -38,10 +40,10 @@
 #define SeparatorOffsetDefault 0
 
 typedef enum : NSUInteger {
-    ADDKEYWORD = 0,
-    ADDKEYWORDBLACK,
+    ADDKEYWORDBLACK = 0,
     ADDKEYWORDWHITE,
-    ADDKEYWORDPHONE,
+    ADDKEYWORDBLACKPHONE,
+    ADDKEYWORDWHITEPHONE
 } AddKeyWord;
 
 @interface SOBlackViewController ()<UITableViewDelegate, UITableViewDataSource, SKStoreProductViewControllerDelegate>
@@ -55,10 +57,13 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) NSMutableArray *keyWordMutArray;
 @property (nonatomic, strong) NSMutableArray *whiteKeyWordMutArray;
 @property (nonatomic, strong) NSMutableArray *blackKeyWordMutArray;
+@property (nonatomic, strong) NSMutableArray *whitePhoneMutArray;
+@property (nonatomic, strong) NSMutableArray *blackPhoneMutArray;
 @property (nonatomic, assign) BOOL isBlack;
 @property (nonatomic, strong) UIButton *leftBut;
 @property (nonatomic, strong) NSString *userdefKey;
 @property (nonatomic, assign) NSInteger numberInt;
+@property (nonatomic, assign) AddKeyWord addKeyWord;
 
 @end
 
@@ -67,7 +72,7 @@ typedef enum : NSUInteger {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = SOLocalize(@"Blackcontent");
+    self.title = SOLocalize(@"SMS Blackcontent");
 //    self.title = SOLocalize(@"SMS filtering black list");
     
 //    self.openHelpBut.layer.borderWidth = 1;
@@ -119,6 +124,7 @@ typedef enum : NSUInteger {
         NSUserDefaults *whiteUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
         [whiteUserDefaults setObject:whiteKeyArray forKey:KEYWORDARRAY_WHITE];
         [whiteUserDefaults synchronize];
+        
     }
     
     self.blackTableView.separatorInset = UIEdgeInsetsMake(0, 9000, 0, 0);;
@@ -143,7 +149,6 @@ typedef enum : NSUInteger {
     [super viewWillAppear:animated];
     [self getKeyWord];
     self.keyWordMutArray = self.blackKeyWordMutArray;
-    _isBlack = YES;
     [self.blackTableView reloadData];
 }
 
@@ -154,6 +159,11 @@ typedef enum : NSUInteger {
     self.whiteKeyWordMutArray = [whiteUserDef objectForKey:KEYWORDARRAY_WHITE];
     NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
     self.blackKeyWordMutArray = [userDefaults objectForKey:KEYWORDARRAY];
+    NSUserDefaults *whiteUserDefPho = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
+    self.whitePhoneMutArray = [whiteUserDefPho objectForKey:KEYWORDARRAY_WHITE_PHONE];
+    NSUserDefaults *userDefaultsPho = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
+    self.blackPhoneMutArray = [userDefaultsPho objectForKey:KEYWORDARRAY_PHONE];
+    
 }
 
 #pragma mark - 显示提示UI
@@ -189,7 +199,22 @@ typedef enum : NSUInteger {
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Please enter a keyword") message:@"" preferredStyle:UIAlertControllerStyleAlert];
                 
                 [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-                    textField.placeholder = SOLocalize(@"Please enter a keyword");
+                    switch (_addKeyWord) {
+                        case ADDKEYWORDBLACK:
+                            textField.placeholder = SOLocalize(@"Please enter SMS Blackcontent keyword");
+                            break;
+                        case ADDKEYWORDWHITE:
+                            textField.placeholder = SOLocalize(@"Please enter SMS Whitecontent keyword");
+                            break;
+                        case ADDKEYWORDBLACKPHONE:
+                            textField.placeholder = SOLocalize(@"Please enter SMS Blacksender keyword");
+                            break;
+                        case ADDKEYWORDWHITEPHONE:
+                            textField.placeholder = SOLocalize(@"Please enter SMS Whitesender keyword");
+                            break;
+                        default:
+                            break;
+                    }
                 }];
                 
                 UIAlertAction *okAction = [UIAlertAction actionWithTitle:SOLocalize(@"OK") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -199,12 +224,6 @@ typedef enum : NSUInteger {
                         SOKeywordModelExt *keyModel = [[SOKeywordModelExt alloc] init];
                         keyModel.isOpen = YES;
                         keyModel.keywordStr = tempField.text;
-                        if (_isBlack) {
-                            keyModel.isBlack = YES;
-                        }
-                        else {
-                            keyModel.isBlack = NO;
-                        }
                         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:keyModel];
                         NSMutableArray *mutArray = [NSMutableArray arrayWithArray:self.keyWordMutArray];
                         [mutArray insertObject:data atIndex:0];
@@ -213,11 +232,21 @@ typedef enum : NSUInteger {
                         
                         NSArray *keyArray = [NSArray arrayWithArray:self.keyWordMutArray];
                         NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
-                        if (_isBlack) {
-                            [userDefaults setObject:keyArray forKey:KEYWORDARRAY];
-                        }
-                        else {
-                            [userDefaults setObject:keyArray forKey:KEYWORDARRAY_WHITE];
+                        switch (_addKeyWord) {
+                            case ADDKEYWORDBLACK:
+                                [userDefaults setObject:keyArray forKey:KEYWORDARRAY];
+                                break;
+                            case ADDKEYWORDWHITE:
+                                [userDefaults setObject:keyArray forKey:KEYWORDARRAY_WHITE];
+                                break;
+                            case ADDKEYWORDBLACKPHONE:
+                                [userDefaults setObject:keyArray forKey:KEYWORDARRAY_PHONE];
+                                break;
+                            case ADDKEYWORDWHITEPHONE:
+                                [userDefaults setObject:keyArray forKey:KEYWORDARRAY_WHITE_PHONE];
+                                break;
+                            default:
+                                break;
                         }
                         [userDefaults synchronize];
                     };
@@ -235,21 +264,23 @@ typedef enum : NSUInteger {
                 break;
             case 1:
                 // 内容黑名单
-                _isBlack = YES;
+                _addKeyWord = ADDKEYWORDBLACK;
                 self.keyWordMutArray = self.blackKeyWordMutArray;
                 break;
             case 2:
                 // 内容白名单
-                _isBlack = NO;
+                _addKeyWord = ADDKEYWORDWHITE;
                 self.keyWordMutArray = self.whiteKeyWordMutArray;
                 break;
             case 3:
                 // 发送者黑名单
-                self.keyWordMutArray = [NSMutableArray array];
+                _addKeyWord = ADDKEYWORDBLACKPHONE;
+                self.keyWordMutArray = self.blackPhoneMutArray;
                 break;
             case 4:
                 // 发送者白名单
-                self.keyWordMutArray = [NSMutableArray array];
+                _addKeyWord = ADDKEYWORDWHITEPHONE;
+                self.keyWordMutArray = self.whitePhoneMutArray;
                 break;
             default:
                 break;
@@ -408,17 +439,7 @@ typedef enum : NSUInteger {
 
 - (IBAction)rightButEvent:(UIBarButtonItem *)sender {
     
-    NSArray *array = [NSArray array];
-//    if ([self.title rangeOfString:SOLocalize(@"Blacklist")].length) {
-//        array = @[SOLocalize(@"Keyword"), SOLocalize(@"Whitelist"), SOLocalize(@"Phone")];
-//    }
-//    else if ([self.title rangeOfString:SOLocalize(@"Whitelist")].length) {
-//        array = @[SOLocalize(@"Keyword"), SOLocalize(@"Blacklist"), SOLocalize(@"Phone")];
-//    }
-//    else {
-//        array = @[SOLocalize(@"Keyword"), SOLocalize(@"Blacklist"), SOLocalize(@"Whitelist")];
-//    }
-    array = @[SOLocalize(@"Keyword"), SOLocalize(@"Blackcontent"), SOLocalize(@"Whitecontent"), SOLocalize(@"Blacksender"), SOLocalize(@"Whitesender")];
+    NSArray *array = @[SOLocalize(@"Keyword"), SOLocalize(@"SMS Blackcontent"), SOLocalize(@"SMS Whitecontent"), SOLocalize(@"SMS Blacksender"), SOLocalize(@"SMS Whitesender")];
     [self loadMLMenuWithTitles:array];
 }
 
@@ -434,11 +455,21 @@ typedef enum : NSUInteger {
     [mutArray replaceObjectAtIndex:sender.tag withObject:data];
     self.keyWordMutArray = mutArray;
     NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
-    if (_isBlack) {
-        [userDefaults setObject:self.keyWordMutArray forKey:KEYWORDARRAY];
-    }
-    else {
-        [userDefaults setObject:self.keyWordMutArray forKey:KEYWORDARRAY_WHITE];
+    switch (_addKeyWord) {
+        case ADDKEYWORDBLACK:
+            [userDefaults setObject:self.keyWordMutArray forKey:KEYWORDARRAY];
+            break;
+        case ADDKEYWORDWHITE:
+            [userDefaults setObject:self.keyWordMutArray forKey:KEYWORDARRAY_WHITE];
+            break;
+        case ADDKEYWORDBLACKPHONE:
+            [userDefaults setObject:self.keyWordMutArray forKey:KEYWORDARRAY_PHONE];
+            break;
+        case ADDKEYWORDWHITEPHONE:
+            [userDefaults setObject:self.keyWordMutArray forKey:KEYWORDARRAY_WHITE_PHONE];
+            break;
+        default:
+            break;
     }
     [userDefaults synchronize];
 }
@@ -485,11 +516,21 @@ typedef enum : NSUInteger {
         self.keyWordMutArray = mutArray;
         
         NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
-        if (_isBlack) {
-            [userDefaults setObject:self.keyWordMutArray forKey:KEYWORDARRAY];
-        }
-        else {
-            [userDefaults setObject:self.keyWordMutArray forKey:KEYWORDARRAY_WHITE];
+        switch (_addKeyWord) {
+            case ADDKEYWORDBLACK:
+                [userDefaults setObject:self.keyWordMutArray forKey:KEYWORDARRAY];
+                break;
+            case ADDKEYWORDWHITE:
+                [userDefaults setObject:self.keyWordMutArray forKey:KEYWORDARRAY_WHITE];
+                break;
+            case ADDKEYWORDBLACKPHONE:
+                [userDefaults setObject:self.keyWordMutArray forKey:KEYWORDARRAY_PHONE];
+                break;
+            case ADDKEYWORDWHITEPHONE:
+                [userDefaults setObject:self.keyWordMutArray forKey:KEYWORDARRAY_WHITE_PHONE];
+                break;
+            default:
+                break;
         }
         [userDefaults synchronize];
         
@@ -525,6 +566,22 @@ typedef enum : NSUInteger {
         _blackKeyWordMutArray = [NSMutableArray array];
     }
     return _blackKeyWordMutArray;
+}
+
+- (NSMutableArray *)whitePhoneMutArray
+{
+    if (!_whitePhoneMutArray) {
+        _whitePhoneMutArray = [NSMutableArray array];
+    }
+    return _whitePhoneMutArray;
+}
+
+- (NSMutableArray *)blackPhoneMutArray
+{
+    if (!_blackPhoneMutArray) {
+        _blackPhoneMutArray = [NSMutableArray array];
+    }
+    return _blackPhoneMutArray;
 }
 
 @end

@@ -14,6 +14,8 @@
 
 #define KEYWORDARRAY @"KEYWORDARRAY"
 #define KEYWORDARRAY_WHITE @"KEYWORDARRAY_WHITE"
+#define KEYWORDARRAY_PHONE @"KEYWORDARRAY_PHONE"
+#define KEYWORDARRAY_WHITE_PHONE @"KEYWORDARRAY_WHITE_PHONE"
 
 #define BUNDLEID [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
 #define PURESMS @"com.welightworld.puresms.ext"
@@ -72,6 +74,25 @@
     NSString *suiteNameStr = ExtentsionAppGroupName;
     if ([BUNDLEID isEqualToString:PURESMSPRO]) {
         suiteNameStr = ExtentsionAppGroupNamePro;
+    }
+    
+    // 发送者白名单过滤
+    NSUserDefaults *whiteUserDefPho = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
+    NSArray *whiteArrayPho = [whiteUserDefPho objectForKey:KEYWORDARRAY_WHITE_PHONE];
+    for (NSData *data in whiteArrayPho) {
+        SOKeywordModelExt *keyModel = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        if (keyModel.isOpen && [messageContent rangeOfString:keyModel.keywordStr].length) {
+            return ILMessageFilterActionAllow;
+        }
+    }
+    // 发送者黑名单过滤
+    NSUserDefaults *blackUserDefPho = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
+    NSArray *blackArrayPho = [blackUserDefPho objectForKey:KEYWORDARRAY_PHONE];
+    for (NSData *data in blackArrayPho) {
+        SOKeywordModelExt *keyModel = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        if (keyModel.isOpen && [messageContent rangeOfString:keyModel.keywordStr].length) {
+            return ILMessageFilterActionFilter;
+        }
     }
     // 白名单过滤
     NSUserDefaults *whiteUserDef = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
