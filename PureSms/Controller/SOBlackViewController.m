@@ -201,16 +201,16 @@ typedef enum : NSUInteger {
                 [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
                     switch (_addKeyWord) {
                         case ADDKEYWORDBLACK:
-                            textField.placeholder = SOLocalize(@"Please enter SMS Blackcontent keyword");
+                            textField.placeholder = SOLocalize(@"Please enter Blackcontent keyword");
                             break;
                         case ADDKEYWORDWHITE:
-                            textField.placeholder = SOLocalize(@"Please enter SMS Whitecontent keyword");
+                            textField.placeholder = SOLocalize(@"Please enter Whitecontent keyword");
                             break;
                         case ADDKEYWORDBLACKPHONE:
-                            textField.placeholder = SOLocalize(@"Please enter SMS Blacksender keyword");
+                            textField.placeholder = SOLocalize(@"Please enter Blacksender keyword");
                             break;
                         case ADDKEYWORDWHITEPHONE:
-                            textField.placeholder = SOLocalize(@"Please enter SMS Whitesender keyword");
+                            textField.placeholder = SOLocalize(@"Please enter Whitesender keyword");
                             break;
                         default:
                             break;
@@ -439,7 +439,7 @@ typedef enum : NSUInteger {
 
 - (IBAction)rightButEvent:(UIBarButtonItem *)sender {
     
-    NSArray *array = @[SOLocalize(@"Keyword"), SOLocalize(@"SMS Blackcontent"), SOLocalize(@"SMS Whitecontent"), SOLocalize(@"SMS Blacksender"), SOLocalize(@"SMS Whitesender")];
+    NSArray *array = @[SOLocalize(@"Add Keyword"), SOLocalize(@"SMS Blackcontent"), SOLocalize(@"SMS Whitecontent"), SOLocalize(@"SMS Blacksender")];
     [self loadMLMenuWithTitles:array];
 }
 

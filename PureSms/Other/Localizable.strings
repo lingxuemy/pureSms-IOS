@@ -33,7 +33,7 @@
 "Condition Configuration" = "条件配置";
 "Target" = "目标";
 "Pattern" = "模式";
-"Keyword" = "关键词";
+"Add Keyword" = "添加关键词";
 "Please enter a keyword" = "请输入关键词";
 "Please enter a keyword or Please select a keyword" = "请输入关键词或选择一个关键词";
 "Choose message's sender or content as object that attempts to match with." = "选择信息发送者或信息内容作为将要匹配的对象。";
@@ -69,10 +69,10 @@
 "SMS Blackcontent" = "短信内容黑名单";
 "SMS Whitecontent" = "短信内容白名单";
 
-"Please enter SMS Blacksender keyword" = "请输入短信发送者黑名单关键词";
-"Please enter SMS Whitesender keyword" = "请输入短信发送者白名单关键词";
-"Please enter SMS Blackcontent keyword" = "请输入短信内容黑名单关键词";
-"Please enter SMS Whitecontent keyword" = "请输入短信内容白名单关键词";
+"Please enter Blacksender keyword" = "请输入黑名单号码";
+"Please enter Whitesender keyword" = "请输入白名单号码";
+"Please enter Blackcontent keyword" = "请输入黑名单关键词";
+"Please enter Whitecontent keyword" = "请输入白名单关键词";
 
 // 黑名单部分关键词。股 证券 .cn http 理财 收益 www 贷 保险 券 回复 退订 .com/ 参与 点击 戳 基金
 "Reply" = "回复";
