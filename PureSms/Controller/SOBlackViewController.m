@@ -54,6 +54,7 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *leftButItem;
 @property (weak, nonatomic) IBOutlet UITableView *blackTableView;
 @property (weak, nonatomic) IBOutlet UIButton *openHelpBut;
+@property (weak, nonatomic) IBOutlet UIButton *payBtn;
 @property (nonatomic, strong) NSMutableArray *keyWordMutArray;
 @property (nonatomic, strong) NSMutableArray *whiteKeyWordMutArray;
 @property (nonatomic, strong) NSMutableArray *blackKeyWordMutArray;
@@ -79,6 +80,8 @@ typedef enum : NSUInteger {
 //    self.openHelpBut.layer.borderColor = [UIColor blackColor].CGColor;
     self.openHelpBut.layer.cornerRadius = 20;
     self.openHelpBut.layer.masksToBounds = YES;
+    self.payBtn.layer.cornerRadius = 20;
+    self.payBtn.layer.masksToBounds = YES;
     
     suiteNameStr = ExtentsionAppGroupName;
     if ([BUNDLEID isEqualToString:PURESMSPRO]) {

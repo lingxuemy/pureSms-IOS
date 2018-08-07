@@ -82,20 +82,21 @@
         
         PKPaymentRequest *request = [[PKPaymentRequest alloc] init];
         
-        PKPaymentSummaryItem *widget1 = [PKPaymentSummaryItem summaryItemWithLabel:@"Widget 1"
-                                                                            amount:[NSDecimalNumber decimalNumberWithString:@"0.99"]];
-        
-        PKPaymentSummaryItem *widget2 = [PKPaymentSummaryItem summaryItemWithLabel:@"Widget 2"
-                                                                            amount:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
+//        PKPaymentSummaryItem *widget1 = [PKPaymentSummaryItem summaryItemWithLabel:@"Widget 1"
+//                                                                            amount:[NSDecimalNumber decimalNumberWithString:@"0.99"]];
+//
+//        PKPaymentSummaryItem *widget2 = [PKPaymentSummaryItem summaryItemWithLabel:@"Widget 2"
+//                                                                            amount:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
         
         PKPaymentSummaryItem *total = [PKPaymentSummaryItem summaryItemWithLabel:@"重庆如梦极匠科技发展有限公司"
-                                                                          amount:[NSDecimalNumber decimalNumberWithString:@"1.99"]];
+                                                                          amount:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
         
-        request.paymentSummaryItems = @[widget1, widget2, total];
+//        request.paymentSummaryItems = @[widget1, widget2, total];
+        request.paymentSummaryItems = @[total];
         request.countryCode = @"US";
         request.currencyCode = @"USD";
         request.supportedNetworks = @[PKPaymentNetworkAmex, PKPaymentNetworkMasterCard, PKPaymentNetworkVisa];
-        request.merchantIdentifier = @"merchant.com.demo.crittercismdemo";
+        request.merchantIdentifier = @"merchant.welightworld.puresms";
         request.merchantCapabilities = PKMerchantCapabilityEMV;
         
         PKPaymentAuthorizationViewController *paymentPane = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
