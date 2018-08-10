@@ -18,9 +18,6 @@
 		044632F32083805D00F7A2B7 /* SOKeywordModelExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 044632F12083805D00F7A2B7 /* SOKeywordModelExt.m */; };
 		044632F62083957700F7A2B7 /* XScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 044632F52083957700F7A2B7 /* XScrollView.m */; };
 		044632F9208395A300F7A2B7 /* SOHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044632F8208395A300F7A2B7 /* SOHelpViewController.m */; };
-		044632FE2083974F00F7A2B7 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 044632FB2083974F00F7A2B7 /* image1.jpg */; };
-		044632FF2083974F00F7A2B7 /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 044632FC2083974F00F7A2B7 /* image2.jpg */; };
-		044633002083975000F7A2B7 /* image3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 044632FD2083974F00F7A2B7 /* image3.jpg */; };
 		044633032095B20100F7A2B7 /* UITableView+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 044633012095B20100F7A2B7 /* UITableView+Animations.m */; };
 		04570F88207B5BA50065B644 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04570F87207B5BA50065B644 /* AppDelegate.m */; };
 		04570F8E207B5BA50065B644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04570F8C207B5BA50065B644 /* Main.storyboard */; };
@@ -33,7 +30,6 @@
 		04570FC4207B5D7A0065B644 /* PureSmsExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04570FBC207B5D7A0065B644 /* PureSmsExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		04570FF1207DC1DE0065B644 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04570FF0207DC1DE0065B644 /* Localizable.strings */; };
 		04570FFA2080488E0065B644 /* SOBlackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04570FF92080488E0065B644 /* SOBlackViewController.m */; };
-		04570FFF208093AC0065B644 /* hook.png in Resources */ = {isa = PBXBuildFile; fileRef = 04570FFE208093AC0065B644 /* hook.png */; };
 		0457100220809C290065B644 /* SOConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457100120809C290065B644 /* SOConditionViewController.m */; };
 		0457100920809D610065B644 /* SOConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457100720809D610065B644 /* SOConditionTableViewCell.m */; };
 		0457100A20809D610065B644 /* SOConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0457100820809D610065B644 /* SOConditionTableViewCell.xib */; };
@@ -99,9 +95,6 @@
 		044632F52083957700F7A2B7 /* XScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XScrollView.m; sourceTree = "<group>"; };
 		044632F7208395A300F7A2B7 /* SOHelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOHelpViewController.h; sourceTree = "<group>"; };
 		044632F8208395A300F7A2B7 /* SOHelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOHelpViewController.m; sourceTree = "<group>"; };
-		044632FB2083974F00F7A2B7 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
-		044632FC2083974F00F7A2B7 /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
-		044632FD2083974F00F7A2B7 /* image3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image3.jpg; sourceTree = "<group>"; };
 		044633012095B20100F7A2B7 /* UITableView+Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Animations.m"; sourceTree = "<group>"; };
 		044633022095B20100F7A2B7 /* UITableView+Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Animations.h"; sourceTree = "<group>"; };
 		04570F83207B5BA50065B644 /* PureSms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PureSms.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,7 +123,6 @@
 		04570FF3207DC22A0065B644 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		04570FF82080488E0065B644 /* SOBlackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOBlackViewController.h; sourceTree = "<group>"; };
 		04570FF92080488E0065B644 /* SOBlackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOBlackViewController.m; sourceTree = "<group>"; };
-		04570FFE208093AC0065B644 /* hook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hook.png; sourceTree = "<group>"; };
 		0457100020809C290065B644 /* SOConditionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOConditionViewController.h; sourceTree = "<group>"; };
 		0457100120809C290065B644 /* SOConditionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOConditionViewController.m; sourceTree = "<group>"; };
 		0457100620809D610065B644 /* SOConditionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOConditionTableViewCell.h; sourceTree = "<group>"; };
@@ -188,16 +180,6 @@
 			path = MLMenu;
 			sourceTree = "<group>";
 		};
-		044632FA2083974300F7A2B7 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				044632FB2083974F00F7A2B7 /* image1.jpg */,
-				044632FC2083974F00F7A2B7 /* image2.jpg */,
-				044632FD2083974F00F7A2B7 /* image3.jpg */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
 		04570F7A207B5BA50065B644 = {
 			isa = PBXGroup;
 			children = (
@@ -225,7 +207,6 @@
 		04570F85207B5BA50065B644 /* PureSms */ = {
 			isa = PBXGroup;
 			children = (
-				044632FA2083974300F7A2B7 /* Images */,
 				044632E72081A58E00F7A2B7 /* PureSms.entitlements */,
 				04570FD8207CF4A80065B644 /* Other */,
 				04570FD6207CF4350065B644 /* Rule */,
@@ -334,7 +315,6 @@
 		04570FD8207CF4A80065B644 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				04570FFE208093AC0065B644 /* hook.png */,
 				04570FE5207CF6910065B644 /* GlobalDefine.h */,
 				04570FD2207CEC600065B644 /* PrefixHeader.pch */,
 				04570FF0207DC1DE0065B644 /* Localizable.strings */,
@@ -506,13 +486,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				044632EC208338C000F7A2B7 /* SOBlackTableViewCell.xib in Resources */,
-				044633002083975000F7A2B7 /* image3.jpg in Resources */,
 				04570FF1207DC1DE0065B644 /* Localizable.strings in Resources */,
-				04570FFF208093AC0065B644 /* hook.png in Resources */,
 				04570F93207B5BA50065B644 /* LaunchScreen.storyboard in Resources */,
-				044632FF2083974F00F7A2B7 /* image2.jpg in Resources */,
 				0457100A20809D610065B644 /* SOConditionTableViewCell.xib in Resources */,
-				044632FE2083974F00F7A2B7 /* image1.jpg in Resources */,
 				04570F90207B5BA50065B644 /* Assets.xcassets in Resources */,
 				04570F8E207B5BA50065B644 /* Main.storyboard in Resources */,
 			);
@@ -784,6 +760,7 @@
 				CODE_SIGN_ENTITLEMENTS = PureSms/PureSms.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LV6Y87Y7RS;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PureSms/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = PureSms/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresms;
@@ -800,6 +777,7 @@
 				CODE_SIGN_ENTITLEMENTS = PureSms/PureSms.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LV6Y87Y7RS;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PureSms/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = PureSms/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresms;
@@ -872,7 +850,7 @@
 				CODE_SIGN_ENTITLEMENTS = PureSmsExt/PureSmsExt.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LV6Y87Y7RS;
-				GCC_PREFIX_HEADER = "/Users/ycx/helloBug/myProject/iOS/privateProjects/myProjects/PureSms-IOS/PureSms/Other/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PureSms/Other/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = PureSmsExt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -889,7 +867,7 @@
 				CODE_SIGN_ENTITLEMENTS = PureSmsExt/PureSmsExt.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LV6Y87Y7RS;
-				GCC_PREFIX_HEADER = "/Users/ycx/helloBug/myProject/iOS/privateProjects/myProjects/PureSms-IOS/PureSms/Other/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PureSms/Other/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = PureSmsExt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
