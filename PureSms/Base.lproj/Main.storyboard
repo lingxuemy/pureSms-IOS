@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mgc-jJ-n8J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mgc-jJ-n8J">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -74,7 +74,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZR-i5-yn7">
-                                <rect key="frame" x="30" y="617" width="142.5" height="40"/>
+                                <rect key="frame" x="30" y="617" width="315" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="开启教程">
@@ -92,8 +92,11 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofc-bk-ZVQ">
-                                <rect key="frame" x="202.5" y="617" width="142.5" height="40"/>
+                                <rect key="frame" x="375" y="617" width="0.0" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" id="hyn-8Q-y51"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="捐赠">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -107,12 +110,11 @@
                         <constraints>
                             <constraint firstItem="0B7-35-ywS" firstAttribute="leading" secondItem="A6I-Ph-YeN" secondAttribute="leading" id="1CJ-fD-sh8"/>
                             <constraint firstItem="3ch-Q3-SGd" firstAttribute="leading" secondItem="A6I-Ph-YeN" secondAttribute="leading" id="2g0-V8-qwx"/>
-                            <constraint firstItem="ofc-bk-ZVQ" firstAttribute="width" secondItem="KZR-i5-yn7" secondAttribute="width" id="3g9-M0-Jqe"/>
                             <constraint firstItem="tV1-rG-jf5" firstAttribute="top" secondItem="3ch-Q3-SGd" secondAttribute="bottom" constant="60" id="Egu-9b-vGu"/>
                             <constraint firstAttribute="trailing" secondItem="3ch-Q3-SGd" secondAttribute="trailing" id="GDs-T4-Fz6"/>
                             <constraint firstItem="tV1-rG-jf5" firstAttribute="top" secondItem="KZR-i5-yn7" secondAttribute="bottom" constant="10" id="Kz0-VG-V9q"/>
                             <constraint firstItem="3ch-Q3-SGd" firstAttribute="top" secondItem="kNG-bM-qE4" secondAttribute="bottom" id="L2w-dP-OuW"/>
-                            <constraint firstAttribute="trailing" secondItem="ofc-bk-ZVQ" secondAttribute="trailing" constant="30" id="LnI-8k-OKF"/>
+                            <constraint firstAttribute="trailing" secondItem="ofc-bk-ZVQ" secondAttribute="trailing" id="LnI-8k-OKF"/>
                             <constraint firstAttribute="trailing" secondItem="0B7-35-ywS" secondAttribute="trailing" id="Qk4-Wo-rEo"/>
                             <constraint firstItem="ofc-bk-ZVQ" firstAttribute="leading" secondItem="KZR-i5-yn7" secondAttribute="trailing" constant="30" id="abQ-to-8WC"/>
                             <constraint firstItem="KZR-i5-yn7" firstAttribute="leading" secondItem="A6I-Ph-YeN" secondAttribute="leading" constant="30" id="lHm-60-Kzo"/>
@@ -151,7 +153,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="立即捐赠1元" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pzq-k8-tXQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小礼物走一走，一元赞赏能糊口" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pzq-k8-tXQ">
                                 <rect key="frame" x="30" y="94" width="315" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -163,7 +165,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="8dI-Qq-rg4"/>
                                 </constraints>
-                                <state key="normal" title="确认">
+                                <state key="normal" title="没问题">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>

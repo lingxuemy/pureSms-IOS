@@ -68,11 +68,15 @@
 "SMS Whitesender" = "短信发送者白名单";
 "SMS Blackcontent" = "短信内容黑名单";
 "SMS Whitecontent" = "短信内容白名单";
+"Using Helpe" = "使用帮助";
+"Donation" = "捐赠";
 
 "Please enter Blacksender keyword" = "请输入黑名单号码";
 "Please enter Whitesender keyword" = "请输入白名单号码";
 "Please enter Blackcontent keyword" = "请输入黑名单关键词";
 "Please enter Whitecontent keyword" = "请输入白名单关键词";
+
+"Please click on the opening tutorial below the homepage to add more questions to the QQ group feedback number: 469859289" = "请先点击主页下方的开启教程。更多问题加QQ群反馈号码：469859289";
 
 // 黑名单部分关键词。股 证券 .cn http 理财 收益 www 贷 保险 券 回复 退订 .com/ 参与 点击 戳 基金
 "Reply" = "回复";

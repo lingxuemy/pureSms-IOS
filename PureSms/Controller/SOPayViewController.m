@@ -31,38 +31,9 @@
 {
     NSLog(@"Payment was authorized: %@", payment);
     
-    // do an async call to the server to complete the payment.
-    // See PKPayment class reference for object parameters that can be passed
-    BOOL asyncSuccessful = FALSE;
+    completion(PKPaymentAuthorizationStatusSuccess);
     
-    // When the async call is done, send the callback.
-    // Available cases are:
-    //    PKPaymentAuthorizationStatusSuccess, // Merchant auth'd (or expects to auth) the transaction successfully.
-    //    PKPaymentAuthorizationStatusFailure, // Merchant failed to auth the transaction.
-    //
-    //    PKPaymentAuthorizationStatusInvalidBillingPostalAddress,  // Merchant refuses service to this billing address.
-    //    PKPaymentAuthorizationStatusInvalidShippingPostalAddress, // Merchant refuses service to this shipping address.
-    //    PKPaymentAuthorizationStatusInvalidShippingContact        // Supplied contact information is insufficient.
-    
-    if(asyncSuccessful) {
-        completion(PKPaymentAuthorizationStatusSuccess);
-        
-        // do something to let the user know the status
-        
-        NSLog(@"Payment was successful");
-        
-        //        [Crittercism endTransaction:@"checkout"];
-        
-    } else {
-        completion(PKPaymentAuthorizationStatusFailure);
-        
-        // do something to let the user know the status
-        
-        NSLog(@"Payment was unsuccessful");
-        
-        //        [Crittercism failTransaction:@"checkout"];
-    }
-    
+    NSLog(@"Payment was successful");
 }
 
 - (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller
@@ -74,7 +45,6 @@
 }
 
 - (IBAction)touchUpInsideBtn:(UIButton *)sender {
-    // [Crittercism beginTransaction:@"checkout"];
     
     if([PKPaymentAuthorizationViewController canMakePayments]) {
         
@@ -82,22 +52,18 @@
         
         PKPaymentRequest *request = [[PKPaymentRequest alloc] init];
         
-//        PKPaymentSummaryItem *widget1 = [PKPaymentSummaryItem summaryItemWithLabel:@"Widget 1"
-//                                                                            amount:[NSDecimalNumber decimalNumberWithString:@"0.99"]];
-//
-//        PKPaymentSummaryItem *widget2 = [PKPaymentSummaryItem summaryItemWithLabel:@"Widget 2"
-//                                                                            amount:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
+        PKPaymentSummaryItem *widget = [PKPaymentSummaryItem summaryItemWithLabel:@"捐赠"
+                                                                            amount:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
         
         PKPaymentSummaryItem *total = [PKPaymentSummaryItem summaryItemWithLabel:@"重庆如梦极匠科技发展有限公司"
                                                                           amount:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
         
-//        request.paymentSummaryItems = @[widget1, widget2, total];
-        request.paymentSummaryItems = @[total];
-        request.countryCode = @"US";
-        request.currencyCode = @"USD";
-        request.supportedNetworks = @[PKPaymentNetworkAmex, PKPaymentNetworkMasterCard, PKPaymentNetworkVisa];
+        request.paymentSummaryItems = @[widget, total];
+        request.countryCode = @"CN";
+        request.currencyCode = @"CNY";
+        request.supportedNetworks = @[PKPaymentNetworkChinaUnionPay, PKPaymentNetworkPrivateLabel, PKPaymentNetworkAmex];
         request.merchantIdentifier = @"merchant.welightworld.puresms";
-        request.merchantCapabilities = PKMerchantCapabilityEMV;
+        request.merchantCapabilities = PKMerchantCapability3DS;
         
         PKPaymentAuthorizationViewController *paymentPane = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
         paymentPane.delegate = self;

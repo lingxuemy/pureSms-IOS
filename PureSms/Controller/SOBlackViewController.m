@@ -14,6 +14,7 @@
 #import "UITableView+Animations.h"
 #import "XTimer.h"
 #import "MLMenuView.h"
+#import "SOPayViewController.h"
 
 #define ExtentsionAppGroupName @"group.com.welightworld.puresms"
 #define ExtentsionAppGroupNamePro @"group.com.welightworld.puresmspro"
@@ -190,7 +191,7 @@ typedef enum : NSUInteger {
             {
                 self.userdefKey = @"isRightBtn";
                 _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
-                if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-06-15 12:00:00"]) {
+                if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-08-14 23:00:00"]) {
                     if (_numberInt == 0) {
                         [self showCustomizeSKStoreReview1];
                     }
@@ -282,13 +283,22 @@ typedef enum : NSUInteger {
                 break;
             case 4:
                 // 发送者白名单
-                _addKeyWord = ADDKEYWORDWHITEPHONE;
-                self.keyWordMutArray = self.whitePhoneMutArray;
+//                _addKeyWord = ADDKEYWORDWHITEPHONE;
+//                self.keyWordMutArray = self.whitePhoneMutArray;
+                // 使用帮助
+                [self showHelpTipsView];
+                break;
+            case 5:
+                // 捐赠
+            {
+                SOPayViewController *payVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SOPayViewController"];
+                [self.navigationController pushViewController:payVC animated:YES];
+            }
                 break;
             default:
                 break;
         }
-        if (index && ![self.title isEqualToString:titles[index]]) {
+        if ((index == 1 || index == 2 || index == 3) && ![self.title isEqualToString:titles[index]]) {
             self.title = titles[index];
             [self.blackTableView reloadData];
             [self.blackTableView performAnimation:AnimationRightToLeft finishBlock:nil];
@@ -298,6 +308,20 @@ typedef enum : NSUInteger {
         }
     };
     [menuView showMenuEnterAnimation:MLAnimationStyleTop];
+}
+
+/**
+ 显示帮助提示界面
+ */
+- (void)showHelpTipsView
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Tips") message:SOLocalize(@"Please click on the opening tutorial below the homepage to add more questions to the QQ group feedback number: 469859289") preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:SOLocalize(@"OK") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:^{
+        NSLog(@"presented");
+    }];
 }
 
 /**
@@ -412,7 +436,7 @@ typedef enum : NSUInteger {
 - (IBAction)leftButEvent:(UIBarButtonItem *)sender {
     self.userdefKey = @"isLeftBtn";
     _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
-    if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-06-15 12:00:00"]) {
+    if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-08-14 23:00:00"]) {
         if (_numberInt == 0) {
             [self showCustomizeSKStoreReview1];
         }
@@ -442,7 +466,7 @@ typedef enum : NSUInteger {
 
 - (IBAction)rightButEvent:(UIBarButtonItem *)sender {
     
-    NSArray *array = @[SOLocalize(@"Add Keyword"), SOLocalize(@"SMS Blackcontent"), SOLocalize(@"SMS Whitecontent"), SOLocalize(@"SMS Blacksender")];
+    NSArray *array = @[SOLocalize(@"Add Keyword"), SOLocalize(@"SMS Blackcontent"), SOLocalize(@"SMS Whitecontent"), SOLocalize(@"SMS Blacksender"), SOLocalize(@"Using Helpe"), SOLocalize(@"Donation")];
     [self loadMLMenuWithTitles:array];
 }
 
