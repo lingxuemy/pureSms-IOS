@@ -26,6 +26,10 @@
         self.vipLabel.hidden = NO;
 //        self.vipLabel.text = [NSString stringWithFormat:@"VIP %ld", (long)tempInt];
     }
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapEvent)];
+    tap.numberOfTapsRequired = 10;
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,33 +70,37 @@
     else {
         NSLog(@"不能支付");
     }
-    
-//    if([PKPaymentAuthorizationViewController canMakePayments]) {
-//
-//        NSLog(@"Woo! Can make payments!");
-//
-//        PKPaymentRequest *request = [[PKPaymentRequest alloc] init];
-//
-//        PKPaymentSummaryItem *widget = [PKPaymentSummaryItem summaryItemWithLabel:@"捐赠"
-//                                                                            amount:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
-//
-//        PKPaymentSummaryItem *total = [PKPaymentSummaryItem summaryItemWithLabel:@"重庆如梦极匠科技发展有限公司"
-//                                                                          amount:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
-//
-//        request.paymentSummaryItems = @[widget, total];
-//        request.countryCode = @"CN";
-//        request.currencyCode = @"CNY";
-//        request.supportedNetworks = @[PKPaymentNetworkChinaUnionPay, PKPaymentNetworkPrivateLabel, PKPaymentNetworkAmex];
-//        request.merchantIdentifier = @"merchant.welightworld.puresms";
-//        request.merchantCapabilities = PKMerchantCapability3DS;
-//
-//        PKPaymentAuthorizationViewController *paymentPane = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
-//        paymentPane.delegate = self;
-//        [self presentViewController:paymentPane animated:TRUE completion:nil];
-//
-//    } else {
-//        NSLog(@"This device cannot make payments");
-//    }
+}
+
+- (void)tapEvent
+{
+    if([PKPaymentAuthorizationViewController canMakePayments]) {
+        
+        NSLog(@"Woo! Can make payments!");
+        
+        PKPaymentRequest *request = [[PKPaymentRequest alloc] init];
+        
+        PKPaymentSummaryItem *widget = [PKPaymentSummaryItem summaryItemWithLabel:@"捐赠"
+                                                                           amount:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
+        
+        PKPaymentSummaryItem *total = [PKPaymentSummaryItem summaryItemWithLabel:@"重庆如梦极匠科技发展有限公司"
+                                                                          amount:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
+        
+        request.paymentSummaryItems = @[widget, total];
+        request.countryCode = @"CN";
+        request.currencyCode = @"CNY";
+        request.supportedNetworks = @[PKPaymentNetworkChinaUnionPay, PKPaymentNetworkPrivateLabel, PKPaymentNetworkAmex];
+        request.merchantIdentifier = @"merchant.welightworld.puresms";
+        request.merchantCapabilities = PKMerchantCapability3DS;
+        
+        PKPaymentAuthorizationViewController *paymentPane = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
+        paymentPane.delegate = self;
+        [self presentViewController:paymentPane animated:TRUE completion:nil];
+        
+    } else {
+        NSLog(@"This device cannot make payments");
+    }
+
 }
 
 //请求苹果商品
