@@ -10,20 +10,28 @@
 #import <PassKit/PassKit.h>
 #import <StoreKit/StoreKit.h>
 @interface SOPayViewController ()<PKPaymentAuthorizationViewControllerDelegate, SKPaymentTransactionObserver,SKProductsRequestDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *VIPImageView;
+@property (weak, nonatomic) IBOutlet UILabel *vipLabel;
 
 @end
 
 @implementation SOPayViewController
 
-//- (void)viewDidLoad {
-//    [super viewDidLoad];
-//    // Do any additional setup after loading the view.
-//}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    NSInteger tempInt = [[NSUserDefaults standardUserDefaults] integerForKey:@"vipNumber"];
+    if (tempInt) {
+        self.VIPImageView.hidden = NO;
+        self.vipLabel.hidden = NO;
+//        self.vipLabel.text = [NSString stringWithFormat:@"VIP %ld", (long)tempInt];
+    }
+}
 
-//- (void)didReceiveMemoryWarning {
-//    [super didReceiveMemoryWarning];
-//    // Dispose of any resources that can be recreated.
-//}
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 - (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller
                        didAuthorizePayment:(PKPayment *)payment
@@ -46,73 +54,51 @@
 
 - (IBAction)touchUpInsideBtn:(UIButton *)sender {
     
-    if([PKPaymentAuthorizationViewController canMakePayments]) {
-        
-        NSLog(@"Woo! Can make payments!");
-        
-        PKPaymentRequest *request = [[PKPaymentRequest alloc] init];
-        
-        PKPaymentSummaryItem *widget = [PKPaymentSummaryItem summaryItemWithLabel:@"捐赠"
-                                                                            amount:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
-        
-        PKPaymentSummaryItem *total = [PKPaymentSummaryItem summaryItemWithLabel:@"重庆如梦极匠科技发展有限公司"
-                                                                          amount:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
-        
-        request.paymentSummaryItems = @[widget, total];
-        request.countryCode = @"CN";
-        request.currencyCode = @"CNY";
-        request.supportedNetworks = @[PKPaymentNetworkChinaUnionPay, PKPaymentNetworkPrivateLabel, PKPaymentNetworkAmex];
-        request.merchantIdentifier = @"merchant.welightworld.puresms";
-        request.merchantCapabilities = PKMerchantCapability3DS;
-        
-        PKPaymentAuthorizationViewController *paymentPane = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
-        paymentPane.delegate = self;
-        [self presentViewController:paymentPane animated:TRUE completion:nil];
-        
-    } else {
-        NSLog(@"This device cannot make payments");
-    }
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    //3.创建测试按钮
-    UIButton *testBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 300, 100, 100)];
-    testBtn.backgroundColor = [UIColor redColor];
-    [testBtn addTarget:self action:@selector(clickTestBtnAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:testBtn];
-    
     // 4.设置支付服务
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
-    
-    
-}
-
-//点击测试按钮
-- (void)clickTestBtnAction
-{
-    
     // 5.点击按钮的时候判断app是否允许apple支付
-    
     //如果app允许applepay
     if ([SKPaymentQueue canMakePayments]) {
-        NSLog(@"yes");
-        
+        NSLog(@"允许支付");
         // 6.请求苹果后台商品
         [self getRequestAppleProduct];
     }
-    else
-    {
-        NSLog(@"not");
+    else {
+        NSLog(@"不能支付");
     }
+    
+//    if([PKPaymentAuthorizationViewController canMakePayments]) {
+//
+//        NSLog(@"Woo! Can make payments!");
+//
+//        PKPaymentRequest *request = [[PKPaymentRequest alloc] init];
+//
+//        PKPaymentSummaryItem *widget = [PKPaymentSummaryItem summaryItemWithLabel:@"捐赠"
+//                                                                            amount:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
+//
+//        PKPaymentSummaryItem *total = [PKPaymentSummaryItem summaryItemWithLabel:@"重庆如梦极匠科技发展有限公司"
+//                                                                          amount:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
+//
+//        request.paymentSummaryItems = @[widget, total];
+//        request.countryCode = @"CN";
+//        request.currencyCode = @"CNY";
+//        request.supportedNetworks = @[PKPaymentNetworkChinaUnionPay, PKPaymentNetworkPrivateLabel, PKPaymentNetworkAmex];
+//        request.merchantIdentifier = @"merchant.welightworld.puresms";
+//        request.merchantCapabilities = PKMerchantCapability3DS;
+//
+//        PKPaymentAuthorizationViewController *paymentPane = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
+//        paymentPane.delegate = self;
+//        [self presentViewController:paymentPane animated:TRUE completion:nil];
+//
+//    } else {
+//        NSLog(@"This device cannot make payments");
+//    }
 }
 
 //请求苹果商品
 - (void)getRequestAppleProduct
 {
-    // 7.这里的com.czchat.CZChat01就对应着苹果后台的商品ID,他们是通过这个ID进行联系的。
+    // 7.这里的merchant.welightworld.puresms就对应着苹果后台的商品ID,他们是通过这个ID进行联系的。
     NSArray *product = [[NSArray alloc] initWithObjects:@"merchant.welightworld.puresms",nil];
     
     NSSet *nsset = [NSSet setWithArray:product];
@@ -132,7 +118,7 @@
     
     //如果服务器没有产品
     if([product count] == 0){
-        NSLog(@"nothing");
+        NSLog(@"请在苹果后台添加商品。");
         return;
     }
     
@@ -158,7 +144,7 @@
 
 //请求失败
 - (void)request:(SKRequest *)request didFailWithError:(NSError *)error{
-    NSLog(@"error:%@", error);
+    NSLog(@"请求失败-error:%@", error);
 }
 
 //反馈请求的产品信息结束后
@@ -173,7 +159,11 @@
         switch (tran.transactionState) {
             case SKPaymentTransactionStatePurchased:
                 NSLog(@"交易完成");
-                
+            {
+                NSInteger tempInt = [[NSUserDefaults standardUserDefaults] integerForKey:@"vipNumber"];
+                [[NSUserDefaults standardUserDefaults] setInteger:tempInt+1 forKey:@"vipNumber"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }
                 break;
             case SKPaymentTransactionStatePurchasing:
                 NSLog(@"商品添加进列表");
@@ -272,10 +262,6 @@
 - (void)dealloc
 {
     [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 -(NSString * )environmentForReceipt:(NSString * )str

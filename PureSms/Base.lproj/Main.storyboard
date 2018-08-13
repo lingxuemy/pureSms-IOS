@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -153,7 +154,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小礼物走一走，一元赞赏能糊口" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pzq-k8-tXQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一元兑换VIP徽章，谢谢支持" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pzq-k8-tXQ">
                                 <rect key="frame" x="30" y="94" width="315" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -165,7 +166,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="8dI-Qq-rg4"/>
                                 </constraints>
-                                <state key="normal" title="没问题">
+                                <state key="normal" title="确认">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -178,6 +179,15 @@
                                     <action selector="touchUpInsideBtn:" destination="TNs-g8-kDp" eventType="touchUpInside" id="2rs-ch-v3p"/>
                                 </connections>
                             </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vip" translatesAutoresizingMaskIntoConstraints="NO" id="L5R-Al-4cY">
+                                <rect key="frame" x="153" y="584.5" width="32" height="32"/>
+                            </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIP 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4m-yO-wsd">
+                                <rect key="frame" x="195" y="592.5" width="45.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" red="1" green="0.923828538727966" blue="0.26925929640447877" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -185,11 +195,19 @@
                             <constraint firstAttribute="trailing" secondItem="Pzq-k8-tXQ" secondAttribute="trailing" constant="30" id="8aW-d9-7SO"/>
                             <constraint firstItem="Pzq-k8-tXQ" firstAttribute="top" secondItem="CRR-rT-pmO" secondAttribute="bottom" constant="30" id="I17-32-ayV"/>
                             <constraint firstItem="7jg-Pp-3Dg" firstAttribute="leading" secondItem="NPG-bW-rSY" secondAttribute="leading" constant="30" id="Kqu-31-G0Q"/>
+                            <constraint firstItem="L5R-Al-4cY" firstAttribute="centerX" secondItem="NPG-bW-rSY" secondAttribute="centerX" multiplier="0.9" id="Nsl-yh-ibO"/>
                             <constraint firstItem="Pzq-k8-tXQ" firstAttribute="leading" secondItem="NPG-bW-rSY" secondAttribute="leading" constant="30" id="b0R-yK-517"/>
+                            <constraint firstItem="d4m-yO-wsd" firstAttribute="bottom" secondItem="L5R-Al-4cY" secondAttribute="bottom" id="blH-i9-w75"/>
+                            <constraint firstItem="L5R-Al-4cY" firstAttribute="centerY" secondItem="NPG-bW-rSY" secondAttribute="centerY" multiplier="1.8" id="ibQ-oT-1eA"/>
+                            <constraint firstItem="d4m-yO-wsd" firstAttribute="leading" secondItem="L5R-Al-4cY" secondAttribute="trailing" constant="10" id="lhq-7C-okP"/>
                             <constraint firstAttribute="trailing" secondItem="7jg-Pp-3Dg" secondAttribute="trailing" constant="30" id="uhy-CV-FgI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="捐赠" id="lQl-ys-JwQ"/>
+                    <connections>
+                        <outlet property="VIPImageView" destination="L5R-Al-4cY" id="1v1-AV-pin"/>
+                        <outlet property="vipLabel" destination="d4m-yO-wsd" id="Tyl-fU-qp9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0iq-Bt-5N6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -943,5 +961,6 @@
     </scenes>
     <resources>
         <image name="hook.png" width="32" height="32"/>
+        <image name="vip" width="32" height="32"/>
     </resources>
 </document>
