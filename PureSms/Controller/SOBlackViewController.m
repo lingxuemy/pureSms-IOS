@@ -474,6 +474,9 @@ typedef enum : NSUInteger {
 - (void)cellSwitch:(UISwitch *) sender
 {
     NSLog(@"sender.tag == %ld", sender.tag);
+    if (sender.tag >= self.keyWordMutArray.count) {
+        return;
+    }
     SOKeywordModelExt *keyModel = [NSKeyedUnarchiver unarchiveObjectWithData:self.keyWordMutArray[sender.tag]];
     keyModel.isOpen = sender.on;
     
@@ -518,7 +521,7 @@ typedef enum : NSUInteger {
 {
     SOBlackTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SOBlackTableViewCell" forIndexPath:indexPath];
     cell.separatorInset = UIEdgeInsetsMake(0, 20, 0, 0);
-    if (self.keyWordMutArray.count) {
+    if (indexPath.row < self.keyWordMutArray.count) {
         SOKeywordModelExt *keyModel = [NSKeyedUnarchiver unarchiveObjectWithData:self.keyWordMutArray[indexPath.row]];
         cell.cellLabel.text = keyModel.keywordStr;
         cell.cellSwitch.on = keyModel.isOpen;
