@@ -148,6 +148,18 @@ typedef enum : NSUInteger {
     
     [self getKeyWord];
     self.keyWordMutArray = self.blackKeyWordMutArray;
+    
+    [self testPay];
+}
+
+/**
+ 测试支付
+ */
+- (void)testPay
+{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpPayViewController)];
+    tap.numberOfTapsRequired = 10;
+    [self.view addGestureRecognizer:tap];
 }
 
 // 获取关键词
@@ -185,7 +197,7 @@ typedef enum : NSUInteger {
             {
                 self.userdefKey = @"isRightBtn";
                 _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
-                if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-08-25 23:00:00"]) {
+                if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-08-28 23:00:00"]) {
                     if (_numberInt == 0) {
                         [self showCustomizeSKStoreReview1];
                     }
@@ -284,10 +296,7 @@ typedef enum : NSUInteger {
                 break;
             case 5:
                 // 捐赠
-            {
-                SOPayViewController *payVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SOPayViewController"];
-                [self.navigationController pushViewController:payVC animated:YES];
-            }
+                [self jumpPayViewController];
                 break;
             default:
                 break;
@@ -422,6 +431,15 @@ typedef enum : NSUInteger {
 }
 
 #pragma mark - 点击事件
+/**
+ 跳转到支付界面
+ */
+- (void)jumpPayViewController
+{
+    SOPayViewController *payVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SOPayViewController"];
+    [self.navigationController pushViewController:payVC animated:YES];
+}
+
 - (IBAction)openHelpButEvent:(UIButton *)sender {
     SOHelpViewController *helpVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SOHelpViewController"];
     [self.navigationController pushViewController:helpVC animated:YES];
@@ -430,7 +448,7 @@ typedef enum : NSUInteger {
 - (IBAction)leftButEvent:(UIBarButtonItem *)sender {
     self.userdefKey = @"isLeftBtn";
     _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
-    if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-08-25 23:00:00"]) {
+    if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-08-28 23:00:00"]) {
         if (_numberInt == 0) {
             [self showCustomizeSKStoreReview1];
         }
@@ -460,7 +478,7 @@ typedef enum : NSUInteger {
 
 - (IBAction)rightButEvent:(UIBarButtonItem *)sender {
     
-    if (![XTimer compareNowTime:@"2018-08-25 23:00:00"]) {
+    if (![XTimer compareNowTime:@"2018-09-25 23:00:00"]) {
         NSArray *array = @[SOLocalize(@"Add Keyword"), SOLocalize(@"SMS Blackcontent"), SOLocalize(@"SMS Whitecontent"), SOLocalize(@"SMS Blacksender"), SOLocalize(@"Using Helpe"), SOLocalize(@"Donation")];
         [self loadMLMenuWithTitles:array];
     }
