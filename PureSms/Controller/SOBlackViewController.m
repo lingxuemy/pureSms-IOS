@@ -146,14 +146,8 @@ typedef enum : NSUInteger {
     
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_leftBut];
     
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
     [self getKeyWord];
     self.keyWordMutArray = self.blackKeyWordMutArray;
-    [self.blackTableView reloadData];
 }
 
 // 获取关键词
@@ -524,15 +518,16 @@ typedef enum : NSUInteger {
 {
     SOBlackTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SOBlackTableViewCell" forIndexPath:indexPath];
     cell.separatorInset = UIEdgeInsetsMake(0, 20, 0, 0);
-    SOKeywordModelExt *keyModel = [NSKeyedUnarchiver unarchiveObjectWithData:self.keyWordMutArray[indexPath.row]];
-    cell.cellLabel.text = keyModel.keywordStr;
-    cell.cellSwitch.on = keyModel.isOpen;
-    
-    cell.cellSwitch.tag = indexPath.row;
-    [cell.cellSwitch addTarget:self action:@selector(cellSwitch:) forControlEvents:UIControlEventValueChanged];
-    cell.cellDelete.tag = indexPath.row;
-    [cell.cellDelete addTarget:self action:@selector(cellDelete:) forControlEvents:UIControlEventTouchUpInside];
-    
+    if (self.keyWordMutArray.count) {
+        SOKeywordModelExt *keyModel = [NSKeyedUnarchiver unarchiveObjectWithData:self.keyWordMutArray[indexPath.row]];
+        cell.cellLabel.text = keyModel.keywordStr;
+        cell.cellSwitch.on = keyModel.isOpen;
+        
+        cell.cellSwitch.tag = indexPath.row;
+        [cell.cellSwitch addTarget:self action:@selector(cellSwitch:) forControlEvents:UIControlEventValueChanged];
+        cell.cellDelete.tag = indexPath.row;
+        [cell.cellDelete addTarget:self action:@selector(cellDelete:) forControlEvents:UIControlEventTouchUpInside];
+    }
     return cell;
 }
 
