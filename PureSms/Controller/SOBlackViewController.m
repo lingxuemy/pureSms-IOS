@@ -131,7 +131,7 @@ typedef enum : NSUInteger {
         
     }
     
-    self.blackTableView.separatorInset = UIEdgeInsetsMake(0, 9000, 0, 0);;
+    self.blackTableView.separatorInset = UIEdgeInsetsMake(0, 9000, 0, 0);
     [self.blackTableView registerNib:[UINib nibWithNibName:@"SOBlackTableViewCell" bundle:nil] forCellReuseIdentifier:@"SOBlackTableViewCell"];
     
 //    _leftBut = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
@@ -197,7 +197,7 @@ typedef enum : NSUInteger {
             {
                 self.userdefKey = @"isRightBtn";
                 _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
-                if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-08-28 23:00:00"]) {
+                if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-09-01 23:00:00"]) {
                     if (_numberInt == 0) {
                         [self showCustomizeSKStoreReview1];
                     }
@@ -448,7 +448,7 @@ typedef enum : NSUInteger {
 - (IBAction)leftButEvent:(UIBarButtonItem *)sender {
     self.userdefKey = @"isLeftBtn";
     _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
-    if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-08-28 23:00:00"]) {
+    if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-09-01 23:00:00"]) {
         if (_numberInt == 0) {
             [self showCustomizeSKStoreReview1];
         }
@@ -478,14 +478,16 @@ typedef enum : NSUInteger {
 
 - (IBAction)rightButEvent:(UIBarButtonItem *)sender {
     
-    if (![XTimer compareNowTime:@"2018-09-25 23:00:00"]) {
-        NSArray *array = @[SOLocalize(@"Add Keyword"), SOLocalize(@"SMS Blackcontent"), SOLocalize(@"SMS Whitecontent"), SOLocalize(@"SMS Blacksender"), SOLocalize(@"Using Helpe"), SOLocalize(@"Donation")];
-        [self loadMLMenuWithTitles:array];
-    }
-    else {
-        NSArray *array = @[SOLocalize(@"Add Keyword"), SOLocalize(@"SMS Blackcontent"), SOLocalize(@"SMS Whitecontent"), SOLocalize(@"SMS Blacksender"), SOLocalize(@"Using Helpe")];
-        [self loadMLMenuWithTitles:array];
-    }
+//    if (![XTimer compareNowTime:@"3018-09-01 23:00:00"]) {
+//        NSArray *array = @[SOLocalize(@"Add Keyword"), SOLocalize(@"SMS Blackcontent"), SOLocalize(@"SMS Whitecontent"), SOLocalize(@"SMS Blacksender"), SOLocalize(@"Using Helpe"), SOLocalize(@"Donation")];
+//        [self loadMLMenuWithTitles:array];
+//    }
+//    else {
+//        NSArray *array = @[SOLocalize(@"Add Keyword"), SOLocalize(@"SMS Blackcontent"), SOLocalize(@"SMS Whitecontent"), SOLocalize(@"SMS Blacksender"), SOLocalize(@"Using Helpe")];
+//        [self loadMLMenuWithTitles:array];
+//    }
+    NSArray *array = @[SOLocalize(@"Add Keyword"), SOLocalize(@"SMS Blackcontent"), SOLocalize(@"SMS Whitecontent"), SOLocalize(@"SMS Blacksender"), SOLocalize(@"Using Helpe"), SOLocalize(@"Donation")];
+    [self loadMLMenuWithTitles:array];
 }
 
 #pragma mark - cell子事件
