@@ -7,9 +7,8 @@
 //
 
 #import "SOPayViewController.h"
-#import <PassKit/PassKit.h>
 #import <StoreKit/StoreKit.h>
-@interface SOPayViewController ()<PKPaymentAuthorizationViewControllerDelegate, SKPaymentTransactionObserver,SKProductsRequestDelegate>
+@interface SOPayViewController ()<SKPaymentTransactionObserver,SKProductsRequestDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *VIPImageView;
 @property (weak, nonatomic) IBOutlet UILabel *vipLabel;
 
@@ -26,34 +25,6 @@
         self.vipLabel.hidden = NO;
 //        self.vipLabel.text = [NSString stringWithFormat:@"VIP %ld", (long)tempInt];
     }
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapEvent)];
-    tap.numberOfTapsRequired = 10;
-    [self.view addGestureRecognizer:tap];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller
-                       didAuthorizePayment:(PKPayment *)payment
-                                completion:(void (^)(PKPaymentAuthorizationStatus status))completion
-{
-    NSLog(@"Payment was authorized: %@", payment);
-    
-    completion(PKPaymentAuthorizationStatusSuccess);
-    
-    NSLog(@"Payment was successful");
-}
-
-- (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller
-{
-    NSLog(@"Finishing payment view controller");
-    
-    // hide the payment window
-    [controller dismissViewControllerAnimated:TRUE completion:nil];
 }
 
 - (IBAction)touchUpInsideBtn:(UIButton *)sender {
@@ -70,37 +41,6 @@
     else {
         NSLog(@"不能支付");
     }
-}
-
-- (void)tapEvent
-{
-    if([PKPaymentAuthorizationViewController canMakePayments]) {
-        
-        NSLog(@"Woo! Can make payments!");
-        
-        PKPaymentRequest *request = [[PKPaymentRequest alloc] init];
-        
-        PKPaymentSummaryItem *widget = [PKPaymentSummaryItem summaryItemWithLabel:@"捐赠"
-                                                                           amount:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
-        
-        PKPaymentSummaryItem *total = [PKPaymentSummaryItem summaryItemWithLabel:@"重庆如梦极匠科技发展有限公司"
-                                                                          amount:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
-        
-        request.paymentSummaryItems = @[widget, total];
-        request.countryCode = @"CN";
-        request.currencyCode = @"CNY";
-        request.supportedNetworks = @[PKPaymentNetworkChinaUnionPay, PKPaymentNetworkPrivateLabel, PKPaymentNetworkAmex];
-        request.merchantIdentifier = @"merchant.welightworld.puresms";
-        request.merchantCapabilities = PKMerchantCapability3DS;
-        
-        PKPaymentAuthorizationViewController *paymentPane = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
-        paymentPane.delegate = self;
-        [self presentViewController:paymentPane animated:TRUE completion:nil];
-        
-    } else {
-        NSLog(@"This device cannot make payments");
-    }
-
 }
 
 //请求苹果商品
