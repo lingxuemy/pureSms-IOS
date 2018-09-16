@@ -205,6 +205,7 @@
                     <navigationItem key="navigationItem" title="兑换" id="lQl-ys-JwQ"/>
                     <connections>
                         <outlet property="VIPImageView" destination="L5R-Al-4cY" id="1v1-AV-pin"/>
+                        <outlet property="okBtn" destination="7jg-Pp-3Dg" id="2F6-Yg-Zm1"/>
                         <outlet property="vipLabel" destination="d4m-yO-wsd" id="Tyl-fU-qp9"/>
                     </connections>
                 </viewController>

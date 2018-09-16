@@ -11,6 +11,7 @@
 @interface SOPayViewController ()<SKPaymentTransactionObserver,SKProductsRequestDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *VIPImageView;
 @property (weak, nonatomic) IBOutlet UILabel *vipLabel;
+@property (weak, nonatomic) IBOutlet UIButton *okBtn;
 
 @end
 
@@ -19,12 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSInteger tempInt = [[NSUserDefaults standardUserDefaults] integerForKey:@"vipNumber"];
-    if (tempInt) {
-        self.VIPImageView.hidden = NO;
-        self.vipLabel.hidden = NO;
-//        self.vipLabel.text = [NSString stringWithFormat:@"VIP %ld", (long)tempInt];
-    }
+    [self loadVipView];
 }
 
 - (IBAction)touchUpInsideBtn:(UIButton *)sender {
@@ -43,11 +39,23 @@
     }
 }
 
+// 显示VIP
+- (void)loadVipView
+{
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"]) {
+        self.VIPImageView.hidden = NO;
+        self.vipLabel.hidden = NO;
+        //        self.vipLabel.text = [NSString stringWithFormat:@"VIP %ld", (long)tempInt];
+        self.okBtn.enabled = NO;
+        self.okBtn.backgroundColor = [UIColor lightGrayColor];
+    }
+}
+
 //请求苹果商品
 - (void)getRequestAppleProduct
 {
     // 7.这里的merchant.welightworld.puresms就对应着苹果后台的商品ID,他们是通过这个ID进行联系的。
-    NSArray *product = [[NSArray alloc] initWithObjects:@"merchant.welightworld.puresms",nil];
+    NSArray *product = [[NSArray alloc] initWithObjects:@"merchant.welightworld.puresms1",nil];
     
     NSSet *nsset = [NSSet setWithArray:product];
     
@@ -80,7 +88,7 @@
         NSLog(@"%@", [pro productIdentifier]);
         
         // 11.如果后台消费条目的ID与我这里需要请求的一样（用于确保订单的正确性）
-        if([pro.productIdentifier isEqualToString:@"merchant.welightworld.puresms"]){
+        if([pro.productIdentifier isEqualToString:@"merchant.welightworld.puresms1"]){
             requestProduct = pro;
         }
     }
@@ -103,26 +111,24 @@
 // 13.监听购买结果
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transaction{
     for(SKPaymentTransaction *tran in transaction){
-        
+        NSLog(@"transactionState == %d", tran.transactionState);
         switch (tran.transactionState) {
             case SKPaymentTransactionStatePurchased:
                 NSLog(@"交易完成");
-            {
-                NSInteger tempInt = [[NSUserDefaults standardUserDefaults] integerForKey:@"vipNumber"];
-                [[NSUserDefaults standardUserDefaults] setInteger:tempInt+1 forKey:@"vipNumber"];
-                [[NSUserDefaults standardUserDefaults] synchronize];
-            }
+                [self loadVipView];
                 break;
             case SKPaymentTransactionStatePurchasing:
                 NSLog(@"商品添加进列表");
-                
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"VIP"];
                 break;
             case SKPaymentTransactionStateRestored:
                 NSLog(@"已经购买过商品");
                 [[SKPaymentQueue defaultQueue] finishTransaction:tran];
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"VIP"];
                 break;
             case SKPaymentTransactionStateFailed:
                 NSLog(@"交易失败");
+                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"VIP"];
                 [[SKPaymentQueue defaultQueue] finishTransaction:tran];
                 break;
             default:
