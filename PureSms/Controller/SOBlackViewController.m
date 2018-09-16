@@ -197,7 +197,7 @@ typedef enum : NSUInteger {
             {
                 self.userdefKey = @"isRightBtn";
                 _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
-                if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-09-20 23:00:00"]) {
+                if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-09-21 23:00:00"]) {
                     if (_numberInt == 0) {
                         [self showCustomizeSKStoreReview1];
                     }
@@ -448,7 +448,7 @@ typedef enum : NSUInteger {
 - (IBAction)leftButEvent:(UIBarButtonItem *)sender {
     self.userdefKey = @"isLeftBtn";
     _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
-    if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-09-20 23:00:00"]) {
+    if (_numberInt < 2 && ![XTimer compareNowTime:@"2018-09-21 23:00:00"]) {
         if (_numberInt == 0) {
             [self showCustomizeSKStoreReview1];
         }
