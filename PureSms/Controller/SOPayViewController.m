@@ -21,12 +21,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self loadVipView];
+    
+    // 4.设置支付服务
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
 }
 
 - (IBAction)touchUpInsideBtn:(UIButton *)sender {
     
-    // 4.设置支付服务
-    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     // 5.点击按钮的时候判断app是否允许apple支付
     //如果app允许applepay
     if ([SKPaymentQueue canMakePayments]) {
@@ -71,7 +72,7 @@
 - (void) productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
 {
     NSArray *product = response.products;
-    
+    NSLog(@"product == %d", product.count);
     //如果服务器没有产品
     if([product count] == 0){
         NSLog(@"请在苹果后台添加商品。");
@@ -81,11 +82,11 @@
     SKProduct *requestProduct = nil;
     for (SKProduct *pro in product) {
         
-        NSLog(@"%@", [pro description]);
-        NSLog(@"%@", [pro localizedTitle]);
-        NSLog(@"%@", [pro localizedDescription]);
-        NSLog(@"%@", [pro price]);
-        NSLog(@"%@", [pro productIdentifier]);
+        NSLog(@"商品返回信息1：%@", [pro description]);
+        NSLog(@"商品返回信息2：%@", [pro localizedTitle]);
+        NSLog(@"商品返回信息3：%@", [pro localizedDescription]);
+        NSLog(@"商品返回信息4：%@", [pro price]);
+        NSLog(@"商品返回信息5：%@", [pro productIdentifier]);
         
         // 11.如果后台消费条目的ID与我这里需要请求的一样（用于确保订单的正确性）
         if([pro.productIdentifier isEqualToString:@"merchant.welightworld.puresms1"]){
@@ -111,11 +112,14 @@
 // 13.监听购买结果
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transaction{
     for(SKPaymentTransaction *tran in transaction){
-        NSLog(@"transactionState == %d", tran.transactionState);
+        NSLog(@"transactionState == %@", tran.payment.applicationUsername);
         switch (tran.transactionState) {
             case SKPaymentTransactionStatePurchased:
                 NSLog(@"交易完成");
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"VIP"];
                 [self loadVipView];
+                [self completeTransaction:tran];
+                [[SKPaymentQueue defaultQueue] finishTransaction:tran];
                 break;
             case SKPaymentTransactionStatePurchasing:
                 NSLog(@"商品添加进列表");
@@ -123,6 +127,7 @@
                 break;
             case SKPaymentTransactionStateRestored:
                 NSLog(@"已经购买过商品");
+                [self loadVipView];
                 [[SKPaymentQueue defaultQueue] finishTransaction:tran];
                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"VIP"];
                 break;
@@ -138,6 +143,11 @@
 }
 
 // 14.交易结束,当交易结束后还要去appstore上验证支付信息是否都正确,只有所有都正确后,我们就可以给用户方法我们的虚拟物品了。
+- (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
+{
+    NSLog(@"queue == %@", queue);
+}
+
 - (void)completeTransaction:(SKPaymentTransaction *)transaction
 {
     NSString * str=[[NSString alloc]initWithData:transaction.transactionReceipt encoding:NSUTF8StringEncoding];
