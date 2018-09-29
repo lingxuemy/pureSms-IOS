@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *VIPImageView;
 @property (weak, nonatomic) IBOutlet UILabel *vipLabel;
 @property (weak, nonatomic) IBOutlet UIButton *okBtn;
+@property (weak, nonatomic) IBOutlet UIButton *freeBtn;
 
 @end
 
@@ -49,6 +50,8 @@
         //        self.vipLabel.text = [NSString stringWithFormat:@"VIP %ld", (long)tempInt];
         self.okBtn.enabled = NO;
         self.okBtn.backgroundColor = [UIColor lightGrayColor];
+        self.freeBtn.enabled = NO;
+        self.freeBtn.backgroundColor = [UIColor lightGrayColor];
     }
 }
 
