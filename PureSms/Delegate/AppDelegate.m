@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Bugly/Bugly.h>
+#import <StoreKit/StoreKit.h>
 
 #define BUNDLEID [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
 #define PURESMSPRO @"com.welightworld.puresmspro"
@@ -27,9 +28,41 @@
     else {
         [Bugly startWithAppId:@"2051f9e8c8"];
     }
+    // 内购
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
     return YES;
 }
 
+// 监听购买结果
+- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transaction{
+    for(SKPaymentTransaction *tran in transaction){
+        NSLog(@"transactionState == %@", tran.payment.applicationUsername);
+        switch (tran.transactionState) {
+            case SKPaymentTransactionStatePurchased:
+                NSLog(@"交易完成");
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"VIP"];
+                [[SKPaymentQueue defaultQueue] finishTransaction:tran];
+                break;
+            case SKPaymentTransactionStatePurchasing:
+                NSLog(@"商品添加进列表");
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"VIP"];
+                break;
+            case SKPaymentTransactionStateRestored:
+                NSLog(@"已经购买过商品");
+                [[SKPaymentQueue defaultQueue] finishTransaction:tran];
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"VIP"];
+                break;
+            case SKPaymentTransactionStateFailed:
+                NSLog(@"交易失败");
+                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"VIP"];
+                [[SKPaymentQueue defaultQueue] finishTransaction:tran];
+                break;
+            default:
+                break;
+        }
+    }
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

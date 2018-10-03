@@ -121,7 +121,7 @@
                 NSLog(@"交易完成");
                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"VIP"];
                 [self loadVipView];
-                [self completeTransaction:tran];
+//                [self completeTransaction:tran];
                 [[SKPaymentQueue defaultQueue] finishTransaction:tran];
                 break;
             case SKPaymentTransactionStatePurchasing:
@@ -130,9 +130,9 @@
                 break;
             case SKPaymentTransactionStateRestored:
                 NSLog(@"已经购买过商品");
-                [self loadVipView];
                 [[SKPaymentQueue defaultQueue] finishTransaction:tran];
                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"VIP"];
+                [self loadVipView];
                 break;
             case SKPaymentTransactionStateFailed:
                 NSLog(@"交易失败");
