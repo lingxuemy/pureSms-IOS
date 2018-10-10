@@ -29,8 +29,10 @@
         [Bugly startWithAppId:@"2051f9e8c8"];
     }
     // 内购
-    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
-    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"]) {
+        [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+        [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+    }
     return YES;
 }
 
@@ -39,24 +41,10 @@
     for(SKPaymentTransaction *tran in transaction){
         NSLog(@"transactionState == %@", tran.payment.applicationUsername);
         switch (tran.transactionState) {
-            case SKPaymentTransactionStatePurchased:
-                NSLog(@"交易完成");
-                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"VIP"];
-                [[SKPaymentQueue defaultQueue] finishTransaction:tran];
-                break;
-            case SKPaymentTransactionStatePurchasing:
-                NSLog(@"商品添加进列表");
-                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"VIP"];
-                break;
             case SKPaymentTransactionStateRestored:
                 NSLog(@"已经购买过商品");
                 [[SKPaymentQueue defaultQueue] finishTransaction:tran];
-                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"VIP"];
-                break;
-            case SKPaymentTransactionStateFailed:
-                NSLog(@"交易失败");
-                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"VIP"];
-                [[SKPaymentQueue defaultQueue] finishTransaction:tran];
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"VIP1"];
                 break;
             default:
                 break;

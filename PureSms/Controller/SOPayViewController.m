@@ -44,6 +44,11 @@
 // 显示VIP
 - (void)loadVipView
 {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"VIP1"]) {
+        [self.okBtn setTitle:@"恢复购买" forState:UIControlStateNormal];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"VIP1"];
+        return;
+    }
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"]) {
         self.VIPImageView.hidden = NO;
         self.vipLabel.hidden = NO;
