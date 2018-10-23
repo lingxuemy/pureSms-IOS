@@ -36,6 +36,13 @@
             [XMessageView messageShow:@"未发现您已购买过该徽章，请点击确认购买。"];
             return;
         }
+        else {
+            [XMessageView messageShow:@"恢复购买成功。"];
+            self.VIPImageView.hidden = NO;
+            self.vipLabel.hidden = NO;
+            [self loadVipView];
+            return;
+        }
     }
     if (!sender.tag) {
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"VIP1"] || [[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"]) {
