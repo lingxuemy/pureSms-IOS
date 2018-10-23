@@ -10,6 +10,14 @@
 #import <StoreKit/StoreKit.h>
 #import "XMessageView.h"
 
+#define BUNDLEID [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
+#define MERCHANT_PURESMS @"merchant.welightworld.puresms1"
+#define MERCHANT_PURESMSPRO @"merchant.welightworld.puresmspro1"
+#define PURESMS @"com.welightworld.puresms"
+#define PURESMSPRO @"com.welightworld.puresmspro"
+#define APPID @"1372766943"
+#define APPIDPRO @"1387094960"
+
 @interface SOPayViewController ()<SKPaymentTransactionObserver,SKProductsRequestDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *VIPImageView;
 @property (weak, nonatomic) IBOutlet UILabel *vipLabel;
@@ -85,7 +93,13 @@
 - (void)getRequestAppleProduct
 {
     // 7.这里的merchant.welightworld.puresms就对应着苹果后台的商品ID,他们是通过这个ID进行联系的。
-    NSArray *product = [[NSArray alloc] initWithObjects:@"merchant.welightworld.puresms1",nil];
+    
+    NSString *merchantStr = MERCHANT_PURESMS;
+    if ([BUNDLEID isEqualToString:PURESMSPRO]) {
+        merchantStr = MERCHANT_PURESMSPRO;
+    }
+    
+    NSArray *product = [[NSArray alloc] initWithObjects:merchantStr,nil];
     
     NSSet *nsset = [NSSet setWithArray:product];
     
@@ -118,7 +132,7 @@
         NSLog(@"商品返回信息5：%@", [pro productIdentifier]);
         
         // 11.如果后台消费条目的ID与我这里需要请求的一样（用于确保订单的正确性）
-        if([pro.productIdentifier isEqualToString:@"merchant.welightworld.puresms1"]){
+        if([pro.productIdentifier isEqualToString:MERCHANT_PURESMS] || [pro.productIdentifier isEqualToString:MERCHANT_PURESMSPRO]){
             requestProduct = pro;
         }
     }

@@ -5,6 +5,7 @@
 	<key>com.apple.developer.in-app-payments</key>
 	<array>
 		<string>merchant.welightworld.puresms1</string>
+		<string>merchant.welightworld.puresmspro1</string>
 	</array>
 	<key>com.apple.security.application-groups</key>
 	<array>
