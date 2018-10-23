@@ -11,6 +11,7 @@
 		042CFCBF2108A521006B47AE /* MLMenuData.m in Sources */ = {isa = PBXBuildFile; fileRef = 042CFCBC2108A520006B47AE /* MLMenuData.m */; };
 		042CFCC02108A521006B47AE /* MLMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042CFCBD2108A521006B47AE /* MLMenuView.m */; };
 		042E49602118792000E1BCB5 /* SOPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E495F2118792000E1BCB5 /* SOPayViewController.m */; };
+		042F6CFD217EF685004A6901 /* XMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F6CFC217EF685004A6901 /* XMessageView.m */; };
 		0431791720B44AFA00ADF0F0 /* XTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431791620B44AF900ADF0F0 /* XTimer.m */; };
 		044632EB208338C000F7A2B7 /* SOBlackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044632E9208338C000F7A2B7 /* SOBlackTableViewCell.m */; };
 		044632EC208338C000F7A2B7 /* SOBlackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044632EA208338C000F7A2B7 /* SOBlackTableViewCell.xib */; };
@@ -83,6 +84,8 @@
 		042CFCBD2108A521006B47AE /* MLMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMenuView.m; sourceTree = "<group>"; };
 		042E495E2118792000E1BCB5 /* SOPayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOPayViewController.h; sourceTree = "<group>"; };
 		042E495F2118792000E1BCB5 /* SOPayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOPayViewController.m; sourceTree = "<group>"; };
+		042F6CFB217EF685004A6901 /* XMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMessageView.h; sourceTree = "<group>"; };
+		042F6CFC217EF685004A6901 /* XMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMessageView.m; sourceTree = "<group>"; };
 		0431791520B44AF900ADF0F0 /* XTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTimer.h; sourceTree = "<group>"; };
 		0431791620B44AF900ADF0F0 /* XTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTimer.m; sourceTree = "<group>"; };
 		044632E72081A58E00F7A2B7 /* PureSms.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PureSms.entitlements; sourceTree = "<group>"; };
@@ -299,6 +302,8 @@
 				044633012095B20100F7A2B7 /* UITableView+Animations.m */,
 				044632F42083957700F7A2B7 /* XScrollView.h */,
 				044632F52083957700F7A2B7 /* XScrollView.m */,
+				042F6CFB217EF685004A6901 /* XMessageView.h */,
+				042F6CFC217EF685004A6901 /* XMessageView.m */,
 			);
 			path = Rule;
 			sourceTree = "<group>";
@@ -562,6 +567,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				042CFCC02108A521006B47AE /* MLMenuView.m in Sources */,
+				042F6CFD217EF685004A6901 /* XMessageView.m in Sources */,
 				04570F96207B5BA50065B644 /* main.m in Sources */,
 				044632F9208395A300F7A2B7 /* SOHelpViewController.m in Sources */,
 				04570F88207B5BA50065B644 /* AppDelegate.m in Sources */,

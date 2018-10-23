@@ -8,6 +8,8 @@
 
 #import "SOPayViewController.h"
 #import <StoreKit/StoreKit.h>
+#import "XMessageView.h"
+
 @interface SOPayViewController ()<SKPaymentTransactionObserver,SKProductsRequestDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *VIPImageView;
 @property (weak, nonatomic) IBOutlet UILabel *vipLabel;
@@ -29,6 +31,18 @@
 
 - (IBAction)touchUpInsideBtn:(UIButton *)sender {
     
+    if (sender.tag) {
+        if (![[NSUserDefaults standardUserDefaults] boolForKey:@"VIP1"] && ![[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"]) {
+            [XMessageView messageShow:@"未发现您已购买过该徽章，请点击确认购买。"];
+            return;
+        }
+    }
+    if (!sender.tag) {
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"VIP1"] || [[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"]) {
+            [XMessageView messageShow:@"您已购买过该徽章，请点击恢复购买。"];
+            return;
+        }
+    }
     // 5.点击按钮的时候判断app是否允许apple支付
     //如果app允许applepay
     if ([SKPaymentQueue canMakePayments]) {
@@ -44,19 +58,19 @@
 // 显示VIP
 - (void)loadVipView
 {
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"VIP1"]) {
-        [self.okBtn setTitle:@"恢复购买" forState:UIControlStateNormal];
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"VIP1"];
-        return;
-    }
+//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"VIP1"]) {
+//        [self.okBtn setTitle:@"恢复购买" forState:UIControlStateNormal];
+//        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"VIP1"];
+//        return;
+//    }
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"]) {
         self.VIPImageView.hidden = NO;
         self.vipLabel.hidden = NO;
         //        self.vipLabel.text = [NSString stringWithFormat:@"VIP %ld", (long)tempInt];
-        self.okBtn.enabled = NO;
-        self.okBtn.backgroundColor = [UIColor lightGrayColor];
-        self.freeBtn.enabled = NO;
-        self.freeBtn.backgroundColor = [UIColor lightGrayColor];
+//        self.okBtn.enabled = NO;
+//        self.okBtn.backgroundColor = [UIColor lightGrayColor];
+//        self.freeBtn.enabled = NO;
+//        self.freeBtn.backgroundColor = [UIColor lightGrayColor];
     }
 }
 
