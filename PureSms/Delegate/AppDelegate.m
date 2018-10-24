@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import <Bugly/Bugly.h>
-#import <StoreKit/StoreKit.h>
 
 #define BUNDLEID [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
 #define PURESMSPRO @"com.welightworld.puresmspro"
@@ -28,28 +27,7 @@
     else {
         [Bugly startWithAppId:@"2051f9e8c8"];
     }
-    // 内购
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"]) {
-        [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
-        [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
-    }
     return YES;
-}
-
-// 监听购买结果
-- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transaction{
-    for(SKPaymentTransaction *tran in transaction){
-        NSLog(@"transactionState == %@", tran.payment.applicationUsername);
-        switch (tran.transactionState) {
-            case SKPaymentTransactionStateRestored:
-                NSLog(@"已经购买过商品");
-                [[SKPaymentQueue defaultQueue] finishTransaction:tran];
-                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"VIP1"];
-                break;
-            default:
-                break;
-        }
-    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

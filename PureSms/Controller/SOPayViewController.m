@@ -35,29 +35,41 @@
     
     // 4.设置支付服务
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }
 
 - (IBAction)touchUpInsideBtn:(UIButton *)sender {
     
     if (sender.tag) {
-        if (![[NSUserDefaults standardUserDefaults] boolForKey:@"VIP1"] && ![[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"]) {
+        if (![[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"]) {
             [XMessageView messageShow:@"未发现您已购买过该徽章，请点击确认购买。"];
             return;
         }
         else {
+            [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
             [XMessageView messageShow:@"恢复购买成功。"];
             self.VIPImageView.hidden = NO;
             self.vipLabel.hidden = NO;
-            [self loadVipView];
             return;
         }
     }
     if (!sender.tag) {
-        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"VIP1"] || [[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"]) {
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"]) {
             [XMessageView messageShow:@"您已购买过该徽章，请点击恢复购买。"];
             return;
         }
     }
+    
+    NSArray* transactions = [SKPaymentQueue defaultQueue].transactions;
+    if (transactions.count > 0) {
+        //检测是否有未完成的交易
+        SKPaymentTransaction* transaction = [transactions firstObject];
+        if (transaction.transactionState == SKPaymentTransactionStatePurchased) {
+            [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+            return;
+        }
+    }
+    
     // 5.点击按钮的时候判断app是否允许apple支付
     //如果app允许applepay
     if ([SKPaymentQueue canMakePayments]) {
@@ -166,7 +178,6 @@
                 break;
             case SKPaymentTransactionStatePurchasing:
                 NSLog(@"商品添加进列表");
-                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"VIP"];
                 break;
             case SKPaymentTransactionStateRestored:
                 NSLog(@"已经购买过商品");
@@ -176,7 +187,6 @@
                 break;
             case SKPaymentTransactionStateFailed:
                 NSLog(@"交易失败");
-                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"VIP"];
                 [[SKPaymentQueue defaultQueue] finishTransaction:tran];
                 break;
             default:
@@ -189,6 +199,11 @@
 - (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
 {
     NSLog(@"queue == %@", queue);
+}
+
+- (void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error
+{
+    NSLog(@"restoreCompletedTransactionsFailedWithError == %@, %@", error, queue);
 }
 
 - (void)completeTransaction:(SKPaymentTransaction *)transaction
