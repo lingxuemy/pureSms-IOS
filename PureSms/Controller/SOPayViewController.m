@@ -11,7 +11,7 @@
 #import "XMessageView.h"
 
 #define BUNDLEID [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
-#define MERCHANT_PURESMS @"merchant.welightworld.puresms1"
+#define MERCHANT_PURESMS @"merchant.welightworld.puresms2"
 #define MERCHANT_PURESMSPRO @"merchant.welightworld.puresmspro1"
 #define PURESMS @"com.welightworld.puresms"
 #define PURESMSPRO @"com.welightworld.puresmspro"
