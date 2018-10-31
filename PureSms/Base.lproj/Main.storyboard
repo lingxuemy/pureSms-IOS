@@ -141,7 +141,7 @@
             </objects>
             <point key="canvasLocation" x="-921" y="134"/>
         </scene>
-        <!--兑换-->
+        <!--开通会员-->
         <scene sceneID="PhZ-no-IEC">
             <objects>
                 <viewController storyboardIdentifier="SOPayViewController" id="TNs-g8-kDp" customClass="SOPayViewController" sceneMemberID="viewController">
@@ -153,7 +153,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="兑换VIP徽章，谢谢支持" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pzq-k8-tXQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1元开通会员即可永久免费试用全部功能" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pzq-k8-tXQ">
                                 <rect key="frame" x="30" y="94" width="315" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -165,7 +165,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="8dI-Qq-rg4"/>
                                 </constraints>
-                                <state key="normal" title="确认购买">
+                                <state key="normal" title="确认开通">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -203,7 +203,7 @@
                                     <action selector="touchUpInsideBtn:" destination="TNs-g8-kDp" eventType="touchUpInside" id="Jha-EL-nrP"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="从未购买，请点击确认购买。如已购买，请点击恢复购买。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJS-9P-nP1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="从未开通，请点击确认开通。如已开通，请点击恢复购买。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJS-9P-nP1">
                                 <rect key="frame" x="30" y="285" width="315" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -214,7 +214,6 @@
                         <constraints>
                             <constraint firstItem="LxP-ku-VNd" firstAttribute="top" secondItem="7jg-Pp-3Dg" secondAttribute="bottom" constant="30" id="0Bh-nN-gyV"/>
                             <constraint firstItem="7jg-Pp-3Dg" firstAttribute="top" secondItem="Pzq-k8-tXQ" secondAttribute="bottom" constant="30" id="3BC-gy-vQA"/>
-                            <constraint firstAttribute="trailing" secondItem="Pzq-k8-tXQ" secondAttribute="trailing" constant="30" id="8aW-d9-7SO"/>
                             <constraint firstItem="LxP-ku-VNd" firstAttribute="leading" secondItem="7jg-Pp-3Dg" secondAttribute="leading" id="9WE-Xm-CON"/>
                             <constraint firstItem="LxP-ku-VNd" firstAttribute="trailing" secondItem="7jg-Pp-3Dg" secondAttribute="trailing" id="Aid-9B-yD4"/>
                             <constraint firstItem="SJS-9P-nP1" firstAttribute="top" secondItem="LxP-ku-VNd" secondAttribute="bottom" constant="30" id="CJV-za-FHw"/>
@@ -223,15 +222,17 @@
                             <constraint firstItem="7jg-Pp-3Dg" firstAttribute="leading" secondItem="NPG-bW-rSY" secondAttribute="leading" constant="30" id="Kqu-31-G0Q"/>
                             <constraint firstItem="LxP-ku-VNd" firstAttribute="height" secondItem="7jg-Pp-3Dg" secondAttribute="height" id="L6p-6M-DeV"/>
                             <constraint firstItem="L5R-Al-4cY" firstAttribute="centerX" secondItem="NPG-bW-rSY" secondAttribute="centerX" multiplier="0.9" id="Nsl-yh-ibO"/>
+                            <constraint firstAttribute="trailing" secondItem="d4m-yO-wsd" secondAttribute="trailing" constant="134.5" id="WO1-sZ-2MS"/>
                             <constraint firstItem="Pzq-k8-tXQ" firstAttribute="leading" secondItem="NPG-bW-rSY" secondAttribute="leading" constant="30" id="b0R-yK-517"/>
                             <constraint firstItem="d4m-yO-wsd" firstAttribute="bottom" secondItem="L5R-Al-4cY" secondAttribute="bottom" id="blH-i9-w75"/>
                             <constraint firstItem="L5R-Al-4cY" firstAttribute="centerY" secondItem="NPG-bW-rSY" secondAttribute="centerY" multiplier="1.8" id="ibQ-oT-1eA"/>
-                            <constraint firstItem="d4m-yO-wsd" firstAttribute="leading" secondItem="L5R-Al-4cY" secondAttribute="trailing" constant="10" id="lhq-7C-okP"/>
+                            <constraint firstItem="d4m-yO-wsd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="L5R-Al-4cY" secondAttribute="trailing" symbolic="YES" id="lhq-7C-okP"/>
                             <constraint firstItem="SJS-9P-nP1" firstAttribute="leading" secondItem="LxP-ku-VNd" secondAttribute="leading" id="ntZ-W5-mPW"/>
                             <constraint firstAttribute="trailing" secondItem="7jg-Pp-3Dg" secondAttribute="trailing" constant="30" id="uhy-CV-FgI"/>
+                            <constraint firstAttribute="trailing" secondItem="Pzq-k8-tXQ" secondAttribute="trailing" constant="30" id="zr7-sT-Dz8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="兑换" id="lQl-ys-JwQ"/>
+                    <navigationItem key="navigationItem" title="开通会员" id="lQl-ys-JwQ"/>
                     <connections>
                         <outlet property="VIPImageView" destination="L5R-Al-4cY" id="1v1-AV-pin"/>
                         <outlet property="freeBtn" destination="LxP-ku-VNd" id="bGZ-ks-MxY"/>
