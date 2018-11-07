@@ -8,7 +8,7 @@
 
 #import "SOPayViewController.h"
 #import <StoreKit/StoreKit.h>
-#import "XMessageView.h"
+#import "SVProgressHUD.h"
 
 #define BUNDLEID [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
 #define MERCHANT_PURESMS @"merchant.welightworld.puresms2"
@@ -17,6 +17,8 @@
 #define PURESMSPRO @"com.welightworld.puresmspro"
 #define APPID @"1372766943"
 #define APPIDPRO @"1387094960"
+
+#define HEIGHT_DEVICE UIScreen.mainScreen.bounds.size.height
 
 @interface SOPayViewController ()<SKPaymentTransactionObserver,SKProductsRequestDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *VIPImageView;
@@ -38,16 +40,45 @@
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
+}
+
+/**
+ 显示转圈进度提示框
+ */
+- (void)showProgressViewWithTitle:(NSString *) title withIsMessageView:(BOOL) isMessageView
+{
+    [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
+    [SVProgressHUD setBackgroundColor:[UIColor lightGrayColor]];
+    if (isMessageView) {
+        [SVProgressHUD showImage:nil status:title];
+        [SVProgressHUD setOffsetFromCenter:UIOffsetMake(0, HEIGHT_DEVICE/3)];
+        [SVProgressHUD dismissWithDelay:3.0f];
+    }
+    else {
+        [SVProgressHUD setOffsetFromCenter:UIOffsetMake(0, 0)];
+        if (title.length) {
+            [SVProgressHUD showWithStatus:title];
+        }
+        else {
+            [SVProgressHUD show];
+        }
+    }
+}
+
 - (IBAction)touchUpInsideBtn:(UIButton *)sender {
     
     if (sender.tag) {
         if (![[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"]) {
-            [XMessageView messageShow:@"未发现您已购买过该徽章，请点击确认购买。"];
+            [self showProgressViewWithTitle:@"未发现您已购买过该徽章，请点击确认购买" withIsMessageView:YES];
             return;
         }
         else {
             [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
-            [XMessageView messageShow:@"恢复购买成功。"];
+            [self showProgressViewWithTitle:@"恢复购买成功" withIsMessageView:YES];
             self.VIPImageView.hidden = NO;
             self.vipLabel.hidden = NO;
             return;
@@ -55,7 +86,7 @@
     }
     if (!sender.tag) {
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"]) {
-            [XMessageView messageShow:@"您已购买过该徽章，请点击恢复购买。"];
+            [self showProgressViewWithTitle:@"您已购买过该徽章，请点击恢复购买" withIsMessageView:YES];
             return;
         }
     }
@@ -76,6 +107,7 @@
         NSLog(@"允许支付");
         // 6.请求苹果后台商品
         [self getRequestAppleProduct];
+        [self showProgressViewWithTitle:@"" withIsMessageView:NO];
     }
     else {
         NSLog(@"不能支付");
@@ -157,6 +189,8 @@
 //请求失败
 - (void)request:(SKRequest *)request didFailWithError:(NSError *)error{
     NSLog(@"请求失败-error:%@", error);
+    [SVProgressHUD dismiss];
+    [self showProgressViewWithTitle:[NSString stringWithFormat:@"%@", error.localizedDescription] withIsMessageView:YES];
 }
 
 //反馈请求的产品信息结束后
@@ -168,6 +202,7 @@
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transaction{
     for(SKPaymentTransaction *tran in transaction){
         NSLog(@"transactionState == %@", tran.payment.applicationUsername);
+        [SVProgressHUD dismiss];
         switch (tran.transactionState) {
             case SKPaymentTransactionStatePurchased:
                 NSLog(@"交易完成");
@@ -198,6 +233,7 @@
 // 14.交易结束,当交易结束后还要去appstore上验证支付信息是否都正确,只有所有都正确后,我们就可以给用户方法我们的虚拟物品了。
 - (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
 {
+    [SVProgressHUD dismiss];
     NSLog(@"queue == %@", queue);
 }
 

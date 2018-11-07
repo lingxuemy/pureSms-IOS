@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B565BC3C626BA5848B526731FA0EDE75"
+               BlueprintIdentifier = "59A7DC3903B0666A7F1FB0CF4E04974B"
                BlueprintName = "Pods-PureSms"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libPods-PureSms.a">
