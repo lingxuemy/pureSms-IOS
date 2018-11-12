@@ -528,7 +528,6 @@ typedef enum : NSUInteger {
 {
     NSLog(@"sender.tag == %ld", sender.tag);
     [self tableView:self.blackTableView commitEditingStyle:UITableViewCellEditingStyleDelete forRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
-    [self.blackTableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -586,6 +585,7 @@ typedef enum : NSUInteger {
         [userDefaults synchronize];
         
         [self.blackTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        [self.blackTableView reloadData];
     }
 }
 
