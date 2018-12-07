@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *vipLabel;
 @property (weak, nonatomic) IBOutlet UIButton *okBtn;
 @property (weak, nonatomic) IBOutlet UIButton *freeBtn;
+@property (weak, nonatomic) IBOutlet UILabel *noteLabel;
+@property (weak, nonatomic) IBOutlet UIButton *gotoProBtn;
 
 @end
 
@@ -34,7 +36,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self loadVipView];
-    
+    if (isShow) {
+        self.noteLabel.hidden = NO;
+        self.gotoProBtn.hidden = NO;
+    }
     // 4.设置支付服务
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
@@ -67,6 +72,13 @@
             [SVProgressHUD show];
         }
     }
+}
+
+- (IBAction)gotoProBtn:(UIButton *)sender {
+    
+    NSString *urlStr = [NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@", APPIDPRO];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr] options:nil completionHandler:^(BOOL success) {
+    }];
 }
 
 - (IBAction)touchUpInsideBtn:(UIButton *)sender {
