@@ -25,6 +25,7 @@
 "matches regex" = "匹配正则";
 "New Group" = "新的条件组";
 "OK" = "确认";
+"ok" = "好的";
 "Back" = "返回";
 "Cancel" = "取消";
 "Group Alias (Optional)" = "条件组别名（可选）";
@@ -60,6 +61,7 @@
 "Tips" = "提示";
 "Five-star praise, unlock this feature!\nFive-star praise, support the author!\nFive stars praise, encourage me!" = "五星好评,解锁本功能!\n五星好评,支持作者!\n五星好评,鼓励我!";
 "The family is poor, relying on writing code for a living. The software has no advertising and no profit, only ask for 5 stars to encourage!" = "家境贫寒,靠写代码为生\n软件无广告无盈利,只求5星鼓励";
+"The free trial period is over, please download the Pro version for permanent use!" = "免费版试用期已完，请下载Pro版永久使用！";
 "Go to score" = "去打分";
 "Go to comment" = "去评论";
 "Please write a comment, if you don't want to write, just go back and just encourage" = "请书写评论，如果不想书写，返回即可，只求鼓励";

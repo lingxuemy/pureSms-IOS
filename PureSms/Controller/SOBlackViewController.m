@@ -21,7 +21,6 @@
 #define KEYWORDARRAY_WHITE @"KEYWORDARRAY_WHITE"
 #define KEYWORDARRAY_PHONE @"KEYWORDARRAY_PHONE"
 #define KEYWORDARRAY_WHITE_PHONE @"KEYWORDARRAY_WHITE_PHONE"
-#define SOLocalize(key) NSLocalizedString(key, nil)
 #define BUNDLEID [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
 #define PURESMS @"com.welightworld.puresms"
 #define PURESMSPRO @"com.welightworld.puresmspro"
@@ -195,15 +194,29 @@ typedef enum : NSUInteger {
                 // 添加关键词
             {
                 self.userdefKey = @"isRightBtn";
-                _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
-                if (_numberInt < 2 && isShow) {
-                    if (_numberInt == 0) {
-                        [self showCustomizeSKStoreReview1];
-                    }
-                    if (_numberInt == 1) {
-                        [self showCustomizeSKStoreReview2];
-                    }
-                    return;
+                if (![[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"] && isShow) {
+//                    _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
+//                    if (_numberInt < 2 && isShow) {
+//                        if (_numberInt == 0) {
+//                            [self showCustomizeSKStoreReview1];
+//                        }
+//                        if (_numberInt == 1) {
+//                            [self showCustomizeSKStoreReview2];
+//                        }
+//                        return;
+//                    }
+//                    SOLocalize(@"The free trial period has arrived, please download the Pro version for permanent use!")
+                    UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:SOLocalize(@"Tips") message:@"免费版试用期已完，请下载Pro版永久使用！" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *okAct = [UIAlertAction actionWithTitle:SOLocalize(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        NSString *urlStr = [NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@", APPIDPRO];
+                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr] options:nil completionHandler:^(BOOL success) {
+                        }];
+                    }];
+                    [alertCtr addAction:okAct];
+                    [self presentViewController:alertCtr animated:YES completion:^{
+                        NSLog(@"presented");
+                    }];
+                    return ;
                 }
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Please enter a keyword") message:@"" preferredStyle:UIAlertControllerStyleAlert];
                 
