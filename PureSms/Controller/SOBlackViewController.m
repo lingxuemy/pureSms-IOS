@@ -206,12 +206,15 @@ typedef enum : NSUInteger {
 //                        return;
 //                    }
 //                    SOLocalize(@"The free trial period has arrived, please download the Pro version for permanent use!")
-                    UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:SOLocalize(@"Tips") message:@"免费版试用期已完，请下载Pro版永久使用！" preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *okAct = [UIAlertAction actionWithTitle:SOLocalize(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:SOLocalize(@"Tips") message:@"免费版可以正常拦截已有关键词,添加关键词属于扩展功能请下载pro版" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *okAct = [UIAlertAction actionWithTitle:@"去下载" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                         NSString *urlStr = [NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@", APPIDPRO];
                         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr] options:nil completionHandler:^(BOOL success) {
                         }];
                     }];
+                    UIAlertAction *cancelAct = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    }];
+                    [alertCtr addAction:cancelAct];
                     [alertCtr addAction:okAct];
                     [self presentViewController:alertCtr animated:YES completion:^{
                         NSLog(@"presented");
@@ -330,7 +333,7 @@ typedef enum : NSUInteger {
  */
 - (void)showHelpTipsView
 {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Tips") message:SOLocalize(@"Please click on the opening tutorial below the homepage to add more questions to the QQ group feedback number: 469859289") preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:SOLocalize(@"Tips") message:SOLocalize(@"*Please open Settings -> SMS -> Unknown and Filter Information -> SMS Blocker\n*Whitelist first, blacklist second, whitelisted keywords, no interception, blacklisted keyword interception\n*This software only provides interception rules, will not be exposed to any SMS content, and cannot delete SMS messages\n*System restrictions 1. Only intercept non-contact numbers, 2. There will be small red dots\n*QQ group feedback 469859289") preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:SOLocalize(@"OK") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
     }];
     [alertController addAction:okAction];

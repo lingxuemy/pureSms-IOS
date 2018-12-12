@@ -78,7 +78,7 @@
 "Please enter Blackcontent keyword" = "请输入黑名单关键词";
 "Please enter Whitecontent keyword" = "请输入白名单关键词";
 
-"Please click on the opening tutorial below the homepage to add more questions to the QQ group feedback number: 469859289" = "请先点击主页下方的开启教程。更多问题加QQ群反馈号码：469859289";
+"*Please open Settings -> SMS -> Unknown and Filter Information -> SMS Blocker\n*Whitelist first, blacklist second, whitelisted keywords, no interception, blacklisted keyword interception\n*This software only provides interception rules, will not be exposed to any SMS content, and cannot delete SMS messages\n*System restrictions 1. Only intercept non-contact numbers, 2. There will be small red dots\n*QQ group feedback 469859289" = "*请先打开设置->短信->未知与过滤信息->短信拦截\n*白名单优先 黑名单次之 含有白名单关键词不拦截 含有黑名单关键词拦截\n*本软件只提供拦截规则,不会接触到任何短信内容,无法删除短信\n*系统限制 1.只拦截非通讯录号码,2.会有小红点\n*QQ群反馈 469859289";
 
 // 黑名单部分关键词。股 证券 .cn http 理财 收益 www 贷 保险 券 回复 退订 .com/ 参与 点击 戳 基金
 "Reply" = "回复";
