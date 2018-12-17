@@ -258,6 +258,7 @@
                         <outlet property="gotoProBtn" destination="ULn-S2-bKG" id="37w-rz-cch"/>
                         <outlet property="noteLabel" destination="wGf-6N-0HQ" id="OWH-re-211"/>
                         <outlet property="okBtn" destination="7jg-Pp-3Dg" id="2F6-Yg-Zm1"/>
+                        <outlet property="titleLabel" destination="Pzq-k8-tXQ" id="Gyq-0o-3jI"/>
                         <outlet property="vipLabel" destination="d4m-yO-wsd" id="Tyl-fU-qp9"/>
                     </connections>
                 </viewController>
@@ -292,32 +293,16 @@
                                     <action selector="openHelpButEvent:" destination="aYj-rt-3gi" eventType="touchUpInside" id="zZ1-Xi-R39"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IV6-on-hGj">
-                                <rect key="frame" x="30" y="446.5" width="315" height="100.5"/>
-                                <string key="text">*请先打开设置-&gt;短信-&gt;未知与过滤信息-&gt;短信拦截
-*白名单优先 黑名单次之 含有白名单关键词不拦截 含有黑名单关键词拦截
-*本软件只提供拦截规则,不会接触到任何短信内容,无法删除短信
-*系统限制 1.只拦截非通讯录号码,2.会有小红点
-*QQ群反馈 469859289</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.925226047" green="0.1384053146" blue="0.0079937527539999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="IV6-on-hGj" firstAttribute="leading" secondItem="6Wv-D3-m3G" secondAttribute="leading" constant="30" id="6M1-ff-ffT"/>
-                            <constraint firstAttribute="trailing" secondItem="IV6-on-hGj" secondAttribute="trailing" constant="30" id="FbW-ds-P79"/>
                             <constraint firstItem="kbx-PE-erR" firstAttribute="top" secondItem="wrh-1x-WPp" secondAttribute="bottom" constant="60" id="GBD-gS-PN1"/>
                             <constraint firstItem="wrh-1x-WPp" firstAttribute="centerX" secondItem="6Wv-D3-m3G" secondAttribute="centerX" id="VbP-5j-JR1"/>
-                            <constraint firstItem="IV6-on-hGj" firstAttribute="centerX" secondItem="6Wv-D3-m3G" secondAttribute="centerX" id="dYl-U3-6hg"/>
-                            <constraint firstItem="wrh-1x-WPp" firstAttribute="top" secondItem="IV6-on-hGj" secondAttribute="bottom" constant="20" id="ghv-8V-Lf7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="开启教程" id="BLZ-0l-NRb"/>
                     <connections>
                         <outlet property="okBut" destination="wrh-1x-WPp" id="hx4-H4-G58"/>
-                        <outlet property="useLabel" destination="IV6-on-hGj" id="vAk-Rc-t9O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="psA-e7-ach" userLabel="First Responder" sceneMemberID="firstResponder"/>

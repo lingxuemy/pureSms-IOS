@@ -194,7 +194,7 @@ typedef enum : NSUInteger {
                 // 添加关键词
             {
                 self.userdefKey = @"isRightBtn";
-                if (![[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"] && isShow) {
+                if (![[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"] && isShow && ![BUNDLEID isEqualToString:PURESMSPRO]) {
 //                    _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
 //                    if (_numberInt < 2 && isShow) {
 //                        if (_numberInt == 0) {

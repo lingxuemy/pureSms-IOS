@@ -12,7 +12,6 @@
 @interface SOHelpViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *okBut;
-@property (weak, nonatomic) IBOutlet UILabel *useLabel;
 @property (nonatomic, strong) XScrollView *scrollView;
 
 @end
@@ -28,7 +27,6 @@
     self.okBut.layer.cornerRadius = 20;
     self.okBut.layer.masksToBounds = YES;
     self.okBut.hidden = YES;
-    self.useLabel.hidden = YES;
     NSMutableArray *imageMutArray = [NSMutableArray array];
     [imageMutArray addObject:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image1.jpg"]]];
     [imageMutArray addObject:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image2.jpg"]]];

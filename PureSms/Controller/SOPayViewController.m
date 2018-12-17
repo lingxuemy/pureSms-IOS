@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *freeBtn;
 @property (weak, nonatomic) IBOutlet UILabel *noteLabel;
 @property (weak, nonatomic) IBOutlet UIButton *gotoProBtn;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
@@ -39,6 +40,11 @@
     if (isShow) {
         self.noteLabel.hidden = NO;
         self.gotoProBtn.hidden = NO;
+    }
+    if ([BUNDLEID isEqualToString:PURESMSPRO]) {
+        self.noteLabel.hidden = YES;
+        self.gotoProBtn.hidden = YES;
+        self.titleLabel.text = @"1元开通会员即可永久免费使用全部功能";
     }
     // 4.设置支付服务
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
