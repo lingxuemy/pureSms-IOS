@@ -13,7 +13,6 @@
 #import <StoreKit/StoreKit.h>
 #import "UITableView+Animations.h"
 #import "MLMenuView.h"
-#import "SOPayViewController.h"
 
 #define ExtentsionAppGroupName @"group.com.welightworld.puresms"
 #define ExtentsionAppGroupNamePro @"group.com.welightworld.puresmspro"
@@ -53,7 +52,6 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *leftButItem;
 @property (weak, nonatomic) IBOutlet UITableView *blackTableView;
 @property (weak, nonatomic) IBOutlet UIButton *openHelpBut;
-@property (weak, nonatomic) IBOutlet UIButton *payBtn;
 @property (nonatomic, strong) NSMutableArray *keyWordMutArray;
 @property (nonatomic, strong) NSMutableArray *whiteKeyWordMutArray;
 @property (nonatomic, strong) NSMutableArray *blackKeyWordMutArray;
@@ -73,14 +71,9 @@ typedef enum : NSUInteger {
     [super viewDidLoad];
     
     self.title = SOLocalize(@"SMS Blackcontent");
-//    self.title = SOLocalize(@"SMS filtering black list");
     
-//    self.openHelpBut.layer.borderWidth = 1;
-//    self.openHelpBut.layer.borderColor = [UIColor blackColor].CGColor;
     self.openHelpBut.layer.cornerRadius = 20;
     self.openHelpBut.layer.masksToBounds = YES;
-    self.payBtn.layer.cornerRadius = 20;
-    self.payBtn.layer.masksToBounds = YES;
     
     suiteNameStr = ExtentsionAppGroupName;
     if ([BUNDLEID isEqualToString:PURESMSPRO]) {
@@ -132,32 +125,8 @@ typedef enum : NSUInteger {
     self.blackTableView.separatorInset = UIEdgeInsetsMake(0, 9000, 0, 0);
     [self.blackTableView registerNib:[UINib nibWithNibName:@"SOBlackTableViewCell" bundle:nil] forCellReuseIdentifier:@"SOBlackTableViewCell"];
     
-//    _leftBut = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-//    [_leftBut addTarget:self action:@selector(leftButEvent:) forControlEvents:UIControlEventTouchUpInside];
-//    [_leftBut setTitle:SOLocalize(@" Whitelist ") forState:UIControlStateNormal];
-//    _leftBut.titleLabel.font = [UIFont systemFontOfSize:14];
-//    [_leftBut setTitleColor:[UIColor colorWithRed:21/255.0 green:126/255.0 blue:251/255.0 alpha:1] forS   tate:UIControlStateNormal];
-//    _leftBut.layer.cornerRadius = 15;
-//    _leftBut.layer.masksToBounds = YES;
-//    _leftBut.layer.borderWidth = 1;
-//    _leftBut.layer.borderColor = [UIColor colorWithRed:21/255.0 green:126/255.0 blue:251/255.0 alpha:1].CGColor;
-    
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_leftBut];
-    
     [self getKeyWord];
     self.keyWordMutArray = self.blackKeyWordMutArray;
-    
-    [self testPay];
-}
-
-/**
- 测试支付
- */
-- (void)testPay
-{
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpPayViewController)];
-    tap.numberOfTapsRequired = 10;
-    [self.view addGestureRecognizer:tap];
 }
 
 // 获取关键词
@@ -310,8 +279,7 @@ typedef enum : NSUInteger {
                 [self showHelpTipsView];
                 break;
             case 5:
-                // 捐赠
-                [self jumpPayViewController];
+                // TODO:扩展
                 break;
             default:
                 break;
@@ -446,15 +414,6 @@ typedef enum : NSUInteger {
 }
 
 #pragma mark - 点击事件
-/**
- 跳转到支付界面
- */
-- (void)jumpPayViewController
-{
-    SOPayViewController *payVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SOPayViewController"];
-    [self.navigationController pushViewController:payVC animated:YES];
-}
-
 - (IBAction)openHelpButEvent:(UIButton *)sender {
     SOHelpViewController *helpVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SOHelpViewController"];
     [self.navigationController pushViewController:helpVC animated:YES];
@@ -493,15 +452,7 @@ typedef enum : NSUInteger {
 
 - (IBAction)rightButEvent:(UIBarButtonItem *)sender {
     
-//    if (![XTimer compareNowTime:@"3018-09-01 23:00:00"]) {
-//        NSArray *array = @[SOLocalize(@"Add Keyword"), SOLocalize(@"SMS Blackcontent"), SOLocalize(@"SMS Whitecontent"), SOLocalize(@"SMS Blacksender"), SOLocalize(@"Using Helpe"), SOLocalize(@"Donation")];
-//        [self loadMLMenuWithTitles:array];
-//    }
-//    else {
-//        NSArray *array = @[SOLocalize(@"Add Keyword"), SOLocalize(@"SMS Blackcontent"), SOLocalize(@"SMS Whitecontent"), SOLocalize(@"SMS Blacksender"), SOLocalize(@"Using Helpe")];
-//        [self loadMLMenuWithTitles:array];
-//    }
-    NSArray *array = @[SOLocalize(@"Add Keyword"), SOLocalize(@"SMS Blackcontent"), SOLocalize(@"SMS Whitecontent"), SOLocalize(@"SMS Blacksender"), SOLocalize(@"Using Helpe"), SOLocalize(@"Donation")];
+    NSArray *array = @[SOLocalize(@"Add Keyword"), SOLocalize(@"SMS Blackcontent"), SOLocalize(@"SMS Whitecontent"), SOLocalize(@"SMS Blacksender"), SOLocalize(@"Using Helpe")];
     [self loadMLMenuWithTitles:array];
 }
 

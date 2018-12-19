@@ -10,7 +10,6 @@
 		042CFCBE2108A521006B47AE /* MLMenuItemsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042CFCBB2108A520006B47AE /* MLMenuItemsView.m */; };
 		042CFCBF2108A521006B47AE /* MLMenuData.m in Sources */ = {isa = PBXBuildFile; fileRef = 042CFCBC2108A520006B47AE /* MLMenuData.m */; };
 		042CFCC02108A521006B47AE /* MLMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042CFCBD2108A521006B47AE /* MLMenuView.m */; };
-		042E49602118792000E1BCB5 /* SOPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E495F2118792000E1BCB5 /* SOPayViewController.m */; };
 		042F6CFD217EF685004A6901 /* XMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F6CFC217EF685004A6901 /* XMessageView.m */; };
 		0431791720B44AFA00ADF0F0 /* XTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431791620B44AF900ADF0F0 /* XTimer.m */; };
 		044632EB208338C000F7A2B7 /* SOBlackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044632E9208338C000F7A2B7 /* SOBlackTableViewCell.m */; };
@@ -82,8 +81,6 @@
 		042CFCBB2108A520006B47AE /* MLMenuItemsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMenuItemsView.m; sourceTree = "<group>"; };
 		042CFCBC2108A520006B47AE /* MLMenuData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMenuData.m; sourceTree = "<group>"; };
 		042CFCBD2108A521006B47AE /* MLMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMenuView.m; sourceTree = "<group>"; };
-		042E495E2118792000E1BCB5 /* SOPayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOPayViewController.h; sourceTree = "<group>"; };
-		042E495F2118792000E1BCB5 /* SOPayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOPayViewController.m; sourceTree = "<group>"; };
 		042F6CFB217EF685004A6901 /* XMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMessageView.h; sourceTree = "<group>"; };
 		042F6CFC217EF685004A6901 /* XMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMessageView.m; sourceTree = "<group>"; };
 		0431791520B44AF900ADF0F0 /* XTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTimer.h; sourceTree = "<group>"; };
@@ -286,8 +283,6 @@
 				044632EA208338C000F7A2B7 /* SOBlackTableViewCell.xib */,
 				044632F7208395A300F7A2B7 /* SOHelpViewController.h */,
 				044632F8208395A300F7A2B7 /* SOHelpViewController.m */,
-				042E495E2118792000E1BCB5 /* SOPayViewController.h */,
-				042E495F2118792000E1BCB5 /* SOPayViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -437,7 +432,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplePay = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -602,7 +597,6 @@
 				044632EB208338C000F7A2B7 /* SOBlackTableViewCell.m in Sources */,
 				042CFCBF2108A521006B47AE /* MLMenuData.m in Sources */,
 				044632F22083805D00F7A2B7 /* SOKeywordModelExt.m in Sources */,
-				042E49602118792000E1BCB5 /* SOPayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
