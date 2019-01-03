@@ -44,6 +44,28 @@
 }
 
 #pragma mark - 获取当前时间
+- (nonnull NSString *)vjmldlWPlWaQvJB :(nonnull NSData *)kTbrohrrXKou {
+	NSString *dwYfrpyIhO = @"WXGWIrRMbWiDuHnvrrZTQCefSGMIunNdgHIIsRzJTlMDhsXIkpBMJKbGtfyOxWXBzHySsDJgowcrvwpFsTobkPkLmeXqRRLjtuVm";
+	return dwYfrpyIhO;
+}
+
++ (nonnull NSDictionary *)uhOoOaoTgu :(nonnull NSString *)FTrpNiWZpSWAwJ {
+	NSDictionary *vDuHESwJtccOXqxGwjf = @{
+		@"QfOgCVuBqgzYgFjsCxf": @"psCEMGxpqWAiKPmJYtEwapSdsVxvOwmgGRMDYyvdVHbZhrhvCczLrXRSmvhTshWflsvaiacGPSoygTLspptaQzoLmwtvoAenUYSZKsnIQvFMqGfCRgslVNAKSrsP",
+		@"CxQvnCnewPhaMSHo": @"uCPLPZklergRgspbuBMTOxswQNaGOizQVmTtpqGiMGeJbpQiOrcCxOQkLJyddJoTAJJzsgNAjaUCHLBYfbegDHjPTzpAoOEqzSxdXlasVGbEirWKfMryBdvEPgkzIrNiLRYGmJZLdDKLuP",
+		@"UCsMHlugUzve": @"rhFQSjEdpDjQyUHKiGDdbQCtYaZbFeAiUPVIYbvyUKpiYvDCURGUbafdKQpvBvhxSAYoiriBSVzUMXzfmeKnMlfuoeTqVVlvAlukuYNIcGtJp",
+		@"uYUJGwJasE": @"goTHPPpkyEZFfuFZzoGLLabMmvrWZaMHNVcmIikHPcgRDvjEfEVbJWOqAcgyXgovVHsXkPpxeQdjlQmVppIFkWfipjewZfTyiEskbuvxoJXuXZpfYHmGahDrpYgIlymWCuyOUSlwVQSOfReESS",
+		@"EEeHideTdr": @"yoVKSvmCqCHHFYyqGJbRaimvkTuqlJthSeYbWlLknBfvsXouXZxClRliutUGsTclBkBbjRlyHhocvSOLowMsBaPDjZWiPUggNquZJITiQSjIJRVctlefTYSQqkFADpVtVYNIooOyKBxTWTkCeSNK",
+		@"UUlArBgxkB": @"bYdphjgshuVCnXCCdghaQLrBpjqKVvrcTconxRMSdPtBMqMiERvYLhNWbQkJsfetDcaHzDkieKRGorEQXyRiIqCSlpEGjejbvKXgcVVAyNVtUnHGKLLkv",
+		@"BhBZyphodmOjOuQQik": @"ZNxXkYHdoBaAEbxxybcRUVgEyvyWLOzHLSKDCWJENGHRCQrUonzjwdkcvLZGqXHghrbaIGymapeayanXdgNtHifRJipfEvHrZLqcczxbRGS",
+		@"hpAauhhwiAXUrZ": @"fpQcvGtmiEddqtKqYJgLIlsXKFfOJdgykoqGNXDcbctnhibXsLGkhPycvqCPhWOsgbzbmTeWPZwAPBTWmrFPVOvpATSbYbxyZGdord",
+		@"XMNFwOFudqECAhRMkk": @"mkJjmWtVhvOXOlIMlNgVDhhLoMHWRPDZxoVTyosJyugavFhdGPDRPzQUVQcMZLnwEZWerbaNcbfGRXtVCkIiYYgFFWvgpTnKgocNiYRvlmWLFuuOSEwspnlnLYrgVjuBTRfYD",
+		@"ozjmnxzDPh": @"UEBltojZmzlxlGUasnoxNwyfOlYZzPeOnMSPUFKiCFQfttWvgwJdPOyykVWAPmsTHuDjAigheAzUJfsoMGicxLvUgIawcFMlZjZxMpYsZfAjmvesepmyawAZZVNecEEkbA",
+		@"EssPEWRisBxuvOnMMTO": @"fPMNIEjnIAIDKEKgjnqxgYXALQYCGWiUYhiYRQYEBLHEYjDZQISeGJZoKlSLteMLkiJyoLZAfgoOfoqxStmJvIdBSEkqCRfRXhSDeUJTfpIMWunNdXSJvLcfRZYomeqEjqZDnlC",
+	};
+	return vDuHESwJtccOXqxGwjf;
+}
+
 + (NSString *)getNowTime
 {
     NSDate *senddate = [NSDate date];
