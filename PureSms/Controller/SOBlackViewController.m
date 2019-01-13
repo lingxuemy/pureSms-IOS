@@ -163,9 +163,9 @@ typedef enum : NSUInteger {
                 // 添加关键词
             {
                 self.userdefKey = @"isRightBtn";
-                if (![[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"] && isShow && ![BUNDLEID isEqualToString:PURESMSPRO]) {
+                if (![[NSUserDefaults standardUserDefaults] boolForKey:@"VIP"] && ![BUNDLEID isEqualToString:PURESMSPRO]) {
 //                    _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
-//                    if (_numberInt < 2 && isShow) {
+//                    if (_numberInt < 2) {
 //                        if (_numberInt == 0) {
 //                            [self showCustomizeSKStoreReview1];
 //                        }
@@ -422,7 +422,7 @@ typedef enum : NSUInteger {
 - (IBAction)leftButEvent:(UIBarButtonItem *)sender {
     self.userdefKey = @"isLeftBtn";
     _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
-    if (_numberInt < 2 && isShow) {
+    if (_numberInt < 2) {
         if (_numberInt == 0) {
             [self showCustomizeSKStoreReview1];
         }
