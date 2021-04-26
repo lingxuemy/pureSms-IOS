@@ -9,8 +9,8 @@
 #import "MessageFilterExtension.h"
 #import "SOKeywordModelExt.h"
 
-#define ExtentsionAppGroupName @"group.com.welightworld.puresms"
-#define ExtentsionAppGroupNamePro @"group.com.welightworld.puresmspro"
+#define ExtentsionAppGroupName @"group.smsgroup"
+#define ExtentsionAppGroupNamePro @"group.smsgroupPro"
 
 #define KEYWORDARRAY @"KEYWORDARRAY"
 #define KEYWORDARRAY_WHITE @"KEYWORDARRAY_WHITE"
@@ -18,8 +18,8 @@
 #define KEYWORDARRAY_WHITE_PHONE @"KEYWORDARRAY_WHITE_PHONE"
 
 #define BUNDLEID [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
-#define PURESMS @"com.welightworld.puresms.ext"
-#define PURESMSPRO @"com.welightworld.puresmspro.ext"
+#define PURESMS @"com.puresms.puresmsExt"
+#define PURESMSPRO @"com.puresms.puresmsExtPro"
 
 @interface MessageFilterExtension () <ILMessageFilterQueryHandling>
 @end

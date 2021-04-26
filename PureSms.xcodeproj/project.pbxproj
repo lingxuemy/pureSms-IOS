@@ -33,6 +33,7 @@
 		0457100220809C290065B644 /* SOConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457100120809C290065B644 /* SOConditionViewController.m */; };
 		0457100920809D610065B644 /* SOConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457100720809D610065B644 /* SOConditionTableViewCell.m */; };
 		0457100A20809D610065B644 /* SOConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0457100820809D610065B644 /* SOConditionTableViewCell.xib */; };
+		04613D352633C734009CF97E /* SOHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04613D332633C734009CF97E /* SOHomeViewController.m */; };
 		78FA394DAC703BD124C5C27D /* libPods-PureSms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C74C596648E09739092C3CEC /* libPods-PureSms.a */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +129,8 @@
 		0457100620809D610065B644 /* SOConditionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOConditionTableViewCell.h; sourceTree = "<group>"; };
 		0457100720809D610065B644 /* SOConditionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOConditionTableViewCell.m; sourceTree = "<group>"; };
 		0457100820809D610065B644 /* SOConditionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SOConditionTableViewCell.xib; sourceTree = "<group>"; };
+		04613D322633C734009CF97E /* SOHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOHomeViewController.h; sourceTree = "<group>"; };
+		04613D332633C734009CF97E /* SOHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOHomeViewController.m; sourceTree = "<group>"; };
 		1D10C81FB32CB36D98521D98 /* libPods-PureSmsExt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PureSmsExt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77FFCAC56E187092BD165629 /* Pods-PureSms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PureSms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PureSms/Pods-PureSms.debug.xcconfig"; sourceTree = "<group>"; };
 		C74C596648E09739092C3CEC /* libPods-PureSms.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PureSms.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -283,6 +286,8 @@
 				044632EA208338C000F7A2B7 /* SOBlackTableViewCell.xib */,
 				044632F7208395A300F7A2B7 /* SOHelpViewController.h */,
 				044632F8208395A300F7A2B7 /* SOHelpViewController.m */,
+				04613D322633C734009CF97E /* SOHomeViewController.h */,
+				04613D332633C734009CF97E /* SOHomeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -467,6 +472,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hant",
 			);
 			mainGroup = 04570F7A207B5BA50065B644;
 			productRefGroup = 04570F84207B5BA50065B644 /* Products */;
@@ -593,6 +599,7 @@
 				0457100220809C290065B644 /* SOConditionViewController.m in Sources */,
 				04570FFA2080488E0065B644 /* SOBlackViewController.m in Sources */,
 				0457100920809D610065B644 /* SOConditionTableViewCell.m in Sources */,
+				04613D352633C734009CF97E /* SOHomeViewController.m in Sources */,
 				0431791720B44AFA00ADF0F0 /* XTimer.m in Sources */,
 				044632EB208338C000F7A2B7 /* SOBlackTableViewCell.m in Sources */,
 				042CFCBF2108A521006B47AE /* MLMenuData.m in Sources */,
@@ -777,14 +784,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 77FFCAC56E187092BD165629 /* Pods-PureSms.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconPro;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PureSms/PureSms.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LV6Y87Y7RS;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7TM5U36L66;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PureSms/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = PureSms/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresmspro;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.puresms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -794,14 +804,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F8912E0BFDA8CF7175C76EAB /* Pods-PureSms.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconPro;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PureSms/PureSms.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LV6Y87Y7RS;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7TM5U36L66;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PureSms/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = PureSms/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresmspro;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.puresms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -870,12 +883,12 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PureSmsExt/PureSmsExt.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LV6Y87Y7RS;
+				DEVELOPMENT_TEAM = 7TM5U36L66;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PureSms/Other/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = PureSmsExt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresmspro.ext;
+				PRODUCT_BUNDLE_IDENTIFIER = com.puresms.puresmsExt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -887,12 +900,12 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PureSmsExt/PureSmsExt.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LV6Y87Y7RS;
+				DEVELOPMENT_TEAM = 7TM5U36L66;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PureSms/Other/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = PureSmsExt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.welightworld.puresmspro.ext;
+				PRODUCT_BUNDLE_IDENTIFIER = com.puresms.puresmsExt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
