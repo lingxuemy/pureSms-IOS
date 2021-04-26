@@ -30,9 +30,6 @@
 		04570FC4207B5D7A0065B644 /* PureSmsExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04570FBC207B5D7A0065B644 /* PureSmsExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		04570FF1207DC1DE0065B644 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04570FF0207DC1DE0065B644 /* Localizable.strings */; };
 		04570FFA2080488E0065B644 /* SOBlackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04570FF92080488E0065B644 /* SOBlackViewController.m */; };
-		0457100220809C290065B644 /* SOConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457100120809C290065B644 /* SOConditionViewController.m */; };
-		0457100920809D610065B644 /* SOConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457100720809D610065B644 /* SOConditionTableViewCell.m */; };
-		0457100A20809D610065B644 /* SOConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0457100820809D610065B644 /* SOConditionTableViewCell.xib */; };
 		04613D352633C734009CF97E /* SOHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04613D332633C734009CF97E /* SOHomeViewController.m */; };
 		78FA394DAC703BD124C5C27D /* libPods-PureSms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C74C596648E09739092C3CEC /* libPods-PureSms.a */; };
 /* End PBXBuildFile section */
@@ -124,11 +121,6 @@
 		04570FF3207DC22A0065B644 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		04570FF82080488E0065B644 /* SOBlackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOBlackViewController.h; sourceTree = "<group>"; };
 		04570FF92080488E0065B644 /* SOBlackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOBlackViewController.m; sourceTree = "<group>"; };
-		0457100020809C290065B644 /* SOConditionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOConditionViewController.h; sourceTree = "<group>"; };
-		0457100120809C290065B644 /* SOConditionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOConditionViewController.m; sourceTree = "<group>"; };
-		0457100620809D610065B644 /* SOConditionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOConditionTableViewCell.h; sourceTree = "<group>"; };
-		0457100720809D610065B644 /* SOConditionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOConditionTableViewCell.m; sourceTree = "<group>"; };
-		0457100820809D610065B644 /* SOConditionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SOConditionTableViewCell.xib; sourceTree = "<group>"; };
 		04613D322633C734009CF97E /* SOHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOHomeViewController.h; sourceTree = "<group>"; };
 		04613D332633C734009CF97E /* SOHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOHomeViewController.m; sourceTree = "<group>"; };
 		1D10C81FB32CB36D98521D98 /* libPods-PureSmsExt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PureSmsExt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,11 +268,6 @@
 			children = (
 				04570FF82080488E0065B644 /* SOBlackViewController.h */,
 				04570FF92080488E0065B644 /* SOBlackViewController.m */,
-				0457100020809C290065B644 /* SOConditionViewController.h */,
-				0457100120809C290065B644 /* SOConditionViewController.m */,
-				0457100620809D610065B644 /* SOConditionTableViewCell.h */,
-				0457100720809D610065B644 /* SOConditionTableViewCell.m */,
-				0457100820809D610065B644 /* SOConditionTableViewCell.xib */,
 				044632E8208338C000F7A2B7 /* SOBlackTableViewCell.h */,
 				044632E9208338C000F7A2B7 /* SOBlackTableViewCell.m */,
 				044632EA208338C000F7A2B7 /* SOBlackTableViewCell.xib */,
@@ -495,7 +482,6 @@
 				044632EC208338C000F7A2B7 /* SOBlackTableViewCell.xib in Resources */,
 				04570FF1207DC1DE0065B644 /* Localizable.strings in Resources */,
 				04570F93207B5BA50065B644 /* LaunchScreen.storyboard in Resources */,
-				0457100A20809D610065B644 /* SOConditionTableViewCell.xib in Resources */,
 				04570F90207B5BA50065B644 /* Assets.xcassets in Resources */,
 				04570F8E207B5BA50065B644 /* Main.storyboard in Resources */,
 			);
@@ -596,9 +582,7 @@
 				042CFCBE2108A521006B47AE /* MLMenuItemsView.m in Sources */,
 				044632F62083957700F7A2B7 /* XScrollView.m in Sources */,
 				044633032095B20100F7A2B7 /* UITableView+Animations.m in Sources */,
-				0457100220809C290065B644 /* SOConditionViewController.m in Sources */,
 				04570FFA2080488E0065B644 /* SOBlackViewController.m in Sources */,
-				0457100920809D610065B644 /* SOConditionTableViewCell.m in Sources */,
 				04613D352633C734009CF97E /* SOHomeViewController.m in Sources */,
 				0431791720B44AFA00ADF0F0 /* XTimer.m in Sources */,
 				044632EB208338C000F7A2B7 /* SOBlackTableViewCell.m in Sources */,
