@@ -21,26 +21,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3ch-Q3-SGd">
-                                <rect key="frame" x="0.0" y="44" width="375" height="563"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="aYj-rt-3gi" id="YPp-Zu-iGj"/>
                                     <outlet property="delegate" destination="aYj-rt-3gi" id="17z-TN-X9B"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZR-i5-yn7">
-                                <rect key="frame" x="30" y="617" width="315" height="40"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="开启教程">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="openHelpButEvent:" destination="aYj-rt-3gi" eventType="touchUpInside" id="NFb-Pk-Ew2"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0B7-35-ywS">
-                                <rect key="frame" x="0.0" y="607" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="667" width="375" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="LpD-qb-QLn"/>
@@ -51,14 +40,10 @@
                         <constraints>
                             <constraint firstItem="0B7-35-ywS" firstAttribute="leading" secondItem="A6I-Ph-YeN" secondAttribute="leading" id="1CJ-fD-sh8"/>
                             <constraint firstItem="3ch-Q3-SGd" firstAttribute="leading" secondItem="A6I-Ph-YeN" secondAttribute="leading" id="2g0-V8-qwx"/>
-                            <constraint firstItem="tV1-rG-jf5" firstAttribute="top" secondItem="3ch-Q3-SGd" secondAttribute="bottom" constant="60" id="Egu-9b-vGu"/>
+                            <constraint firstItem="tV1-rG-jf5" firstAttribute="top" secondItem="3ch-Q3-SGd" secondAttribute="bottom" id="Egu-9b-vGu"/>
                             <constraint firstAttribute="trailing" secondItem="3ch-Q3-SGd" secondAttribute="trailing" id="GDs-T4-Fz6"/>
-                            <constraint firstItem="tV1-rG-jf5" firstAttribute="top" secondItem="KZR-i5-yn7" secondAttribute="bottom" constant="10" id="Kz0-VG-V9q"/>
                             <constraint firstItem="3ch-Q3-SGd" firstAttribute="top" secondItem="kNG-bM-qE4" secondAttribute="bottom" id="L2w-dP-OuW"/>
                             <constraint firstAttribute="trailing" secondItem="0B7-35-ywS" secondAttribute="trailing" id="Qk4-Wo-rEo"/>
-                            <constraint firstAttribute="trailing" secondItem="KZR-i5-yn7" secondAttribute="trailing" constant="30" id="cb2-M3-a1b"/>
-                            <constraint firstItem="KZR-i5-yn7" firstAttribute="leading" secondItem="A6I-Ph-YeN" secondAttribute="leading" constant="30" id="lHm-60-Kzo"/>
-                            <constraint firstItem="KZR-i5-yn7" firstAttribute="top" secondItem="3ch-Q3-SGd" secondAttribute="bottom" constant="10" id="oI1-8Y-GeP"/>
                             <constraint firstItem="0B7-35-ywS" firstAttribute="top" secondItem="3ch-Q3-SGd" secondAttribute="bottom" id="qoZ-6I-XGW"/>
                         </constraints>
                     </view>
@@ -71,7 +56,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="blackTableView" destination="3ch-Q3-SGd" id="G31-sX-y9U"/>
-                        <outlet property="openHelpBut" destination="KZR-i5-yn7" id="BUV-SA-14o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wPM-3D-qqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -203,7 +187,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbg-mW-1R5">
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbg-mW-1R5">
                                                     <rect key="frame" x="30" y="20" width="315" height="40"/>
                                                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -232,6 +216,9 @@
                                                 <constraint firstItem="Jbg-mW-1R5" firstAttribute="centerY" secondItem="tmE-8d-0F4" secondAttribute="centerY" id="swf-oo-s4m"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="TV1-ns-TuU" kind="push" id="aEA-og-6Xi"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -288,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="psA-e7-ach" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1676" y="1549"/>
+            <point key="canvasLocation" x="-1676" y="1572"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NuW-Pl-Epb">

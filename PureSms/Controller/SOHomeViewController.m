@@ -7,6 +7,7 @@
 //
 
 #import "SOHomeViewController.h"
+#import "SOHelpViewController.h"
 
 @interface SOHomeViewController ()
 
@@ -17,6 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    if (![[NSUserDefaults standardUserDefaults] integerForKey:@"isFirst"]) {
+        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"isFirst"];
+        SOHelpViewController *helpVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SOHelpViewController"];
+        [self.navigationController pushViewController:helpVC animated:YES];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

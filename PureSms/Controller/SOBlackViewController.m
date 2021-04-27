@@ -9,22 +9,21 @@
 #import "SOBlackViewController.h"
 #import "SOBlackTableViewCell.h"
 #import "SOKeywordModelExt.h"
-#import "SOHelpViewController.h"
 #import <StoreKit/StoreKit.h>
 #import "UITableView+Animations.h"
 #import "MLMenuView.h"
 
-#define ExtentsionAppGroupName @"group.com.welightworld.puresms"
-#define ExtentsionAppGroupNamePro @"group.com.welightworld.puresmspro"
+#define ExtentsionAppGroupName @"group.smsgroupPro"
+#define ExtentsionAppGroupNamePro @"group.smsgroup"
 #define KEYWORDARRAY @"KEYWORDARRAY"
 #define KEYWORDARRAY_WHITE @"KEYWORDARRAY_WHITE"
 #define KEYWORDARRAY_PHONE @"KEYWORDARRAY_PHONE"
 #define KEYWORDARRAY_WHITE_PHONE @"KEYWORDARRAY_WHITE_PHONE"
 #define BUNDLEID [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
-#define PURESMS @"com.welightworld.puresms"
-#define PURESMSPRO @"com.welightworld.puresmspro"
-#define APPID @"1372766943"
-#define APPIDPRO @"1387094960"
+#define PURESMS @"com.puresmsPro"
+#define PURESMSPRO @"com.puresms"
+#define APPID @"1564769961"
+#define APPIDPRO @"1564769962"
 
 #define  MLClolor(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 #define  k_ScreenHeight   [UIScreen mainScreen].bounds.size.height
@@ -51,7 +50,6 @@ typedef enum : NSUInteger {
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *leftButItem;
 @property (weak, nonatomic) IBOutlet UITableView *blackTableView;
-@property (weak, nonatomic) IBOutlet UIButton *openHelpBut;
 @property (nonatomic, strong) NSMutableArray *keyWordMutArray;
 @property (nonatomic, strong) NSMutableArray *whiteKeyWordMutArray;
 @property (nonatomic, strong) NSMutableArray *blackKeyWordMutArray;
@@ -72,17 +70,13 @@ typedef enum : NSUInteger {
     
     self.title = SOLocalize(@"SMS Blackcontent");
     
-    self.openHelpBut.layer.cornerRadius = 20;
-    self.openHelpBut.layer.masksToBounds = YES;
-    
     suiteNameStr = ExtentsionAppGroupName;
     if ([BUNDLEID isEqualToString:PURESMSPRO]) {
         suiteNameStr = ExtentsionAppGroupNamePro;
     }
     
-    if (![[NSUserDefaults standardUserDefaults] integerForKey:@"isFirst"]) {
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"isFirst"] < 2) {
         [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"isFirst"];
-        [self openHelpButEvent:self.openHelpBut];
         
         // 默认黑名单
         NSArray *blackArray = @[SOLocalize(@"Reply"), SOLocalize(@"Unsubscribe"), SOLocalize(@"Regal"), SOLocalize(@"Macao"), SOLocalize(@"Casino"), SOLocalize(@"Download"), SOLocalize(@"Registered"), SOLocalize(@"Securities"), SOLocalize(@"Financial management"), SOLocalize(@"Income"), SOLocalize(@"Insurance"), SOLocalize(@"Participate"), SOLocalize(@"Click on"), SOLocalize(@"Fund"), SOLocalize(@"Share"), SOLocalize(@"Stamp"), SOLocalize(@"Loan"), SOLocalize(@"Voucher"), SOLocalize(@"www"), SOLocalize(@"http"), SOLocalize(@".cn"), SOLocalize(@".com")];
@@ -414,11 +408,6 @@ typedef enum : NSUInteger {
 }
 
 #pragma mark - 点击事件
-- (IBAction)openHelpButEvent:(UIButton *)sender {
-    SOHelpViewController *helpVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SOHelpViewController"];
-    [self.navigationController pushViewController:helpVC animated:YES];
-}
-
 - (IBAction)leftButEvent:(UIBarButtonItem *)sender {
     self.userdefKey = @"isLeftBtn";
     _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
