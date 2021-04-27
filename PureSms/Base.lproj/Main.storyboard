@@ -11,7 +11,7 @@
         <!--短信过滤 黑名单-->
         <scene sceneID="Oi2-EX-2kC">
             <objects>
-                <viewController id="aYj-rt-3gi" customClass="SOBlackViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SOBlackViewController" id="aYj-rt-3gi" customClass="SOBlackViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kNG-bM-qE4"/>
                         <viewControllerLayoutGuide type="bottom" id="tV1-rG-jf5"/>
@@ -66,7 +66,7 @@
         <scene sceneID="ofb-MF-OlO">
             <objects>
                 <tableViewController id="rTb-Kp-fnZ" customClass="SOHomeViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fug-o6-JJc">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fug-o6-JJc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -84,11 +84,15 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uPk-4I-OGV">
                                                     <rect key="frame" x="30" y="60" width="315" height="201"/>
                                                     <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="未添加任何关键词（点击空白处添加）" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RDX-d8-2Rn">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="未添加任何关键词（点击空白处添加）" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDX-d8-2Rn">
                                                             <rect key="frame" x="0.0" y="0.0" width="315" height="201"/>
+                                                            <gestureRecognizers/>
                                                             <color key="textColor" systemColor="labelColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <connections>
+                                                                <outletCollection property="gestureRecognizers" destination="O8z-g8-TUc" appends="YES" id="FPP-v3-c4S"/>
+                                                            </connections>
                                                         </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -124,7 +128,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="aYj-rt-3gi" kind="push" id="Lct-Ib-HEV"/>
+                                            <segue destination="aYj-rt-3gi" kind="push" identifier="whiteSegue" id="Lct-Ib-HEV"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="261" id="WCk-Sa-P0Q">
@@ -137,11 +141,15 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0h4-R8-zzG">
                                                     <rect key="frame" x="30" y="60" width="315" height="201"/>
                                                     <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="未添加任何关键词（点击空白处添加）" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YNx-Jl-WEp">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="未添加任何关键词（点击空白处添加）" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNx-Jl-WEp">
                                                             <rect key="frame" x="0.0" y="0.0" width="315" height="201"/>
+                                                            <gestureRecognizers/>
                                                             <color key="textColor" systemColor="labelColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <connections>
+                                                                <outletCollection property="gestureRecognizers" destination="CxJ-Nb-UMi" appends="YES" id="Edw-Yj-DYR"/>
+                                                            </connections>
                                                         </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -177,7 +185,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="aYj-rt-3gi" kind="push" id="5w4-eR-9Hs"/>
+                                            <segue destination="aYj-rt-3gi" kind="push" identifier="blackSegue" id="5w4-eR-9Hs"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="80" id="2jc-rE-nfG">
@@ -229,8 +237,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="主页" id="6z0-by-LVL"/>
+                    <connections>
+                        <outlet property="blackTextView" destination="YNx-Jl-WEp" id="3yZ-kN-djn"/>
+                        <outlet property="whiteTextView" destination="RDX-d8-2Rn" id="wAS-VQ-TL2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xR-cd-bjg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="CxJ-Nb-UMi">
+                    <connections>
+                        <action selector="tapEvent:" destination="rTb-Kp-fnZ" id="pGA-kI-RSp"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="O8z-g8-TUc">
+                    <connections>
+                        <action selector="tapEvent:" destination="rTb-Kp-fnZ" id="idZ-qi-lua"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1676" y="859.52023988005999"/>
         </scene>
@@ -295,7 +317,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Lct-Ib-HEV"/>
+        <segue reference="5w4-eR-9Hs"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">

@@ -10,4 +10,6 @@
 
 @interface SOBlackViewController : UIViewController
 
+@property (nonatomic, assign) NSInteger typeInt;
+
 @end

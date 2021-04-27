@@ -13,29 +13,6 @@
 #import "UITableView+Animations.h"
 #import "MLMenuView.h"
 
-#define ExtentsionAppGroupName @"group.smsgroupPro"
-#define ExtentsionAppGroupNamePro @"group.smsgroup"
-#define KEYWORDARRAY @"KEYWORDARRAY"
-#define KEYWORDARRAY_WHITE @"KEYWORDARRAY_WHITE"
-#define KEYWORDARRAY_PHONE @"KEYWORDARRAY_PHONE"
-#define KEYWORDARRAY_WHITE_PHONE @"KEYWORDARRAY_WHITE_PHONE"
-#define BUNDLEID [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
-#define PURESMS @"com.puresmsPro"
-#define PURESMSPRO @"com.puresms"
-#define APPID @"1564769961"
-#define APPIDPRO @"1564769962"
-
-#define  MLClolor(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
-#define  k_ScreenHeight   [UIScreen mainScreen].bounds.size.height
-#define  k_ScreenWidth   [UIScreen mainScreen].bounds.size.width
-#define  k_StatusBarHeight    [UIApplication sharedApplication].statusBarFrame.size.height
-#define  k_NavigationBarHeight  44.f
-#define  k_StatusBarAndNavigationBarHeight   (k_StatusBarHeight + k_NavigationBarHeight)
-#define FontSizeDefault   [UIFont systemFontOfSize:14]
-#define TitleColorDefault [UIColor whiteColor]
-#define SeparatorColorDefault [UIColor whiteColor]
-#define SeparatorOffsetDefault 0
-
 typedef enum : NSUInteger {
     ADDKEYWORDBLACK = 0,
     ADDKEYWORDWHITE,
@@ -48,15 +25,13 @@ typedef enum : NSUInteger {
     NSString *suiteNameStr;
 }
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *leftButItem;
 @property (weak, nonatomic) IBOutlet UITableView *blackTableView;
 @property (nonatomic, strong) NSMutableArray *keyWordMutArray;
 @property (nonatomic, strong) NSMutableArray *whiteKeyWordMutArray;
 @property (nonatomic, strong) NSMutableArray *blackKeyWordMutArray;
 @property (nonatomic, strong) NSMutableArray *whitePhoneMutArray;
 @property (nonatomic, strong) NSMutableArray *blackPhoneMutArray;
-@property (nonatomic, assign) BOOL isBlack;
-@property (nonatomic, strong) UIButton *leftBut;
+
 @property (nonatomic, strong) NSString *userdefKey;
 @property (nonatomic, assign) NSInteger numberInt;
 @property (nonatomic, assign) AddKeyWord addKeyWord;
@@ -75,52 +50,26 @@ typedef enum : NSUInteger {
         suiteNameStr = ExtentsionAppGroupNamePro;
     }
     
-    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"isFirst"] < 2) {
-        [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"isFirst"];
-        
-        // 默认黑名单
-        NSArray *blackArray = @[SOLocalize(@"Reply"), SOLocalize(@"Unsubscribe"), SOLocalize(@"Regal"), SOLocalize(@"Macao"), SOLocalize(@"Casino"), SOLocalize(@"Download"), SOLocalize(@"Registered"), SOLocalize(@"Securities"), SOLocalize(@"Financial management"), SOLocalize(@"Income"), SOLocalize(@"Insurance"), SOLocalize(@"Participate"), SOLocalize(@"Click on"), SOLocalize(@"Fund"), SOLocalize(@"Share"), SOLocalize(@"Stamp"), SOLocalize(@"Loan"), SOLocalize(@"Voucher"), SOLocalize(@"www"), SOLocalize(@"http"), SOLocalize(@".cn"), SOLocalize(@".com")];
-        for (NSString *keyStr in blackArray) {
-            SOKeywordModelExt *keyModel = [[SOKeywordModelExt alloc] init];
-            keyModel.keywordStr = keyStr;
-            keyModel.isOpen = YES;
-            keyModel.isBlack = YES;
-            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:keyModel];
-            [self.blackKeyWordMutArray addObject:data];
-        }
-        NSArray *keyArray = [NSArray arrayWithArray:self.blackKeyWordMutArray];
-        NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
-        [userDefaults setObject:keyArray forKey:KEYWORDARRAY];
-        [userDefaults synchronize];
-        
-        // 默认白名单
-        NSArray *whiteArray = @[SOLocalize(@"Verification code"), SOLocalize(@"Verification"), SOLocalize(@"Code"), SOLocalize(@"balance"), SOLocalize(@"bank")];
-        for (NSString *keyStr in whiteArray) {
-            SOKeywordModelExt *keyModel = [[SOKeywordModelExt alloc] init];
-            keyModel.keywordStr = keyStr;
-            keyModel.isBlack = NO;
-            if ([keyStr isEqualToString:SOLocalize(@"bank")]) {
-                keyModel.isOpen = NO;
-            }
-            else {
-                keyModel.isOpen = YES;
-            }
-            
-            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:keyModel];
-            [self.whiteKeyWordMutArray addObject:data];
-        }
-        NSArray *whiteKeyArray = [NSArray arrayWithArray:self.whiteKeyWordMutArray];
-        NSUserDefaults *whiteUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
-        [whiteUserDefaults setObject:whiteKeyArray forKey:KEYWORDARRAY_WHITE];
-        [whiteUserDefaults synchronize];
-        
-    }
-    
     self.blackTableView.separatorInset = UIEdgeInsetsMake(0, 9000, 0, 0);
     [self.blackTableView registerNib:[UINib nibWithNibName:@"SOBlackTableViewCell" bundle:nil] forCellReuseIdentifier:@"SOBlackTableViewCell"];
     
     [self getKeyWord];
     self.keyWordMutArray = self.blackKeyWordMutArray;
+    
+    
+    if (self.typeInt == 0) {
+        // 内容白名单
+        self.title = @"短信内容白名单";
+        _addKeyWord = ADDKEYWORDWHITE;
+        self.keyWordMutArray = self.whiteKeyWordMutArray;
+    }
+    else if (self.typeInt == 1) {
+        // 内容黑名单
+        self.title = @"短信内容黑名单";
+        _addKeyWord = ADDKEYWORDBLACK;
+        self.keyWordMutArray = self.blackKeyWordMutArray;
+    }
+    
 }
 
 // 获取关键词
@@ -408,36 +357,6 @@ typedef enum : NSUInteger {
 }
 
 #pragma mark - 点击事件
-- (IBAction)leftButEvent:(UIBarButtonItem *)sender {
-    self.userdefKey = @"isLeftBtn";
-    _numberInt = [[NSUserDefaults standardUserDefaults] integerForKey:self.userdefKey];
-    if (_numberInt < 2) {
-        if (_numberInt == 0) {
-            [self showCustomizeSKStoreReview1];
-        }
-        if (_numberInt == 1) {
-            [self showCustomizeSKStoreReview2];
-        }
-        return;
-    }
-    [self getKeyWord];
-    if (_isBlack) {
-        _isBlack = NO;
-        self.title = SOLocalize(@"SMS filtering white list");
-        sender.title = SOLocalize(@"Blacklist");
-        [_leftBut setTitle:SOLocalize(@"Blacklist") forState:UIControlStateNormal];
-        self.keyWordMutArray = self.whiteKeyWordMutArray;
-    }
-    else {
-        _isBlack = YES;
-        self.title = SOLocalize(@"SMS filtering black list");
-        sender.title = SOLocalize(@"Whitelist");
-        [_leftBut setTitle:SOLocalize(@"Whitelist") forState:UIControlStateNormal];
-        self.keyWordMutArray = self.blackKeyWordMutArray;
-    }
-    [self.blackTableView reloadData];
-    [self.blackTableView performAnimation:AnimationRightToLeft finishBlock:nil];
-}
 
 - (IBAction)rightButEvent:(UIBarButtonItem *)sender {
     
