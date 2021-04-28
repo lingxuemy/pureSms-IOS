@@ -39,6 +39,8 @@
 {
     [super viewWillAppear:animated];
     
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20 weight:UIFontWeightRegular], NSForegroundColorAttributeName:RGBColor(0, 206, 175)}];
+    
     self.whiteTextView.text = @"未添加任何关键词（点击空白处添加）";
     self.blackTextView.text = @"未添加任何关键词（点击空白处添加）";
 
@@ -164,10 +166,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0 || indexPath.row == 1) {
-        return (self.view.frame.size.height-UIApplication.sharedApplication.windows.firstObject.windowScene.statusBarManager.statusBarFrame.size.height-self.navigationController.navigationBar.frame.size.height-80)/2;
+        return self.view.frame.size.width*2/3;
     }
     else {
-        return 80;
+        return self.view.frame.size.height-UIApplication.sharedApplication.windows.firstObject.windowScene.statusBarManager.statusBarFrame.size.height-self.navigationController.navigationBar.frame.size.height-(self.view.frame.size.width*2/3)*2;
     }
 }
 

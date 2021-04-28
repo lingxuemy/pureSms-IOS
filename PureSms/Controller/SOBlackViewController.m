@@ -43,6 +43,8 @@ typedef enum : NSUInteger {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17],NSForegroundColorAttributeName:UIColor.blackColor}];
+
     self.title = SOLocalize(@"SMS Blackcontent");
     
     suiteNameStr = ExtentsionAppGroupName;
