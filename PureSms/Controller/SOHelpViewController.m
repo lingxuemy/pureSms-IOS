@@ -46,7 +46,16 @@
     };
 }
 - (IBAction)buttonTouchUpInside:(UIButton *)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    
+//    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];    // 跳转到应用设置
+    NSURL *url = [NSURL URLWithString:@"App-Prefs:root"];   // 跳转到设置
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
+            NSLog(@"openSet == %d", success);
+        }];
+    }
+    
 }
 
 - (XScrollView *)scrollView

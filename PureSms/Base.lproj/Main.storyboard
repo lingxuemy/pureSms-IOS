@@ -288,7 +288,7 @@
                                     <constraint firstAttribute="width" constant="180" id="z4O-Nh-vtx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="知道了">
+                                <state key="normal" title="去设置">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
