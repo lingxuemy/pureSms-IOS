@@ -39,14 +39,16 @@
 {
     [super viewWillDisappear:animated];
     
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17],NSForegroundColorAttributeName:UIColor.blackColor}];
-
+    self.title = @"";
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:UIColor.blackColor}];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
+    self.title = @"喵喵拦短信";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20 weight:UIFontWeightRegular], NSForegroundColorAttributeName:RGBColor(0, 206, 175)}];
     
     self.whiteTextView.text = @"未添加任何关键词（点击空白处添加）";

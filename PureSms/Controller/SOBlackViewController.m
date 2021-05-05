@@ -12,6 +12,7 @@
 #import <StoreKit/StoreKit.h>
 #import "UITableView+Animations.h"
 #import "MLMenuView.h"
+#import "SOBlackCollectionViewCell.h"
 
 typedef enum : NSUInteger {
     ADDKEYWORDBLACK = 0,
@@ -20,11 +21,12 @@ typedef enum : NSUInteger {
     ADDKEYWORDWHITEPHONE
 } AddKeyWord;
 
-@interface SOBlackViewController ()<UITableViewDelegate, UITableViewDataSource, SKStoreProductViewControllerDelegate>
+@interface SOBlackViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource, SKStoreProductViewControllerDelegate>
 {
     NSString *suiteNameStr;
 }
 
+@property (weak, nonatomic) IBOutlet UICollectionView *blackCollectionView;
 @property (weak, nonatomic) IBOutlet UITableView *blackTableView;
 @property (nonatomic, strong) NSMutableArray *keyWordMutArray;
 @property (nonatomic, strong) NSMutableArray *whiteKeyWordMutArray;
@@ -50,6 +52,10 @@ typedef enum : NSUInteger {
         suiteNameStr = ExtentsionAppGroupNamePro;
     }
     
+    self.blackCollectionView.delegate = self;
+    self.blackCollectionView.dataSource = self;
+    [self.blackCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass(SOBlackCollectionViewCell.class) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(SOBlackCollectionViewCell.class)];
+
     self.blackTableView.separatorInset = UIEdgeInsetsMake(0, 9000, 0, 0);
     [self.blackTableView registerNib:[UINib nibWithNibName:@"SOBlackTableViewCell" bundle:nil] forCellReuseIdentifier:@"SOBlackTableViewCell"];
     
@@ -165,7 +171,7 @@ typedef enum : NSUInteger {
                         NSMutableArray *mutArray = [NSMutableArray arrayWithArray:self.keyWordMutArray];
                         [mutArray insertObject:data atIndex:0];
                         self.keyWordMutArray = mutArray;
-                        [self.blackTableView reloadData];
+                        [self.blackCollectionView reloadData];
                         
                         NSArray *keyArray = [NSArray arrayWithArray:self.keyWordMutArray];
                         NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
@@ -229,7 +235,7 @@ typedef enum : NSUInteger {
         }
         if ((index == 1 || index == 2 || index == 3) && ![self.title isEqualToString:titles[index]]) {
             self.title = titles[index];
-            [self.blackTableView reloadData];
+            [self.blackCollectionView reloadData];
             [self.blackTableView performAnimation:AnimationRightToLeft finishBlock:nil];
             if (!self.keyWordMutArray.count) {
                 NSLog(@"暂无数据。");
@@ -365,14 +371,15 @@ typedef enum : NSUInteger {
 }
 
 #pragma mark - cell子事件
-- (void)cellSwitch:(UISwitch *) sender
+- (void)cellSwitch:(UIButton *) sender
 {
     NSLog(@"sender.tag == %ld", sender.tag);
     if (sender.tag >= self.keyWordMutArray.count) {
         return;
     }
     SOKeywordModelExt *keyModel = [NSKeyedUnarchiver unarchiveObjectWithData:self.keyWordMutArray[sender.tag]];
-    keyModel.isOpen = sender.on;
+    keyModel.isOpen = sender.selected;
+    sender.selected = !sender.selected;
     
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:keyModel];
     NSMutableArray *mutArray = [NSMutableArray arrayWithArray:self.keyWordMutArray];
@@ -400,14 +407,119 @@ typedef enum : NSUInteger {
 
 - (void)cellDelete:(UIButton *) sender
 {
-    NSLog(@"sender.tag == %ld", sender.tag);
-    [self tableView:self.blackTableView commitEditingStyle:UITableViewCellEditingStyleDelete forRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
+//    [self tableView:self.blackTableView commitEditingStyle:UITableViewCellEditingStyleDelete forRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要删除此关键词吗？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSMutableArray *mutArray = [NSMutableArray arrayWithArray:self.keyWordMutArray];
+        [mutArray removeObjectAtIndex:sender.tag];
+        self.keyWordMutArray = mutArray;
+        
+        NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteNameStr];
+        switch (_addKeyWord) {
+            case ADDKEYWORDBLACK:
+                [userDefaults setObject:self.keyWordMutArray forKey:KEYWORDARRAY];
+                break;
+            case ADDKEYWORDWHITE:
+                [userDefaults setObject:self.keyWordMutArray forKey:KEYWORDARRAY_WHITE];
+                break;
+            case ADDKEYWORDBLACKPHONE:
+                [userDefaults setObject:self.keyWordMutArray forKey:KEYWORDARRAY_PHONE];
+                break;
+            case ADDKEYWORDWHITEPHONE:
+                [userDefaults setObject:self.keyWordMutArray forKey:KEYWORDARRAY_WHITE_PHONE];
+                break;
+            default:
+                break;
+        }
+        [userDefaults synchronize];
+        
+        [self.blackCollectionView reloadData];
+        
+    }];
+    [alert addAction:cancel];
+    [alert addAction:ok];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+#pragma mark - Collection view data source
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+
+    return self.keyWordMutArray.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    SOBlackCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(SOBlackCollectionViewCell.class) forIndexPath:indexPath];
+    
+    if (indexPath.row < self.keyWordMutArray.count) {
+        SOKeywordModelExt *keyModel = [NSKeyedUnarchiver unarchiveObjectWithData:self.keyWordMutArray[indexPath.row]];
+        
+//        NSArray *colorArray = @[@"0x00CEAF",@"0xEC9B4B",@"0xE66EC8",@"0xEA535B",@"0xE2BA2A",@"0x4053C6",@"0x37A5F5",@"0xB0C2F7"];
+//        cell.backView.backgroundColor = MLClolorValue(strtoul([colorArray[random()%8] UTF8String],0,16));
+        if (indexPath.row%6 == 0) {
+            cell.backView.backgroundColor = MLClolorValue(0xEC9B4B);
+        }
+        else if (indexPath.row%6 == 1) {
+            cell.backView.backgroundColor = MLClolorValue(0xE2BA2A);
+        }
+        else if (indexPath.row%6 == 2) {
+            cell.backView.backgroundColor = MLClolorValue(0xEA535B);
+        }
+        else if (indexPath.row%6 == 3) {
+            cell.backView.backgroundColor = MLClolorValue(0xE66EC8);
+        }
+        else if (indexPath.row%6 == 4) {
+            cell.backView.backgroundColor = MLClolorValue(0x37A5F5);
+        }
+        else if (indexPath.row%6 == 5) {
+            cell.backView.backgroundColor = MLClolorValue(0x00CEAF);
+        }
+        
+        cell.keyLab.text = keyModel.keywordStr;
+        cell.leftBtn.selected = keyModel.isOpen;
+        
+        cell.leftBtn.tag = indexPath.row;
+        [cell.leftBtn addTarget:self action:@selector(cellSwitch:) forControlEvents:UIControlEventTouchUpInside];
+        cell.rightBtn.tag = indexPath.row;
+        [cell.rightBtn addTarget:self action:@selector(cellDelete:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+     return CGSizeMake((k_ScreenWidth-44)/2, (k_ScreenWidth-44)/2*3/4);
+}
+
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(15, 15, 15, 15);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 14;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 14;
 }
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.keyWordMutArray.count;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

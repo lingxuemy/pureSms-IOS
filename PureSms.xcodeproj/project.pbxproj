@@ -31,6 +31,8 @@
 		04570FF1207DC1DE0065B644 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04570FF0207DC1DE0065B644 /* Localizable.strings */; };
 		04570FFA2080488E0065B644 /* SOBlackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04570FF92080488E0065B644 /* SOBlackViewController.m */; };
 		04613D352633C734009CF97E /* SOHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04613D332633C734009CF97E /* SOHomeViewController.m */; };
+		04886BEC2639BCDB0023E337 /* SOBlackCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04886BEA2639BCDB0023E337 /* SOBlackCollectionViewCell.m */; };
+		04886BED2639BCDB0023E337 /* SOBlackCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04886BEB2639BCDB0023E337 /* SOBlackCollectionViewCell.xib */; };
 		78FA394DAC703BD124C5C27D /* libPods-PureSms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C74C596648E09739092C3CEC /* libPods-PureSms.a */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +125,9 @@
 		04570FF92080488E0065B644 /* SOBlackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOBlackViewController.m; sourceTree = "<group>"; };
 		04613D322633C734009CF97E /* SOHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOHomeViewController.h; sourceTree = "<group>"; };
 		04613D332633C734009CF97E /* SOHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOHomeViewController.m; sourceTree = "<group>"; };
+		04886BE92639BCDB0023E337 /* SOBlackCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOBlackCollectionViewCell.h; sourceTree = "<group>"; };
+		04886BEA2639BCDB0023E337 /* SOBlackCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOBlackCollectionViewCell.m; sourceTree = "<group>"; };
+		04886BEB2639BCDB0023E337 /* SOBlackCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SOBlackCollectionViewCell.xib; sourceTree = "<group>"; };
 		1D10C81FB32CB36D98521D98 /* libPods-PureSmsExt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PureSmsExt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77FFCAC56E187092BD165629 /* Pods-PureSms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PureSms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PureSms/Pods-PureSms.debug.xcconfig"; sourceTree = "<group>"; };
 		C74C596648E09739092C3CEC /* libPods-PureSms.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PureSms.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,6 +280,9 @@
 				044632F8208395A300F7A2B7 /* SOHelpViewController.m */,
 				04613D322633C734009CF97E /* SOHomeViewController.h */,
 				04613D332633C734009CF97E /* SOHomeViewController.m */,
+				04886BE92639BCDB0023E337 /* SOBlackCollectionViewCell.h */,
+				04886BEA2639BCDB0023E337 /* SOBlackCollectionViewCell.m */,
+				04886BEB2639BCDB0023E337 /* SOBlackCollectionViewCell.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -479,6 +487,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04886BED2639BCDB0023E337 /* SOBlackCollectionViewCell.xib in Resources */,
 				044632EC208338C000F7A2B7 /* SOBlackTableViewCell.xib in Resources */,
 				04570FF1207DC1DE0065B644 /* Localizable.strings in Resources */,
 				04570F93207B5BA50065B644 /* LaunchScreen.storyboard in Resources */,
@@ -576,6 +585,7 @@
 			files = (
 				042CFCC02108A521006B47AE /* MLMenuView.m in Sources */,
 				042F6CFD217EF685004A6901 /* XMessageView.m in Sources */,
+				04886BEC2639BCDB0023E337 /* SOBlackCollectionViewCell.m in Sources */,
 				04570F96207B5BA50065B644 /* main.m in Sources */,
 				044632F9208395A300F7A2B7 /* SOHelpViewController.m in Sources */,
 				04570F88207B5BA50065B644 /* AppDelegate.m in Sources */,

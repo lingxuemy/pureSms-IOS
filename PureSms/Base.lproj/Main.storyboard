@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,23 +29,37 @@
                                     <outlet property="delegate" destination="aYj-rt-3gi" id="17z-TN-X9B"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0B7-35-ywS">
-                                <rect key="frame" x="0.0" y="667" width="375" height="1"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="LpD-qb-QLn"/>
-                                </constraints>
-                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="C7p-YB-6DA">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="G2y-3E-m75">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="d7r-Iy-OmS">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bD7-Yp-in9">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0B7-35-ywS" firstAttribute="leading" secondItem="A6I-Ph-YeN" secondAttribute="leading" id="1CJ-fD-sh8"/>
                             <constraint firstItem="3ch-Q3-SGd" firstAttribute="leading" secondItem="A6I-Ph-YeN" secondAttribute="leading" id="2g0-V8-qwx"/>
                             <constraint firstItem="tV1-rG-jf5" firstAttribute="top" secondItem="3ch-Q3-SGd" secondAttribute="bottom" id="Egu-9b-vGu"/>
                             <constraint firstAttribute="trailing" secondItem="3ch-Q3-SGd" secondAttribute="trailing" id="GDs-T4-Fz6"/>
+                            <constraint firstItem="C7p-YB-6DA" firstAttribute="leading" secondItem="A6I-Ph-YeN" secondAttribute="leading" id="Iym-po-fjj"/>
                             <constraint firstItem="3ch-Q3-SGd" firstAttribute="top" secondItem="kNG-bM-qE4" secondAttribute="bottom" id="L2w-dP-OuW"/>
-                            <constraint firstAttribute="trailing" secondItem="0B7-35-ywS" secondAttribute="trailing" id="Qk4-Wo-rEo"/>
-                            <constraint firstItem="0B7-35-ywS" firstAttribute="top" secondItem="3ch-Q3-SGd" secondAttribute="bottom" id="qoZ-6I-XGW"/>
+                            <constraint firstItem="tV1-rG-jf5" firstAttribute="top" secondItem="C7p-YB-6DA" secondAttribute="bottom" id="Vbz-K4-gG2"/>
+                            <constraint firstItem="C7p-YB-6DA" firstAttribute="top" secondItem="kNG-bM-qE4" secondAttribute="bottom" id="ZT8-Rd-kM7"/>
+                            <constraint firstAttribute="trailing" secondItem="C7p-YB-6DA" secondAttribute="trailing" id="utw-1m-sJb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="短信过滤 黑名单" id="32a-bo-WQY">
@@ -55,6 +70,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="blackCollectionView" destination="C7p-YB-6DA" id="1kK-Hb-asp"/>
                         <outlet property="blackTableView" destination="3ch-Q3-SGd" id="G31-sX-y9U"/>
                     </connections>
                 </viewController>
